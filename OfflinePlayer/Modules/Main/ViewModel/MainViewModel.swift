@@ -16,7 +16,7 @@ final class MainViewModel: ObservableObject {
         self.router = router
     }
     
-    func pushToSecond() {
-        router?.push(.second)
+    @MainActor func pushToTrendingNow() {
+        router?.push(.trendingNow)
     }
 }

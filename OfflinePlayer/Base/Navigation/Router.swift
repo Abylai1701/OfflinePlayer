@@ -8,7 +8,7 @@
 
 enum AppRoute: Hashable {
     case main
-    case second
+    case trendingNow
 }
 
 import SwiftUI
@@ -53,8 +53,8 @@ extension Router {
         switch route {
         case .main:
             MainView()
-        case .second:
-            SecondView()
+        case .trendingNow:
+            TrendingNowView()
         }
     }
 }
