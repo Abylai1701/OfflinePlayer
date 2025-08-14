@@ -14,6 +14,7 @@ struct MainView: View {
     
     @State private var search = ""
     @State private var category: HomeCategory = .popular
+    @State private var sheetContentHeight: CGFloat = 430
 
     var body: some View {
         ScrollView {
@@ -60,15 +61,37 @@ struct MainView: View {
                 .padding(.top, 16.fitH)
 
                 LazyVStack(spacing: 0) {
+                    
                     ForEach(1...10, id: \.self) { rank in
+                        let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
                         TrendingRow(rank: rank,
-                                    cover: Image(.image),
-                                    title: "Track \(rank)",
-                                    artist: "Artist \(rank)")
+                                    cover: t.cover,
+                                    title: t.title,
+                                    artist: t.artist,
+                                    onMenuTap: {viewModel.openActions(for: t)}
+                        )
                         .padding(.horizontal)
                     }
                 }
                 .padding(.bottom, 24.fitH)
+            }
+        }
+        .sheet(isPresented: $viewModel.isActionSheetPresented) {
+            if let t = viewModel.actionTrack {
+                TrackActionsSheet(
+                    track: t,
+                    onLike: { viewModel.like(); viewModel.closeActions() },
+                    onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+                    onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
+                    onDownload: { viewModel.download(); viewModel.closeActions() },
+                    onShare: { viewModel.share(); viewModel.closeActions() },
+                    onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
+                    onRemove: { viewModel.remove(); viewModel.closeActions() },
+                    idealHeight: $sheetContentHeight,   //height that need to us
+                )
+                .applyCustomDetent(height: sheetHeightClamped)
+                .presentationCornerRadius(28.fitW)
+                .presentationDragIndicator(.visible)
             }
         }
         .scrollIndicators(.hidden)
@@ -77,10 +100,20 @@ struct MainView: View {
                            startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
         }
+        .blur(radius: viewModel.isActionSheetPresented ? 0 : 0)
+        .overlay {
+            if viewModel.isActionSheetPresented {
+                Color.black.opacity(0.4).ignoresSafeArea()
+            }
+        }
         .task{
             viewModel.attach(router: router)
         }
         .navigationBarHidden(true)
+    }
+    private var sheetHeightClamped: CGFloat {
+        let screenH = UIScreen.main.bounds.height
+        return min(sheetContentHeight, screenH * 0.9)
     }
 }
 
@@ -145,7 +178,7 @@ struct SearchBar: View {
     var body: some View {
         HStack(spacing: 10.fitW) {
             Image(systemName: "magnifyingglass")
-                .foregroundStyle(.gray707070)
+                .foregroundStyle(.grayB3B3B3)
             TextField("",
                       text: $text,
                       prompt: Text("Search")
@@ -158,7 +191,7 @@ struct SearchBar: View {
                 print("SFX: Tap")
             } label: {
                 Image(systemName: "mic.fill")
-                    .foregroundStyle(.gray707070)
+                    .foregroundStyle(.grayB3B3B3)
             }
         }
         .padding(12)
@@ -198,6 +231,7 @@ struct TrendingRow: View {
     let cover: Image
     let title: String
     let artist: String
+    var onMenuTap: () -> Void = {}
 
     var body: some View {
         HStack(spacing: 8.fitW) {
@@ -235,10 +269,14 @@ struct TrendingRow: View {
 
             Spacer(minLength: 12)
 
-            Image(systemName: "ellipsis")
-                .font(.system(size: 18.fitW, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.6))
-                .padding(.horizontal, 2.fitW)
+            Button(action: onMenuTap) {
+                            Image(systemName: "ellipsis")
+                                .font(.system(size: 18.fitW, weight: .semibold))
+                                .foregroundStyle(.white.opacity(0.6))
+                                .padding(.horizontal, 2)
+                        }
+                        .buttonStyle(.plain)
+
         }
         .padding(.vertical, 8.fitH)
         .contentShape(Rectangle()) // чтобы вся строка нажималась
@@ -247,4 +285,5 @@ struct TrendingRow: View {
 
 #Preview {
     MainView()
+        .environmentObject(Router())
 }
