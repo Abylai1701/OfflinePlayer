@@ -18,18 +18,21 @@ struct MainView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20.fitH) {
-                
+            VStack(alignment: .leading, spacing: .zero) {
+
                 Text("Home")
                     .font(.manropeExtraBold(size: 24.fitW))
                     .padding(.top)
                     .padding(.horizontal)
                     .foregroundStyle(.white)
+                    .padding(.bottom)
                 
                 SearchBar(text: $search)
                     .padding(.horizontal)
+                    .padding(.bottom, 12)
 
                 CategoryTabs(selection: $category)
+                    .padding(.bottom, 24.fitH)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 16.fitH) {
@@ -44,7 +47,8 @@ struct MainView: View {
                     .padding(.horizontal)
                     .contentMargins(.horizontal, 16.fitW, for: .scrollContent)
                 }
-                
+                .padding(.bottom, 26.fitH)
+
                 HStack {
                     Text("Trending Now")
                         .font(.manropeExtraBold(size: 20.fitW))
@@ -57,8 +61,8 @@ struct MainView: View {
                     .foregroundStyle(.grayB3B3B3)
                 }
                 .padding(.horizontal)
-                .padding(.top, 16.fitH)
-                
+                .padding(.bottom)
+
                 LazyVStack(spacing: 0) {
                     
                     ForEach(1...10, id: \.self) { rank in
@@ -72,7 +76,7 @@ struct MainView: View {
                         .padding(.horizontal)
                     }
                 }
-                .padding(.bottom, 24.fitH)
+                .padding(.bottom, 100.fitH)
             }
         }
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
