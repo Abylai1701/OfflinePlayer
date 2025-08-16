@@ -21,7 +21,7 @@ struct MainView: View {
             VStack(alignment: .leading, spacing: .zero) {
 
                 Text("Home")
-                    .font(.manropeExtraBold(size: 24.fitW))
+                    .font(.manropeBold(size: 24.fitW))
                     .padding(.top)
                     .padding(.horizontal)
                     .foregroundStyle(.white)
@@ -115,7 +115,7 @@ struct MainView: View {
         .task{
             viewModel.attach(router: router)
         }
-        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
     }
     private var sheetHeightClamped: CGFloat {
         let screenH = UIScreen.main.bounds.height

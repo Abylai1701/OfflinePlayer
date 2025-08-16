@@ -6,8 +6,8 @@ struct TrendingNowView: View {
     @StateObject private var viewModel = TrendingNowViewModel()
     
     @State private var search: String = ""
-    @State private var sheetContentHeight: CGFloat = 430 // default
-    
+    @State private var sheetContentHeight: CGFloat = 430
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16.fitH) {
@@ -55,6 +55,7 @@ struct TrendingNowView: View {
                 .padding(.bottom, 24.fitH)
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .task {
             viewModel.attach(router: router)
             
