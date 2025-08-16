@@ -10,19 +10,19 @@ import SwiftUI
 extension Font {
     
     static func manropeBold(size: CGFloat) -> Font {
-        Font.custom("Manrope-Bold.ttf", size: size)
+        .custom("Manrope-Bold", size: size)
     }
 
     static func manropeRegular(size: CGFloat) -> Font {
-        Font.custom("Manrope-Regular.ttf", size: size)
+        .custom("Manrope-Regular", size: size)
     }
     
     static func manropeSemiBold(size: CGFloat) -> Font {
-        Font.custom("Manrope-SemiBold.ttf", size: size)
+        .custom("Manrope-SemiBold", size: size)
     }
     
     static func manropeExtraBold(size: CGFloat) -> Font {
-        Font.custom("Manrope-ExtraBold.ttf", size: size)
+        .custom("Manrope-ExtraBold", size: size)
     }
 }
 

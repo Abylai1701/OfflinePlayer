@@ -20,7 +20,7 @@ struct MainView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20.fitH) {
                 
-                Text("Home")
+                Text("Дом")
                     .font(.manropeExtraBold(size: 24.fitW))
                     .padding(.top)
                     .padding(.horizontal)
