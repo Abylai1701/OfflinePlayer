@@ -20,7 +20,7 @@ struct MainView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20.fitH) {
                 
-                Text("Дом")
+                Text("Home")
                     .font(.manropeExtraBold(size: 24.fitW))
                     .padding(.top)
                     .padding(.horizontal)
@@ -42,7 +42,7 @@ struct MainView: View {
                         }
                     }
                     .padding(.horizontal)
-                    .contentMargins(.horizontal, 16.fitW, for: .scrollContent) // красивый отступ по краям
+                    .contentMargins(.horizontal, 16.fitW, for: .scrollContent)
                 }
                 
                 HStack {
@@ -94,6 +94,9 @@ struct MainView: View {
             }
         }
         .scrollIndicators(.hidden)
+        .onTapGesture {
+            UIApplication.shared.endEditing(true)
+        }
         .background {
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
@@ -213,7 +216,7 @@ struct PlaylistCard: View {
         VStack(alignment: .leading, spacing: .zero) {
             cover
                 .resizable().scaledToFill()
-                .frame(width: 152.fitW, height: 152.fitH)
+                .frame(width: 152.fitW, height: 152.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
                 .padding(.bottom, 8)
             Text(title)
@@ -256,7 +259,7 @@ struct TrendingRow: View {
             cover
                 .resizable()
                 .scaledToFill()
-                .frame(width: 64.fitW, height: 64.fitH)
+                .frame(width: 64.fitW, height: 64.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             
             // Текст
