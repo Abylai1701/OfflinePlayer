@@ -1,10 +1,3 @@
-//
-//  MainViewModel.swift
-//  OfflinePlayer
-//
-//  Created by Abylaikhan Abilkayr on 11.08.2025.
-//
-
 import Foundation
 
 final class MainViewModel: ObservableObject {

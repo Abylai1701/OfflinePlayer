@@ -1,9 +1,3 @@
-//
-//  TrendingNowView.swift
-//  OfflinePlayer
-//
-//  Created by Nurlybaqyt Begaly on 12.08.2025.
-//
 import SwiftUI
 
 struct TrendingNowView: View {

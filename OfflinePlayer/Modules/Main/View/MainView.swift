@@ -15,28 +15,27 @@ struct MainView: View {
     @State private var search = ""
     @State private var category: HomeCategory = .popular
     @State private var sheetContentHeight: CGFloat = 430
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20.fitH) {
-
+                
                 Text("Home")
                     .font(.manropeExtraBold(size: 24.fitW))
                     .padding(.top)
                     .padding(.horizontal)
                     .foregroundStyle(.white)
-
+                
                 SearchBar(text: $search)
                     .padding(.horizontal)
 
                 CategoryTabs(selection: $category)
-
-                // Лента карточек (под категории можно подменять данные switch-case’ом)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 16.fitH) {
                         ForEach(0..<5) { i in
                             PlaylistCard(
-                                cover: Image(.image),   // твой ассет
+                                cover: Image(.image),
                                 title: "Playlist \(i+1)",
                                 subtitle: "SZA, Rhye, Mac Miller"
                             )
@@ -45,7 +44,7 @@ struct MainView: View {
                     .padding(.horizontal)
                     .contentMargins(.horizontal, 16.fitW, for: .scrollContent) // красивый отступ по краям
                 }
-
+                
                 HStack {
                     Text("Trending Now")
                         .font(.manropeExtraBold(size: 20.fitW))
@@ -55,11 +54,11 @@ struct MainView: View {
                         viewModel.pushToTrendingNow()
                     }
                     .font(.manropeSemiBold(size: 12.fitW))
-                        .foregroundStyle(.grayB3B3B3)
+                    .foregroundStyle(.grayB3B3B3)
                 }
                 .padding(.horizontal)
                 .padding(.top, 16.fitH)
-
+                
                 LazyVStack(spacing: 0) {
                     
                     ForEach(1...10, id: \.self) { rank in
@@ -124,19 +123,19 @@ enum HomeCategory: String, CaseIterable, Hashable {
 struct CategoryTabs: View {
     @Binding var selection: HomeCategory
     @Namespace private var underlineNS
-
+    
     var selectedFont: Font = .manropeSemiBold(size: 16.fitW)
-    var normalFont:   Font = .manropeRegular(size: 16.fitW)
+    var normalFont: Font = .manropeRegular(size: 16.fitW)
     
     // сколько отступить базовой линии слева
-    private let baseLineLeadingInset: CGFloat = 12
-
+    private let baseLineLeadingInset: CGFloat = 16
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 24.fitH) {
+            HStack(spacing: 8.fitH) {
                 ForEach(HomeCategory.allCases, id: \.self) { item in
                     let isSelected = (selection == item)
-
+                    
                     Text(item.rawValue)
                         .font(isSelected ? selectedFont : normalFont)
                         .foregroundStyle(isSelected ? .white : .gray707070)
@@ -176,17 +175,18 @@ struct CategoryTabs: View {
 struct SearchBar: View {
     @Binding var text: String
     var body: some View {
-        HStack(spacing: 10.fitW) {
+        HStack(spacing: 6.fitW) {
             Image(systemName: "magnifyingglass")
                 .foregroundStyle(.grayB3B3B3)
-            TextField("",
+            TextField(
+                "",
                       text: $text,
                       prompt: Text("Search")
                 .font(.manropeRegular(size: 16.fitW))
-                            .foregroundStyle(.grayB3B3B3)
+                .foregroundStyle(.grayB3B3B3)
             )
-                .textInputAutocapitalization(.never)
-                .foregroundStyle(.white)
+            .textInputAutocapitalization(.never)
+            .foregroundStyle(.white)
             Button {
                 print("SFX: Tap")
             } label: {
@@ -194,7 +194,8 @@ struct SearchBar: View {
                     .foregroundStyle(.grayB3B3B3)
             }
         }
-        .padding(12)
+        .padding(.vertical, 9)
+        .padding(.horizontal, 8)
         .background(
             .gray2C2C2C.opacity(0.8)
         )
@@ -207,16 +208,19 @@ struct PlaylistCard: View {
     let cover: Image
     let title: String
     let subtitle: String
-
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 8.fitH) {
+        VStack(alignment: .leading, spacing: .zero) {
             cover
                 .resizable().scaledToFill()
                 .frame(width: 152.fitW, height: 152.fitH)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
+                .padding(.bottom, 8)
             Text(title)
                 .font(.manropeSemiBold(size: 14.fitW))
                 .foregroundStyle(.white)
+                .padding(.bottom, 2)
+
             Text(subtitle)
                 .font(.manropeRegular(size: 12.fitW))
                 .foregroundStyle(.gray707070)
@@ -232,51 +236,51 @@ struct TrendingRow: View {
     let title: String
     let artist: String
     var onMenuTap: () -> Void = {}
-
+    
     var body: some View {
         HStack(spacing: 8.fitW) {
-
+            
             // Колонка с номером и короткой линией под ним
             VStack(spacing: 6.fitH) {
                 Text("\(rank)")
                     .font(.manropeSemiBold(size: 20.fitW))
                     .foregroundStyle(.white)
-
+                
                 Capsule()
                     .frame(width: 14.fitW, height: 3.fitH)
                     .foregroundStyle(.white)
             }
             .frame(width: 30.fitW, alignment: .center)
-
+            
             // Обложка
             cover
                 .resizable()
                 .scaledToFill()
                 .frame(width: 64.fitW, height: 64.fitH)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-
+            
             // Текст
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title)
                     .font(.manropeSemiBold(size: 18.fitW))
                     .foregroundStyle(.white)
-
+                
                 Text(artist)
                     .font(.manropeRegular(size: 15.fitW))
                     .foregroundStyle(.white.opacity(0.55))
             }
             .padding(.leading, 5.fitW)
-
+            
             Spacer(minLength: 12)
-
+            
             Button(action: onMenuTap) {
-                            Image(systemName: "ellipsis")
-                                .font(.system(size: 18.fitW, weight: .semibold))
-                                .foregroundStyle(.white.opacity(0.6))
-                                .padding(.horizontal, 2)
-                        }
-                        .buttonStyle(.plain)
-
+                Image(systemName: "ellipsis")
+                    .font(.system(size: 18.fitW, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.6))
+                    .padding(.horizontal, 2)
+            }
+            .buttonStyle(.plain)
+            
         }
         .padding(.vertical, 8.fitH)
         .contentShape(Rectangle()) // чтобы вся строка нажималась

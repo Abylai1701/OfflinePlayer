@@ -1,10 +1,3 @@
-//
-//  TrackActionSheetView.swift
-//  OfflinePlayer
-//
-//  Created by Nurlybaqyt Begaly on 12.08.2025.
-//
-
 import SwiftUI
 
 struct TrackActionsSheet: View {
@@ -24,7 +17,6 @@ struct TrackActionsSheet: View {
     var body: some View {
         VStack(spacing: 16.fitH) {
             
-            // Хедер карточки
             HStack(spacing: 12.fitW) {
                 track.cover
                     .resizable().scaledToFill()
@@ -43,7 +35,6 @@ struct TrackActionsSheet: View {
             
             Divider().background(.white.opacity(0.1))
             
-            // Список действий
             VStack(spacing: 2.fitH) {
                 actionRow(symbol: "Like", title: "Like", action: onLike)
                 actionRow(symbol: "Musicnote", title: "Add to Playlist", action: onAddToPlaylist)
