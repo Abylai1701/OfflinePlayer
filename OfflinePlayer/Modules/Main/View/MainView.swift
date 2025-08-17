@@ -28,8 +28,6 @@ struct MainView: View {
                     .padding(.bottom)
                 
                 SearchBar(text: $search)
-                    .padding(.horizontal)
-                    .padding(.bottom, 12)
 
                 CategoryTabs(selection: $category)
                     .padding(.bottom, 24.fitH)
@@ -40,7 +38,8 @@ struct MainView: View {
                             PlaylistCard(
                                 cover: Image(.image),
                                 title: "Playlist \(i+1)",
-                                subtitle: "SZA, Rhye, Mac Miller"
+                                subtitle: "SZA, Rhye, Mac Miller",
+                                onTap: {viewModel.pushToDetail()}
                             )
                         }
                     }
@@ -201,12 +200,10 @@ struct SearchBar: View {
                     .foregroundStyle(.grayB3B3B3)
             }
         }
-        .padding(.vertical, 9)
-        .padding(.horizontal, 8)
-        .background(
-            .gray2C2C2C.opacity(0.8)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding(12.fitH)
+        .background(.gray2C2C2C.opacity(0.9))
+        .clipShape(RoundedRectangle(cornerRadius: 16.fitW))
+        .padding(.horizontal, 16.fitW)
     }
 }
 
@@ -215,26 +212,33 @@ struct PlaylistCard: View {
     let cover: Image
     let title: String
     let subtitle: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: .zero) {
-            cover
-                .resizable().scaledToFill()
-                .frame(width: 152.fitW, height: 152.fitW)
-                .clipShape(RoundedRectangle(cornerRadius: 22))
-                .padding(.bottom, 8)
-            Text(title)
-                .font(.manropeSemiBold(size: 14.fitW))
-                .foregroundStyle(.white)
-                .padding(.bottom, 2)
+    var onTap: () -> Void = {}
 
-            Text(subtitle)
-                .font(.manropeRegular(size: 12.fitW))
-                .foregroundStyle(.gray707070)
+    var body: some View {
+        Button(action: onTap) {
+            VStack(alignment: .leading, spacing: .zero) {
+                cover
+                    .resizable().scaledToFill()
+                    .frame(width: 152.fitW, height: 152.fitW)
+                    .clipShape(RoundedRectangle(cornerRadius: 22.fitW))
+                    .padding(.bottom, 8.fitH)
+
+                Text(title)
+                    .font(.manropeSemiBold(size: 14.fitW))
+                    .foregroundStyle(.white)
+                    .padding(.bottom, 2.fitH)
+
+                Text(subtitle)
+                    .font(.manropeRegular(size: 12.fitW))
+                    .foregroundStyle(.gray707070)
+            }
+            .frame(width: 152.fitW, alignment: .leading)
+            .contentShape(RoundedRectangle(cornerRadius: 22.fitW))
         }
-        .frame(width: 152.fitW)
+        .buttonStyle(.plain)
     }
 }
+
 
 
 struct TrendingRow: View {
