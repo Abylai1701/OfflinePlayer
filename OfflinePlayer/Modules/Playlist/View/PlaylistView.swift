@@ -8,7 +8,7 @@ struct PlaylistView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
-                VStack(spacing: 14.fitH) {
+                VStack(spacing: .zero) {
                     
                     HStack {
                         Button {
@@ -27,18 +27,20 @@ struct PlaylistView: View {
                         
                         Spacer()
                     }
-                    .padding(.top, 12.fitH)
-                    .padding(.horizontal, 16.fitW)
-                    .padding(.bottom, 2.fitH)
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .padding(.bottom)
                     
                     SearchBarPlaylist(text: $search)
-                    
+                        .padding(.bottom)
+
                     NewPlaylistRow(
                         onTap: {}
                     )
                     .padding(.horizontal, 16.fitW)
-                    
-                    VStack(spacing: 14.fitH) {
+                    .padding(.bottom)
+
+                    VStack(spacing: 14) {
                         PlaylistRow(cover: Image(.image),
                                     title: "Favorites",
                                     subtitle: "456 tracks",

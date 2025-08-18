@@ -57,7 +57,7 @@ struct MainView: View {
                     
                     HStack {
                         Text("Trending Now")
-                            .font(.manropeExtraBold(size: 20.fitW))
+                            .font(.manropeBold(size: 20.fitW))
                             .foregroundStyle(.white)
                         Spacer()
                         Button("See all") {
@@ -129,8 +129,8 @@ struct CategoryTabs: View {
     @Binding var selection: HomeCategory
     @Namespace private var underlineNS
     
-    var selectedFont: Font = .manropeSemiBold(size: 16.fitW)
-    var normalFont: Font = .manropeRegular(size: 16.fitW)
+    var selectedFont: Font = .manropeMedium(size: 14.fitW)
+    var normalFont: Font = .manropeRegular(size: 14.fitW)
     
     private let baseLineLeadingInset: CGFloat = 16
     
@@ -183,10 +183,10 @@ struct SearchBar: View {
                 .foregroundStyle(.grayB3B3B3)
             TextField(
                 "",
-                      text: $text,
-                      prompt: Text("Search")
-                .font(.manropeRegular(size: 16.fitW))
-                .foregroundStyle(.grayB3B3B3)
+                text: $text,
+                prompt: Text("Search")
+                    .font(.manropeRegular(size: 16.fitW))
+                    .foregroundStyle(.grayB3B3B3)
             )
             .textInputAutocapitalization(.never)
             .foregroundStyle(.white)
@@ -252,7 +252,7 @@ struct TrendingRow: View {
                     .foregroundStyle(.white)
                 
                 Capsule()
-                    .frame(width: 14.fitW, height: 3.fitH)
+                    .frame(width: 14.fitW, height: 2.fitH)
                     .foregroundStyle(.white)
             }
             .frame(width: 30.fitW, alignment: .center)
@@ -265,12 +265,12 @@ struct TrendingRow: View {
             
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title)
-                    .font(.manropeSemiBold(size: 18.fitW))
+                    .font(.manropeSemiBold(size: 14.fitW))
                     .foregroundStyle(.white)
                 
                 Text(artist)
-                    .font(.manropeRegular(size: 15.fitW))
-                    .foregroundStyle(.white.opacity(0.55))
+                    .font(.manropeRegular(size: 12.fitW))
+                    .foregroundStyle(.gray707070)
             }
             .padding(.leading, 5.fitW)
             

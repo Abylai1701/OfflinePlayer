@@ -17,6 +17,10 @@ extension Font {
         .custom("Manrope-Regular", size: size)
     }
     
+    static func manropeMedium(size: CGFloat) -> Font {
+        .custom("Manrope-Medium", size: size)
+    }
+    
     static func manropeSemiBold(size: CGFloat) -> Font {
         .custom("Manrope-SemiBold", size: size)
     }
