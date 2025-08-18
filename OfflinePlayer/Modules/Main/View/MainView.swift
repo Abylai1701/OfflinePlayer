@@ -34,7 +34,7 @@ struct MainView: View {
                         .foregroundStyle(.white)
                         .padding(.bottom)
                     
-                    SearchBar(text: $search)
+                    MainSearchView(searchText: search)
                     
                     CategoryTabs(selection: $category)
                         .padding(.bottom, 24.fitH)
@@ -174,36 +174,6 @@ struct CategoryTabs: View {
         }
     }
 }
-
-struct SearchBar: View {
-    @Binding var text: String
-    var body: some View {
-        HStack(spacing: 6.fitW) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.grayB3B3B3)
-            TextField(
-                "",
-                text: $text,
-                prompt: Text("Search")
-                    .font(.manropeRegular(size: 16.fitW))
-                    .foregroundStyle(.grayB3B3B3)
-            )
-            .textInputAutocapitalization(.never)
-            .foregroundStyle(.white)
-            Button {
-                print("SFX: Tap")
-            } label: {
-                Image(systemName: "mic.fill")
-                    .foregroundStyle(.grayB3B3B3)
-            }
-        }
-        .padding(12.fitH)
-        .background(.gray2C2C2C.opacity(0.9))
-        .clipShape(RoundedRectangle(cornerRadius: 16.fitW))
-        .padding(.horizontal, 16.fitW)
-    }
-}
-
 
 struct PlaylistCard: View {
     let cover: Image

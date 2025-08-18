@@ -31,7 +31,7 @@ struct PlaylistView: View {
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    SearchBarPlaylist(text: $search)
+                    PlaylistSearchView(searchText: search)
                         .padding(.bottom)
 
                     NewPlaylistRow(
@@ -85,36 +85,6 @@ struct PlaylistView: View {
 }
 
 // MARK: - Rows
-
-private struct SearchBarPlaylist: View {
-    @Binding var text: String
-    var body: some View {
-        HStack(spacing: 6.fitW) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.grayB3B3B3)
-            TextField(
-                "",
-                text: $text,
-                prompt: Text("Favorite tacks & Singers")
-                    .font(.manropeRegular(size: 16.fitW))
-                    .foregroundStyle(.grayB3B3B3)
-            )
-            .textInputAutocapitalization(.never)
-            .foregroundStyle(.white)
-            Button {
-                print("SFX: Tap")
-            } label: {
-                Image(systemName: "mic.fill")
-                    .foregroundStyle(.grayB3B3B3)
-            }
-        }
-        .padding(12.fitH)
-        .background(.gray2C2C2C.opacity(0.9))
-        .clipShape(RoundedRectangle(cornerRadius: 16.fitW))
-        .padding(.horizontal, 16.fitW)
-    }
-}
-
 
 private struct NewPlaylistRow: View {
     var onTap: () -> Void
