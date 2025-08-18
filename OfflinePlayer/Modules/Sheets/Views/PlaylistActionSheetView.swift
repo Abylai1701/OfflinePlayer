@@ -21,15 +21,15 @@ struct PlaylistActionsSheet: View {
                         row(symbol: "Delete", title: "Delete Playlist", action: onDelete, tint: .red)
                     }
                 }
-                .padding(.top, 10)
+                .padding(.top, 8)
                 .padding(.horizontal, 36.fitW)
             }
     }
 
     private func dragIndicator() -> some View {
-        RoundedRectangle(cornerRadius: 2.5)
-            .fill(.white.opacity(0.3))
-            .frame(width: 44.fitW, height: 5.fitW)
+        RoundedRectangle(cornerRadius: 1.5)
+            .fill(.gray707070)
+            .frame(width: 33.fitW, height: 3)
     }
     
     private func row(

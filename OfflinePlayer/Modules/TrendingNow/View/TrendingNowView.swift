@@ -81,12 +81,12 @@ struct TrendingNowView: View {
                     onDownload: { viewModel.download(); viewModel.closeActions() },
                     onShare: { viewModel.share(); viewModel.closeActions() },
                     onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-                    onRemove: { viewModel.remove(); viewModel.closeActions() },
-                    idealHeight: $sheetContentHeight,   //height that need to us
+                    onRemove: { viewModel.remove(); viewModel.closeActions() }
                 )
-                .applyCustomDetent(height: sheetHeightClamped)
+                .presentationDetents([.height(462)])
                 .presentationCornerRadius(28.fitW)
-                .presentationDragIndicator(.visible)
+                .presentationDragIndicator(.hidden)
+                .ignoresSafeArea()
             }
         }
         .scrollIndicators(.hidden)

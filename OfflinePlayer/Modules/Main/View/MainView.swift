@@ -17,67 +17,88 @@ struct MainView: View {
     @State private var sheetContentHeight: CGFloat = 430
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: .zero) {
-
-                Text("Home")
-                    .font(.manropeBold(size: 24.fitW))
-                    .padding(.top)
+        let blurOn = viewModel.isActionSheetPresented
+        
+        ZStack {
+            LinearGradient(colors: [.gray222222, .black111111],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: .zero) {
+                    
+                    Text("Home")
+                        .font(.manropeBold(size: 24.fitW))
+                        .padding(.top)
+                        .padding(.horizontal)
+                        .foregroundStyle(.white)
+                        .padding(.bottom)
+                    
+                    SearchBar(text: $search)
+                    
+                    CategoryTabs(selection: $category)
+                        .padding(.bottom, 24.fitH)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 16.fitH) {
+                            ForEach(0..<5) { i in
+                                PlaylistCard(
+                                    cover: Image(.image),
+                                    title: "Playlist \(i+1)",
+                                    subtitle: "SZA, Rhye, Mac Miller",
+                                    onTap: { viewModel.pushToDetail() }
+                                )
+                            }
+                        }
+                        .padding(.horizontal)
+                        .contentMargins(.horizontal, 16.fitW, for: .scrollContent)
+                    }
+                    .padding(.bottom, 26.fitH)
+                    
+                    HStack {
+                        Text("Trending Now")
+                            .font(.manropeExtraBold(size: 20.fitW))
+                            .foregroundStyle(.white)
+                        Spacer()
+                        Button("See all") {
+                            viewModel.pushToTrendingNow()
+                        }
+                        .font(.manropeSemiBold(size: 12.fitW))
+                        .foregroundStyle(.grayB3B3B3)
+                    }
                     .padding(.horizontal)
-                    .foregroundStyle(.white)
                     .padding(.bottom)
-                
-                SearchBar(text: $search)
-
-                CategoryTabs(selection: $category)
-                    .padding(.bottom, 24.fitH)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 16.fitH) {
-                        ForEach(0..<5) { i in
-                            PlaylistCard(
-                                cover: Image(.image),
-                                title: "Playlist \(i+1)",
-                                subtitle: "SZA, Rhye, Mac Miller",
-                                onTap: {viewModel.pushToDetail()}
+                    
+                    LazyVStack(spacing: 0) {
+                        ForEach(1...10, id: \.self) { rank in
+                            let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
+                            TrendingRow(
+                                rank: rank,
+                                cover: t.cover,
+                                title: t.title,
+                                artist: t.artist,
+                                onMenuTap: { viewModel.openActions(for: t) }
                             )
+                            .padding(.horizontal)
                         }
                     }
-                    .padding(.horizontal)
-                    .contentMargins(.horizontal, 16.fitW, for: .scrollContent)
+                    .padding(.bottom, 100.fitH)
                 }
-                .padding(.bottom, 26.fitH)
-
-                HStack {
-                    Text("Trending Now")
-                        .font(.manropeExtraBold(size: 20.fitW))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Button("See all") {
-                        viewModel.pushToTrendingNow()
-                    }
-                    .font(.manropeSemiBold(size: 12.fitW))
-                    .foregroundStyle(.grayB3B3B3)
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
-
-                LazyVStack(spacing: 0) {
-                    
-                    ForEach(1...10, id: \.self) { rank in
-                        let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
-                        TrendingRow(rank: rank,
-                                    cover: t.cover,
-                                    title: t.title,
-                                    artist: t.artist,
-                                    onMenuTap: {viewModel.openActions(for: t)}
-                        )
-                        .padding(.horizontal)
-                    }
-                }
-                .padding(.bottom, 100.fitH)
+            }
+            .ignoresSafeArea(.container, edges: .bottom)
+            .compositingGroup()
+            .blur(radius: blurOn ? 20 : 0)
+            .animation(.easeInOut(duration: 0.3), value: blurOn)
+            .scrollIndicators(.hidden)
+            .onTapGesture {
+                UIApplication.shared.endEditing(true)
+            }
+            .task {
+                viewModel.attach(router: router)
             }
         }
+        .animation(nil, value: viewModel.isActionSheetPresented)
+        .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
@@ -88,39 +109,17 @@ struct MainView: View {
                     onDownload: { viewModel.download(); viewModel.closeActions() },
                     onShare: { viewModel.share(); viewModel.closeActions() },
                     onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-                    onRemove: { viewModel.remove(); viewModel.closeActions() },
-                    idealHeight: $sheetContentHeight,   //height that need to us
+                    onRemove: { viewModel.remove(); viewModel.closeActions() }
                 )
-                .applyCustomDetent(height: sheetHeightClamped)
+                .presentationDetents([.height(462)])
                 .presentationCornerRadius(28.fitW)
-                .presentationDragIndicator(.visible)
+                .presentationDragIndicator(.hidden)
+                .ignoresSafeArea()
             }
         }
-        .scrollIndicators(.hidden)
-        .onTapGesture {
-            UIApplication.shared.endEditing(true)
-        }
-        .background {
-            LinearGradient(colors: [.gray222222, .black111111],
-                           startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
-        }
-        .blur(radius: viewModel.isActionSheetPresented ? 0 : 0)
-        .overlay {
-            if viewModel.isActionSheetPresented {
-                Color.black.opacity(0.4).ignoresSafeArea()
-            }
-        }
-        .task{
-            viewModel.attach(router: router)
-        }
-        .toolbar(.hidden, for: .navigationBar)
-    }
-    private var sheetHeightClamped: CGFloat {
-        let screenH = UIScreen.main.bounds.height
-        return min(sheetContentHeight, screenH * 0.9)
     }
 }
+
 
 enum HomeCategory: String, CaseIterable, Hashable {
     case popular = "Popular", new = "New", trend = "Trend", favorites = "Favorites", relax = "Relax"

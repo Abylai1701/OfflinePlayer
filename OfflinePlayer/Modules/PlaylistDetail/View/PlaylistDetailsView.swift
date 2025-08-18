@@ -114,12 +114,12 @@ struct PlaylistDetailsView: View {
                         onDownload: { viewModel.download(); viewModel.closeActions() },
                         onShare: { viewModel.share(); viewModel.closeActions() },
                         onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-                        onRemove: { viewModel.remove(); viewModel.closeActions() },
-                        idealHeight: $sheetContentHeight,   //height that need to us
+                        onRemove: { viewModel.remove(); viewModel.closeActions() }
                     )
-                    .applyCustomDetent(height: sheetHeightClamped)
+                    .presentationDetents([.height(462)])
                     .presentationCornerRadius(28.fitW)
-                    .presentationDragIndicator(.visible)
+                    .presentationDragIndicator(.hidden)
+                    .ignoresSafeArea()
                 }
             }
             .overlay {
@@ -137,7 +137,7 @@ struct PlaylistDetailsView: View {
                 onAddTrack: {},
                 onDelete: {}
             )
-            .presentationDetents([.height(274)])
+            .presentationDetents([.height(234)])
             .presentationCornerRadius(28.fitW)
             .presentationDragIndicator(.hidden)
             .ignoresSafeArea()
@@ -146,8 +146,9 @@ struct PlaylistDetailsView: View {
             UIApplication.shared.endEditing(true)
         }
         .scrollIndicators(.hidden)
-        .blur(radius: viewModel.isShowMenuTapped ? 20 : 0)
+        .blur(radius: viewModel.isShowMenuTapped || viewModel.isActionSheetPresented ? 20 : 0)
         .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isActionSheetPresented)
         .toolbar(.hidden, for: .navigationBar)
         .background {
             LinearGradient(colors: [.gray222222, .black111111],
