@@ -13,7 +13,6 @@ struct TrackActionsSheet: View {
     
     @Binding var idealHeight: CGFloat
     
-    
     var body: some View {
         VStack(spacing: 16.fitH) {
             
@@ -52,7 +51,11 @@ struct TrackActionsSheet: View {
         .reportHeight($idealHeight)
     }
     
-    private func actionRow(symbol: String, title: String, action: @escaping () -> Void) -> some View {
+    private func actionRow(
+        symbol: String,
+        title: String,
+        action: @escaping () -> Void
+    ) -> some View {
         Button(action: action) {
             HStack(spacing: 14.fitW) {
                 Image(symbol)

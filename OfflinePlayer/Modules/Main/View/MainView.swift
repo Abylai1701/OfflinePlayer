@@ -133,7 +133,6 @@ struct CategoryTabs: View {
     var selectedFont: Font = .manropeSemiBold(size: 16.fitW)
     var normalFont: Font = .manropeRegular(size: 16.fitW)
     
-    // сколько отступить базовой линии слева
     private let baseLineLeadingInset: CGFloat = 16
     
     var body: some View {
@@ -165,7 +164,6 @@ struct CategoryTabs: View {
                 }
             }
             .padding(.horizontal, 16.fitW)
-            // Базовая линия с отступом слева
             .overlay(alignment: .bottomLeading) {
                 Rectangle()
                     .frame(height: 1.fitH)
@@ -239,8 +237,6 @@ struct PlaylistCard: View {
     }
 }
 
-
-
 struct TrendingRow: View {
     let rank: Int
     let cover: Image
@@ -251,7 +247,6 @@ struct TrendingRow: View {
     var body: some View {
         HStack(spacing: 8.fitW) {
             
-            // Колонка с номером и короткой линией под ним
             VStack(spacing: 6.fitH) {
                 Text("\(rank)")
                     .font(.manropeSemiBold(size: 20.fitW))
@@ -263,14 +258,12 @@ struct TrendingRow: View {
             }
             .frame(width: 30.fitW, alignment: .center)
             
-            // Обложка
             cover
                 .resizable()
                 .scaledToFill()
                 .frame(width: 64.fitW, height: 64.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             
-            // Текст
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title)
                     .font(.manropeSemiBold(size: 18.fitW))
@@ -294,7 +287,7 @@ struct TrendingRow: View {
             
         }
         .padding(.vertical, 8.fitH)
-        .contentShape(Rectangle()) // чтобы вся строка нажималась
+        .contentShape(Rectangle())
     }
 }
 

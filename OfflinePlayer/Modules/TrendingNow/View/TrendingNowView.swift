@@ -11,8 +11,6 @@ struct TrendingNowView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16.fitH) {
-                
-                // Header
                 HStack(spacing: 12.fitW) {
                     Button {
                         viewModel.back()
@@ -33,11 +31,9 @@ struct TrendingNowView: View {
                 .padding(.top, 16.fitH)
                 .padding(.horizontal, 16.fitW)
                 
-                // Search
                 SearchBar(text: $search)
                     .padding(.horizontal, 16.fitW)
                 
-                // List
                 LazyVStack(spacing: 0) {
                     ForEach(viewModel.items) { track in
                         TrendingRow(

@@ -7,14 +7,12 @@ struct PlaylistView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Контент
             ScrollView {
                 VStack(spacing: 14.fitH) {
                     
-                    // Header
                     HStack {
                         Button {
-                            //
+                            
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 18.fitW, weight: .semibold))
@@ -33,16 +31,13 @@ struct PlaylistView: View {
                     .padding(.horizontal, 16.fitW)
                     .padding(.bottom, 2.fitH)
                     
-                    // Search
                     SearchBarPlaylist(text: $search)
                     
-                    // "New Playlist"
                     NewPlaylistRow(
                         onTap: {}
                     )
                     .padding(.horizontal, 16.fitW)
                     
-                    // Список плейлистов
                     VStack(spacing: 14.fitH) {
                         PlaylistRow(cover: Image(.image),
                                     title: "Favorites",
@@ -59,7 +54,7 @@ struct PlaylistView: View {
                     }
                     .padding(.horizontal, 16.fitW)
                     
-                    Spacer(minLength: 120.fitH) // место под мини-плеер
+                    Spacer(minLength: 120.fitH)
                 }
             }
             .scrollIndicators(.hidden)
@@ -70,7 +65,6 @@ struct PlaylistView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
             
-            // Mini player
             MiniPlayerBar(
                 cover: Image(.image),
                 title: "Midnight Mirage",
@@ -147,8 +141,7 @@ private struct NewPlaylistRow: View {
     }
 }
 
-struct PlaylistRow
-: View {
+struct PlaylistRow: View {
     let cover: Image
     let title: String
     let subtitle: String
@@ -188,15 +181,13 @@ struct MiniPlayerBar: View {
     let cover: Image
     let title: String
     let subtitle: String
-    var onExpand: () -> Void = {}   // тап по левой части
+    var onExpand: () -> Void = {}
     var onPlay: () -> Void = {}
     var onPause: () -> Void = {}
 
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 12.fitW) {
-
-                
                 Button(action: onExpand) {
                     HStack(spacing: 12.fitW) {
                         cover
@@ -218,12 +209,11 @@ struct MiniPlayerBar: View {
 
                 Spacer()
 
-                // Управление
                 HStack(spacing: 14.fitW) {
                     Button(action: onPause) {
                         Image("Pause")
                             .font(.system(size: 18.fitW, weight: .bold))
-                            .frame(width: 32.fitW, height: 32.fitW) // удобная зона тапа
+                            .frame(width: 32.fitW, height: 32.fitW)
                     }
                     .buttonStyle(.plain)
 
@@ -250,12 +240,10 @@ struct MiniPlayerBar: View {
 }
 
 
-//MARK: - Подсветка при нажатии
 struct PressableRowStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .background(
-                // подсветка при нажатии
                 RoundedRectangle(cornerRadius: 16.fitW, style: .continuous)
                     .fill(.white.opacity(configuration.isPressed ? 0.08 : 0))
             )

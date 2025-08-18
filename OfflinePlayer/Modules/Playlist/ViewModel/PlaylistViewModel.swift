@@ -5,7 +5,6 @@ final class PlaylistViewModel: ObservableObject {
     
     @Published var playlistItems: [Playlist] = []
     
-    /// Позволяет инжектить Router из View (через .environmentObject)
     func attach(router: Router) {
         self.router = router
     }

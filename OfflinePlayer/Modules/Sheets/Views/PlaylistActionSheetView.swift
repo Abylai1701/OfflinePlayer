@@ -16,23 +16,27 @@ struct PlaylistActionsSheet: View {
                 .padding(.top, 8.fitH)
 
             VStack(spacing: 2.fitH) {
-                row(symbol: "Share", title: "Share Playlist",  action: onShare)
-                row(symbol: "Pen",               title: "Rename Playlist", action: onRename)
-                row(symbol: "Add",                 title: "Add track",       action: onAddTrack)
-                row(symbol: "Delete",                title: "Delete Playlist", action: onDelete, tint: .red)
+                row(symbol: "Share", title: "Share Playlist", action: onShare)
+                row(symbol: "Pen", title: "Rename Playlist", action: onRename)
+                row(symbol: "Add", title: "Add track", action: onAddTrack)
+                row(symbol: "Delete", title: "Delete Playlist", action: onDelete, tint: .red)
             }
             .padding(.horizontal, 16.fitW)
 
-            // небольшой «воздух» снизу внутри шита
             Color.clear.frame(height: 6.fitH)
         }
         .padding(.bottom, 6.fitH)
         .background(.black191919)
-        .reportHeight($idealHeight) // замеряем общую высоту контента
+        .reportHeight($idealHeight)
     }
 
     @ViewBuilder
-    private func row(symbol: String, title: String, action: @escaping () -> Void, tint: Color = .white) -> some View {
+    private func row(
+        symbol: String,
+        title: String,
+        action: @escaping () -> Void,
+        tint: Color = .white
+    ) -> some View {
         Button(action: action) {
             HStack(spacing: 14.fitW) {
                 Image(symbol)

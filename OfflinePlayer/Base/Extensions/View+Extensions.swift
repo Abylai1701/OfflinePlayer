@@ -10,5 +10,15 @@ extension View {
             self.presentationDetents([.fraction(fraction)])
         }
     }
+    
+    func reportHeight(_ height: Binding<CGFloat>) -> some View {
+        background(
+            GeometryReader { geo in
+                Color.clear.preference(key: HeightKey.self, value: geo.size.height)
+            }
+        )
+        .onPreferenceChange(HeightKey.self) { height.wrappedValue = $0 }
+    }
+}
 }
 
