@@ -14,7 +14,6 @@ struct MainView: View {
     
     @State private var search = ""
     @State private var category: HomeCategory = .popular
-    @State private var sheetContentHeight: CGFloat = 430
     
     var body: some View {
         let blurOn = viewModel.isActionSheetPresented
@@ -24,19 +23,19 @@ struct MainView: View {
                            startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
             
-            ScrollView {
-                VStack(alignment: .leading, spacing: .zero) {
-                    
-                    Text("Home")
-                        .font(.manropeBold(size: 24.fitW))
-                        .padding(.top)
-                        .padding(.horizontal)
-                        .foregroundStyle(.white)
-                        .padding(.bottom)
-                    
+            VStack(alignment: .leading, spacing: .zero) {
+                Text("Home")
+                    .font(.manropeBold(size: 24.fitW))
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .foregroundStyle(.white)
+                    .padding(.bottom)
+                
+                ScrollView {
                     MainSearchView(searchText: search)
                     
                     CategoryTabs(selection: $category)
+                        .padding(.top, 4.fitH)
                         .padding(.bottom, 24.fitH)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -69,7 +68,7 @@ struct MainView: View {
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    LazyVStack(spacing: 0) {
+                    LazyVStack(spacing: 14) {
                         ForEach(1...10, id: \.self) { rank in
                             let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
                             TrendingRow(
@@ -103,13 +102,34 @@ struct MainView: View {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
                     track: t,
-                    onLike: { viewModel.like(); viewModel.closeActions() },
-                    onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
-                    onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
-                    onDownload: { viewModel.download(); viewModel.closeActions() },
-                    onShare: { viewModel.share(); viewModel.closeActions() },
-                    onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-                    onRemove: { viewModel.remove(); viewModel.closeActions() }
+                    onLike: {
+                        viewModel.like();
+                        viewModel.closeActions()
+                    },
+                    onAddToPlaylist: {
+                        viewModel.addToPlaylist();
+                        viewModel.closeActions()
+                    },
+                    onPlayNext: {
+                        viewModel.playNext();
+                        viewModel.closeActions()
+                    },
+                    onDownload: {
+                        viewModel.download();
+                        viewModel.closeActions()
+                    },
+                    onShare: {
+                        viewModel.share();
+                        viewModel.closeActions()
+                    },
+                    onGoToAlbum: {
+                        viewModel.goToAlbum();
+                        viewModel.closeActions()
+                    },
+                    onRemove: {
+                        viewModel.remove();
+                        viewModel.closeActions()
+                    }
                 )
                 .presentationDetents([.height(462)])
                 .presentationCornerRadius(28.fitW)
@@ -122,7 +142,7 @@ struct MainView: View {
 
 
 enum HomeCategory: String, CaseIterable, Hashable {
-    case popular = "Popular", new = "New", trend = "Trend", favorites = "Favorites", relax = "Relax"
+    case popular = "Popular", new = "New", trend = "Trend", favorites = "Favorites", relax = "Relax", sport = "Sport"
 }
 
 struct CategoryTabs: View {
@@ -136,7 +156,7 @@ struct CategoryTabs: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8.fitH) {
+            HStack(spacing: .zero) {
                 ForEach(HomeCategory.allCases, id: \.self) { item in
                     let isSelected = (selection == item)
                     
@@ -144,8 +164,7 @@ struct CategoryTabs: View {
                         .font(isSelected ? selectedFont : normalFont)
                         .foregroundStyle(isSelected ? .white : .gray707070)
                         .padding(.vertical, 10.fitH)
-                        .padding(.leading, 16.fitW)
-                        .padding(.trailing, 10.fitW)
+                        .padding(.horizontal, 16.fitW)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
@@ -168,7 +187,7 @@ struct CategoryTabs: View {
                     .frame(height: 1.fitH)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, baseLineLeadingInset)
-                    .foregroundStyle(.white.opacity(0.2))
+                    .foregroundStyle(.gray707070)
                     .allowsHitTesting(false)
             }
         }
@@ -180,7 +199,7 @@ struct PlaylistCard: View {
     let title: String
     let subtitle: String
     var onTap: () -> Void = {}
-
+    
     var body: some View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: .zero) {
@@ -189,12 +208,12 @@ struct PlaylistCard: View {
                     .frame(width: 152.fitW, height: 152.fitW)
                     .clipShape(RoundedRectangle(cornerRadius: 22.fitW))
                     .padding(.bottom, 8.fitH)
-
+                
                 Text(title)
                     .font(.manropeSemiBold(size: 14.fitW))
                     .foregroundStyle(.white)
                     .padding(.bottom, 2.fitH)
-
+                
                 Text(subtitle)
                     .font(.manropeRegular(size: 12.fitW))
                     .foregroundStyle(.gray707070)
@@ -214,7 +233,7 @@ struct TrendingRow: View {
     var onMenuTap: () -> Void = {}
     
     var body: some View {
-        HStack(spacing: 8.fitW) {
+        HStack(spacing: .zero) {
             
             VStack(spacing: 6.fitH) {
                 Text("\(rank)")
@@ -226,11 +245,12 @@ struct TrendingRow: View {
                     .foregroundStyle(.white)
             }
             .frame(width: 30.fitW, alignment: .center)
+            .padding(.trailing, 8)
             
             cover
                 .resizable()
                 .scaledToFill()
-                .frame(width: 64.fitW, height: 64.fitW)
+                .frame(width: 60.fitW, height: 60.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             
             VStack(alignment: .leading, spacing: 2.fitH) {
@@ -242,20 +262,18 @@ struct TrendingRow: View {
                     .font(.manropeRegular(size: 12.fitW))
                     .foregroundStyle(.gray707070)
             }
-            .padding(.leading, 5.fitW)
+            .padding(.leading, 10.fitW)
             
             Spacer(minLength: 12)
             
             Button(action: onMenuTap) {
                 Image(systemName: "ellipsis")
-                    .font(.system(size: 18.fitW, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.6))
-                    .padding(.horizontal, 2)
+                    .font(.manropeSemiBold(size: 18.fitW))
+                    .foregroundStyle(.white)
             }
             .buttonStyle(.plain)
             
         }
-        .padding(.vertical, 8.fitH)
         .contentShape(Rectangle())
     }
 }

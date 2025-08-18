@@ -7,38 +7,36 @@ struct PlaylistView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView {
-                VStack(spacing: .zero) {
-                    
-                    HStack {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 18.fitW, weight: .semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 14.fitW, height: 28.fitH)
-                                .contentShape(Rectangle())
-                        }
+            VStack(spacing: .zero) {
+                
+                HStack(spacing: 8.fitW) {
+                    Button {
                         
-                        Text("Playlists")
-                            .font(.manropeBold(size: 24.fitW))
+                    } label: {
+                        Image("backIcon")
                             .foregroundStyle(.white)
-                        
-                        Spacer()
+                            .frame(width: 14.fitW, height: 28.fitH)
+                            .contentShape(Rectangle())
                     }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .padding(.bottom)
                     
+                    Text("Playlists")
+                        .font(.manropeBold(size: 24.fitW))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.top)
+                .padding(.horizontal)
+                .padding(.bottom)
+                
+            ScrollView {
                     PlaylistSearchView(searchText: search)
                         .padding(.bottom)
 
                     NewPlaylistRow(
                         onTap: {}
                     )
-                    .padding(.horizontal, 16.fitW)
-                    .padding(.bottom)
+                    .padding(.horizontal)
 
                     VStack(spacing: 14) {
                         PlaylistRow(cover: Image(.image),
@@ -54,7 +52,7 @@ struct PlaylistView: View {
                                     subtitle: "78 tracks",
                                     onTap: {viewModel.pushToDetail()})
                     }
-                    .padding(.horizontal, 16.fitW)
+                    .padding(.horizontal)
                     
                     Spacer(minLength: 120.fitH)
                 }
@@ -91,14 +89,15 @@ private struct NewPlaylistRow: View {
     
     var body: some View {
         Button(action: onTap) {
-            HStack(spacing: 12.fitW) {
+            HStack(spacing: 10.fitW) {
                 RoundedRectangle(cornerRadius: 16.fitW, style: .continuous)
                     .fill(.gray2C2C2C)
-                    .frame(width: 64.fitW, height: 64.fitW)
+                    .frame(width: 60.fitW, height: 60.fitW)
                     .overlay {
                         Image(systemName: "plus")
-                            .font(.system(size: 22.fitW, weight: .semibold))
-                            .foregroundStyle(.grayB3B3B3)
+                            .font(.manropeSemiBold(size: 22.fitW))
+                            .frame(width: 18.fitW, height: 18.fitW)
+                            .foregroundStyle(.gray707070)
                     }
                 
                 Text("New Playlist")
@@ -121,9 +120,9 @@ struct PlaylistRow: View {
     
     var body: some View {
         Button(action: onTap) {
-            HStack(spacing: 12.fitW) {
+            HStack(spacing: 10.fitW) {
                 cover.resizable().scaledToFill()
-                    .frame(width: 64.fitW, height: 64.fitW)
+                    .frame(width: 60.fitW, height: 60.fitW)
                     .clipShape(RoundedRectangle(cornerRadius: 16.fitW, style: .continuous))
                 
                 VStack(alignment: .leading, spacing: 2.fitH) {
@@ -138,8 +137,9 @@ struct PlaylistRow: View {
                 Spacer()
                 
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 16.fitW, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.7))
+                    .font(.system(size: 18.fitW, weight: .semibold))
+                    .frame(width: 18.fitW, height: 18.fitW)
+                    .foregroundStyle(.white)
             }
             .contentShape(Rectangle())
         }
@@ -183,22 +183,20 @@ struct MiniPlayerBar: View {
 
                 HStack(spacing: 14.fitW) {
                     Button(action: onPause) {
-                        Image("Pause")
-                            .font(.system(size: 18.fitW, weight: .bold))
+                        Image("playlistPauseIcon")
                             .frame(width: 32.fitW, height: 32.fitW)
                     }
                     .buttonStyle(.plain)
 
                     Button(action: onPlay) {
-                        Image("Next")
-                            .font(.system(size: 20.fitW, weight: .bold))
+                        Image("playlistNextIcon")
                             .frame(width: 32.fitW, height: 32.fitW)
                     }
                     .buttonStyle(.plain)
                 }
                 .foregroundStyle(.white)
             }
-            .padding(.horizontal, 16.fitW)
+            .padding(.horizontal)
             .padding(.vertical, 12.fitH)
             
             Rectangle()

@@ -16,10 +16,10 @@ struct PlaylistActionsSheet: View {
                         .padding(.bottom)
                     
                     VStack(spacing: 2.fitH) {
-                        row(symbol: "Share", title: "Share Playlist", action: onShare)
-                        row(symbol: "Pen", title: "Rename Playlist", action: onRename)
-                        row(symbol: "Add", title: "Add track", action: onAddTrack)
-                        row(symbol: "Delete", title: "Delete Playlist", action: onDelete, tint: .red)
+                        row(symbol: "playlistDetailShareIcon", title: "Share Playlist", action: onShare)
+                        row(symbol: "playlistDetailPenIcon", title: "Rename Playlist", action: onRename)
+                        row(symbol: "playlistDetailAddIcon", title: "Add track", action: onAddTrack)
+                        row(symbol: "deleteIcon", title: "Delete Playlist", action: onDelete, tint: .red)
                     }
                 }
                 .padding(.top, 8)

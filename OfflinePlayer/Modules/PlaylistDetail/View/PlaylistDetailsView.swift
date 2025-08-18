@@ -13,28 +13,28 @@ struct PlaylistDetailsView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView {
-                VStack(spacing: 20.fitH) {
-                    HStack {
-                        Button {
-                            viewModel.back()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 18.fitW, weight: .semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 44.fitW, height: 44.fitW)
-                        }
-                        Spacer()
-                        Button { viewModel.openMenu() } label: {
-                            Image(systemName: "ellipsis")
-                                .font(.system(size: 20.fitW, weight: .semibold))
-                                .foregroundStyle(.white.opacity(0.9))
-                                .frame(width: 44.fitW, height: 44.fitW)
-                        }
+            VStack(spacing: .zero) {
+                HStack {
+                    Button {
+                        viewModel.back()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.manropeRegular(size: 18.fitW))
+                            .foregroundStyle(.white)
+                            .frame(width: 14.fitW, height: 28.fitW)
                     }
-                    .padding(.horizontal, 16.fitW)
-                    .padding(.top, 8.fitH)
-                    
+                    Spacer()
+                    Button { viewModel.openMenu() } label: {
+                        Image(systemName: "ellipsis")
+                            .font(.system(size: 20.fitW, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .frame(width: 18.fitW, height: 18.fitW)
+                    }
+                }
+                .padding(.horizontal, 16.fitW)
+                .padding(.top, 8.fitH)
+                .padding(.bottom, 26.fitH)
+                ScrollView {
                     // Big cover + play button
                     ZStack(alignment: .bottomTrailing) {
                         Image(.image)
@@ -60,6 +60,7 @@ struct PlaylistDetailsView: View {
                         .padding(.bottom, -14.fitH)
                     }
                     .padding(.horizontal, 24.fitW)
+                    .padding(.bottom, 10.fitH)
                     
                     // Title
                     Text("Party All Night")
@@ -67,23 +68,25 @@ struct PlaylistDetailsView: View {
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
                         .multilineTextAlignment(.center)
-                        .padding(.top, 10)
+                        .padding(.top, 10.fitH)
+                        .padding(.bottom, 32.fitH)
                     
                     // Action tiles
                     VStack(spacing: 14.fitH) {
                         ActionTile(
-                            icon: "File",
+                            icon: "playlistFileIcon",
                             title: "Import from Device",
                             onTap: { /* import action */ }
                         )
                         ActionTile(
-                            icon: "Music-search",
+                            icon: "playlistMusicIcon",
                             title: "Search in Library",
                             onTap: { /* search in library */ }
                         )
                     }
                     .padding(.horizontal, 16.fitW)
                     .padding(.top, 4.fitH)
+                    .padding(.bottom, 14.fitH)
                     
                     // Tracks
                     VStack(spacing: 14.fitH) {
@@ -172,14 +175,14 @@ private struct ActionTile: View {
     
     var body: some View {
         Button(action: onTap) {
-            HStack(spacing: 12.fitW) {
+            HStack(spacing: 10.fitW) {
                 RoundedRectangle(cornerRadius: 16.fitW, style: .continuous)
                     .fill(.gray2C2C2C)
-                    .frame(width: 64.fitW, height: 64.fitW)
+                    .frame(width: 60.fitW, height: 60.fitW)
                     .overlay {
                         Image(icon)
-                            .font(.system(size: 22.fitW, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.9))
+                            .font(.system(size: 28.fitW, weight: .semibold))
+                            .foregroundStyle(.grayB3B3B3)
                     }
                 
                 Text(title)
@@ -201,12 +204,12 @@ private struct PlaylistTrackRow: View {
     var onMenuTap: () -> Void
     
     var body: some View {
-        HStack(spacing: 12.fitW) {
+        HStack(spacing: 10.fitW) {
             cover
                 .resizable()
                 .scaledToFill()
-                .frame(width: 54.fitW, height: 54.fitW)
-                .clipShape(RoundedRectangle(cornerRadius: 12.fitW, style: .continuous))
+                .frame(width: 60.fitW, height: 60.fitW)
+                .clipShape(RoundedRectangle(cornerRadius: 16.fitW, style: .continuous))
             
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title)
@@ -214,7 +217,7 @@ private struct PlaylistTrackRow: View {
                     .foregroundStyle(.white)
                 Text(artist)
                     .font(.manropeRegular(size: 12.fitW))
-                    .foregroundStyle(.white.opacity(0.6))
+                    .foregroundStyle(.gray707070)
             }
             
             Spacer()
@@ -222,8 +225,8 @@ private struct PlaylistTrackRow: View {
             Button(action: onMenuTap) {
                 Image(systemName: "ellipsis")
                     .font(.system(size: 18.fitW, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.7))
-                    .frame(width: 44.fitW, height: 44.fitW)
+                    .foregroundStyle(.grayB3B3B3)
+                    .frame(width: 18.fitW, height: 18.fitW)
                     .contentShape(Rectangle())
             }
             .buttonStyle(.plain)

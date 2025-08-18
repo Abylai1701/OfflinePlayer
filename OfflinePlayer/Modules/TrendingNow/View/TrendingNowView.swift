@@ -10,38 +10,37 @@ struct TrendingNowView: View {
     
     var body: some View {
         let blurOn = viewModel.isActionSheetPresented
-
+        
         ZStack {
             
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(alignment: .leading ,spacing: 16.fitH) {
-                    HStack(spacing: 12.fitW) {
-                        Button {
-                            viewModel.back()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 18.fitW, weight: .semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 14.fitW, height: 28.fitH)
-                                .contentShape(Rectangle())
-                        }
-                        
-                        Text("Trending Now")
-                            .font(.manropeBold(size: 24.fitW))
+            VStack(spacing: 16.fitH) {
+                HStack(spacing: 8.fitW) {
+                    Button {
+                        viewModel.back()
+                    } label: {
+                        Image("backIcon")
                             .foregroundStyle(.white)
-                        
-                        Spacer()
+                            .frame(width: 14.fitW, height: 28.fitH)
+                            .contentShape(Rectangle())
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 16.fitH)
                     
+                    Text("Trending Now")
+                        .font(.manropeBold(size: 24.fitW))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.top, 16.fitH)
+                
+                ScrollView {
                     SearchBar(text: $search)
+                        .padding(.bottom, 16.fitH)
                     
-                    LazyVStack(spacing: 0) {
+                    LazyVStack(spacing: 14.fitH) {
                         ForEach(viewModel.items) { track in
                             TrendingRow(
                                 rank: 7,
@@ -115,15 +114,6 @@ struct TrendingNowView: View {
     }
 }
 
-
-
-//// Mock примеры данных
-//private let sampleTitles  = ["Lost in Static", "Dreamy Skies", "No Sleep City",
-//                             "Fireproof Heart", "Mirror Maze", "Midnight Carousel",
-//                             "Runaway Signal", "Hello"]
-//private let sampleArtists = ["Kai Verne", "Luma Rae", "Drex Malone",
-//                             "Novaa", "Arlo Mav", "The Amber Skies",
-//                             "KERO & Flashline", "—"]
 #Preview {
     TrendingNowView()
         .environmentObject(Router())

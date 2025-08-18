@@ -37,16 +37,15 @@ struct TrackActionsSheet: View {
                     .padding(.bottom, 8.fitH)
                     
                     VStack(spacing: 2.fitH) {
-                        actionRow(symbol: "Like", title: "Like", action: onLike)
-                        actionRow(symbol: "Musicnote", title: "Add to Playlist", action: onAddToPlaylist)
-                        actionRow(symbol: "Forward", title: "Play Next", action: onPlayNext)
-                        actionRow(symbol: "Download", title: "Download", action: onDownload)
-                        actionRow(symbol: "Share", title: "Share", action: onShare)
-                        actionRow(symbol: "Record-crcle", title: "Go to Album", action: onGoToAlbum)
-                        actionRow(symbol: "Delete", title: "Remove", action: onRemove)
+                        actionRow(symbol: "sheetLikeIcon", title: "Like", action: onLike)
+                        actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
+                        actionRow(symbol: "sheetForwardIcon", title: "Play Next", action: onPlayNext)
+                        actionRow(symbol: "sheetDownloadIcon", title: "Download", action: onDownload)
+                        actionRow(symbol: "sheetShareIcon", title: "Share", action: onShare)
+                        actionRow(symbol: "sheetRecordCircleIcon", title: "Go to Album", action: onGoToAlbum)
+                        actionRow(symbol: "deleteIcon", title: "Remove", action: onRemove)
                     }
                     .padding(.horizontal, 32.fitW)
-//                    .background(.red)
                 }
                 .padding(.top, 8.fitH)
             }
