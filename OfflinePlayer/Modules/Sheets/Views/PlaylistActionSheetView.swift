@@ -32,7 +32,6 @@ struct PlaylistActionsSheet: View {
             .frame(width: 44.fitW, height: 5.fitW)
     }
     
-    @ViewBuilder
     private func row(
         symbol: String,
         title: String,

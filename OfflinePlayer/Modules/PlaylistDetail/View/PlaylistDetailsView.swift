@@ -140,19 +140,21 @@ struct PlaylistDetailsView: View {
             .presentationDetents([.height(274)])
             .presentationCornerRadius(28.fitW)
             .presentationDragIndicator(.hidden)
-            .presentationBackground(.black.opacity(0.94))
+//            .presentationBackground(.black.opacity(0.94))
             .ignoresSafeArea()
         }
         .onTapGesture {
             UIApplication.shared.endEditing(true)
         }
         .scrollIndicators(.hidden)
+        .blur(radius: viewModel.isShowMenuTapped ? 20 : 0)
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
+        .toolbar(.hidden, for: .navigationBar)
         .background {
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
         }
-        .toolbar(.hidden, for: .navigationBar)
     }
     private var sheetHeightClamped: CGFloat {
         let screenH = UIScreen.main.bounds.height
