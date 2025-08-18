@@ -140,7 +140,6 @@ struct PlaylistDetailsView: View {
             .presentationDetents([.height(274)])
             .presentationCornerRadius(28.fitW)
             .presentationDragIndicator(.hidden)
-//            .presentationBackground(.black.opacity(0.94))
             .ignoresSafeArea()
         }
         .onTapGesture {
