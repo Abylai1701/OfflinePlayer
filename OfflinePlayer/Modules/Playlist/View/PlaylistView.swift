@@ -2,9 +2,12 @@ import SwiftUI
 
 struct PlaylistView: View {
     @EnvironmentObject private var router: Router
-    @State private var search = ""
     @StateObject private var viewModel = PlaylistViewModel()
     
+    @State private var search = ""
+    @State private var showNewPlaylistAlert = false
+    @State private var newPlaylistName = ""
+
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: .zero) {
@@ -34,7 +37,10 @@ struct PlaylistView: View {
                         .padding(.bottom)
 
                     NewPlaylistRow(
-                        onTap: {}
+                        onTap: {
+                            newPlaylistName = ""
+                            showNewPlaylistAlert = true
+                        }
                     )
                     .padding(.horizontal)
 
@@ -72,6 +78,17 @@ struct PlaylistView: View {
                 onExpand: {}, onPlay: {},
                 onPause: {}
             )
+        }
+        .overlay {
+            if showNewPlaylistAlert {
+                NewPlaylistAlertView(
+                    isPresented: $showNewPlaylistAlert,
+                    text: $newPlaylistName,
+                    onSave: {_ in },
+                    onCancel: {}
+                )
+//                .zIndex(10)
+            }
         }
         .task {
             viewModel.attach(router: router)
