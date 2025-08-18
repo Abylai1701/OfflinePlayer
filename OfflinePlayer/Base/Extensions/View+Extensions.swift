@@ -20,5 +20,3 @@ extension View {
         .onPreferenceChange(HeightKey.self) { height.wrappedValue = $0 }
     }
 }
-}
-

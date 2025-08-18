@@ -8,7 +8,7 @@ struct PlaylistDetailsView: View {
     
     @State private var tracks: [Track] = [
         .init(title: "Fireproof Heart", artist: "Novaa",   cover: Image(.image)),
-        .init(title: "Pretty",           artist: "Inga Klaus", cover: Image(.image))
+        .init(title: "Pretty", artist: "Inga Klaus", cover: Image(.image))
     ]
     
     var body: some View {
@@ -131,11 +131,17 @@ struct PlaylistDetailsView: View {
         }
         
         .sheet(isPresented: $viewModel.isShowMenuTapped) {
-            PlaylistActionsSheet(onShare: {}, onRename: {}, onAddTrack: {}, onDelete: {}, idealHeight: $menuHeight)
-            .applyCustomDetent(height: min(menuHeight, UIScreen.main.bounds.height * 0.5))
+            PlaylistActionsSheet(
+                onShare: {},
+                onRename: {},
+                onAddTrack: {},
+                onDelete: {}
+            )
+            .presentationDetents([.height(274)])
             .presentationCornerRadius(28.fitW)
-            .presentationDragIndicator(.visible)
+            .presentationDragIndicator(.hidden)
             .presentationBackground(.black.opacity(0.94))
+            .ignoresSafeArea()
         }
         .onTapGesture {
             UIApplication.shared.endEditing(true)

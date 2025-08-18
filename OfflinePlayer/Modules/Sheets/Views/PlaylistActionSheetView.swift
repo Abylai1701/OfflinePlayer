@@ -6,30 +6,32 @@ struct PlaylistActionsSheet: View {
     var onAddTrack: () -> Void
     var onDelete: () -> Void
 
-    @Binding var idealHeight: CGFloat
-
     var body: some View {
-        VStack(spacing: 10.fitH) {
-            Capsule()
-                .frame(width: 40.fitW, height: 4)
-                .foregroundStyle(.white.opacity(0.3))
-                .padding(.top, 8.fitH)
-
-            VStack(spacing: 2.fitH) {
-                row(symbol: "Share", title: "Share Playlist", action: onShare)
-                row(symbol: "Pen", title: "Rename Playlist", action: onRename)
-                row(symbol: "Add", title: "Add track", action: onAddTrack)
-                row(symbol: "Delete", title: "Delete Playlist", action: onDelete, tint: .red)
+        Rectangle()
+            .fill(.gray353434)
+            .overlay(alignment: .top) {
+                VStack(spacing: .zero) {
+                    dragIndicator()
+                        .padding(.bottom)
+                    
+                    VStack(spacing: 2.fitH) {
+                        row(symbol: "Share", title: "Share Playlist", action: onShare)
+                        row(symbol: "Pen", title: "Rename Playlist", action: onRename)
+                        row(symbol: "Add", title: "Add track", action: onAddTrack)
+                        row(symbol: "Delete", title: "Delete Playlist", action: onDelete, tint: .red)
+                    }
+                }
+                .padding(.top, 10)
+                .padding(.horizontal, 36.fitW)
             }
-            .padding(.horizontal, 16.fitW)
-
-            Color.clear.frame(height: 6.fitH)
-        }
-        .padding(.bottom, 6.fitH)
-        .background(.black191919)
-        .reportHeight($idealHeight)
     }
 
+    private func dragIndicator() -> some View {
+        RoundedRectangle(cornerRadius: 2.5)
+            .fill(.white.opacity(0.3))
+            .frame(width: 44.fitW, height: 5.fitW)
+    }
+    
     @ViewBuilder
     private func row(
         symbol: String,

@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct HeightKey: PreferenceKey {
+struct HeightKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = max(value, nextValue())
