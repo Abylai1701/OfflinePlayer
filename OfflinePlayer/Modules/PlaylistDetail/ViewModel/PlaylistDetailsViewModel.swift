@@ -16,7 +16,9 @@ final class PlaylistDetailsViewModel: ObservableObject {
         router?.pop()
     }
     
-    //MARK: - 
+    @MainActor func pushToLibrary() {
+        router?.push(.library)
+    }
     
     //MARK: - Тап по “три точки”
     func openActions(for track: Track) {

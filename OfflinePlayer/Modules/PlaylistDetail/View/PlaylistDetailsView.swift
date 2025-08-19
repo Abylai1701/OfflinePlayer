@@ -81,7 +81,7 @@ struct PlaylistDetailsView: View {
                         ActionTile(
                             icon: "playlistMusicIcon",
                             title: "Search in Library",
-                            onTap: { /* search in library */ }
+                            onTap: { viewModel.pushToLibrary() }
                         )
                     }
                     .padding(.horizontal, 16.fitW)
