@@ -3,6 +3,7 @@ import SwiftUI
 enum Tab: Hashable { case home, playlists, settings }
 
 struct RootView: View {
+    
     @EnvironmentObject private var router: Router
 
     var body: some View {
@@ -23,7 +24,7 @@ struct RootView: View {
             .tag(Tab.home)
 
             NavigationStack(path: $router.playlistsPath) {
-                MainView() //Замени потом
+                PlaylistView()
                     .navigationDestination(for: AppRoute.self) { router.destination(for: $0) }
             }
             .tabItem {
@@ -50,10 +51,9 @@ struct RootView: View {
             }
             .tag(Tab.settings)
         }
-        .toolbarBackground(.clear, for: .tabBar)
-        .toolbarBackground(.visible, for: .tabBar)
-        .toolbarColorScheme(.light, for: .tabBar)
-        .tint(.white)
-        .onAppear { TabBarAppearanceConfigurator.apply() }
+        .onAppear {
+            TabBarAppearanceConfigurator.apply()
+        }
+        .toolbar(.visible, for: .tabBar)
     }
 }

@@ -1,29 +1,35 @@
-import Foundation
+import SwiftUI
 
-final class MainViewModel: ObservableObject {
-    
+final class PlaylistDetailsViewModel: ObservableObject {
     private weak var router: Router?
-    @Published var trendItems: [Track] = []
+    
+    @Published var tracks: [Track] = []
     @Published var isActionSheetPresented = false
+    @Published var isShowMenuTapped = false
     @Published var actionTrack: Track? = nil
     
-    /// Позволяет инжектить Router из View (через .environmentObject)
     func attach(router: Router) {
         self.router = router
     }
     
-    @MainActor func pushToTrendingNow() {
-        router?.push(.trendingNow)
+    @MainActor func back() {
+        router?.pop()
     }
     
-    @MainActor func pushToDetail() {
-        router?.push(.playlistDetails)
-    }
+    //MARK: - 
     
-    // Тап по “три точки”
+    //MARK: - Тап по “три точки”
     func openActions(for track: Track) {
         actionTrack = track
         isActionSheetPresented = true
+    }
+    
+    func openMenu() {
+        isShowMenuTapped = true
+    }
+    
+    func closeMenu() {
+        isShowMenuTapped = false
     }
     
     func closeActions() {

@@ -1,35 +1,31 @@
 import Foundation
 
-final class MainViewModel: ObservableObject {
-    
+final class TrendingNowViewModel: ObservableObject {
     private weak var router: Router?
-    @Published var trendItems: [Track] = []
-    @Published var isActionSheetPresented = false
+
+    @Published var search = ""
+    @Published var items: [Track] = []
     @Published var actionTrack: Track? = nil
-    
-    /// Позволяет инжектить Router из View (через .environmentObject)
+    @Published var isActionSheetPresented = false
+
     func attach(router: Router) {
         self.router = router
     }
-    
-    @MainActor func pushToTrendingNow() {
-        router?.push(.trendingNow)
+
+    @MainActor func back() {
+        router?.pop()
     }
-    
-    @MainActor func pushToDetail() {
-        router?.push(.playlistDetails)
-    }
-    
+
     // Тап по “три точки”
-    func openActions(for track: Track) {
+    @MainActor func openActions(for track: Track) {
         actionTrack = track
         isActionSheetPresented = true
     }
     
-    func closeActions() {
+    @MainActor func closeActions() {
         isActionSheetPresented = false
     }
-    
+
     // Примеры экшенов (заглушки)
     func like() {}
     func addToPlaylist() {}

@@ -1,0 +1,120 @@
+import SwiftUI
+
+struct TrendingNowView: View {
+    
+    @EnvironmentObject private var router: Router
+    @StateObject private var viewModel = TrendingNowViewModel()
+    
+    @State private var search: String = ""
+    @State private var sheetContentHeight: CGFloat = 430
+    
+    var body: some View {
+        let blurOn = viewModel.isActionSheetPresented
+        
+        ZStack {
+            
+            LinearGradient(colors: [.gray222222, .black111111],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+            VStack(spacing: 16.fitH) {
+                HStack(spacing: 8.fitW) {
+                    Button {
+                        viewModel.back()
+                    } label: {
+                        Image("backIcon")
+                            .foregroundStyle(.white)
+                            .frame(width: 14.fitW, height: 28.fitH)
+                            .contentShape(Rectangle())
+                    }
+                    
+                    Text("Trending Now")
+                        .font(.manropeBold(size: 24.fitW))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.top, 16.fitH)
+                
+                ScrollView {
+                    SearchBar(text: $search)
+                        .padding(.bottom, 16.fitH)
+                    
+                    LazyVStack(spacing: 14.fitH) {
+                        ForEach(viewModel.items) { track in
+                            TrendingRow(
+                                rank: 7,
+                                cover: track.cover,
+                                title: track.title,
+                                artist: track.artist,
+                                onMenuTap: {
+                                    viewModel.openActions(for: track)
+                                }
+                            )
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 24.fitH)
+                }
+            }
+            .ignoresSafeArea(.container, edges: .bottom)
+            .compositingGroup()
+            .blur(radius: blurOn ? 20 : 0)
+            .animation(.easeInOut(duration: 0.3), value: blurOn)
+            .scrollIndicators(.hidden)
+            .onTapGesture {
+                UIApplication.shared.endEditing(true)
+            }
+            .task {
+                viewModel.attach(router: router)
+                
+                if viewModel.items.isEmpty {
+                    viewModel.items = [
+                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
+                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
+                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image))
+                    ]
+                }
+            }
+        }
+        .animation(nil, value: viewModel.isActionSheetPresented)
+        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
+        .sheet(isPresented: $viewModel.isActionSheetPresented) {
+            if let t = viewModel.actionTrack {
+                TrackActionsSheet(
+                    track: t,
+                    onLike: { viewModel.like(); viewModel.closeActions() },
+                    onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+                    onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
+                    onDownload: { viewModel.download(); viewModel.closeActions() },
+                    onShare: { viewModel.share(); viewModel.closeActions() },
+                    onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
+                    onRemove: { viewModel.remove(); viewModel.closeActions() }
+                )
+                .presentationDetents([.height(462)])
+                .presentationCornerRadius(28.fitW)
+                .presentationDragIndicator(.hidden)
+                .ignoresSafeArea()
+            }
+        }
+    }
+    
+    private var sheetHeightClamped: CGFloat {
+        let screenH = UIScreen.main.bounds.height
+        return min(sheetContentHeight, screenH * 0.9)
+    }
+}
+
+#Preview {
+    TrendingNowView()
+        .environmentObject(Router())
+}

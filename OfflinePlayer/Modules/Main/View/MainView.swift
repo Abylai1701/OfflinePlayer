@@ -5,49 +5,280 @@
 //  Created by Abylaikhan Abilkayr on 11.08.2025.
 //
 
+import Foundation
 import SwiftUI
 
 struct MainView: View {
-    
     @EnvironmentObject private var router: Router
-    @StateObject private var vm = MainViewModel()
-
+    @StateObject private var viewModel = MainViewModel()
+    
+    @State private var search = ""
+    @State private var category: HomeCategory = .popular
+    
     var body: some View {
+        let blurOn = viewModel.isActionSheetPresented
+        
         ZStack {
-            LinearGradient(colors: [.gray222222, .black111111], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+            LinearGradient(colors: [.gray222222, .black111111],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
             
-            // Это я показал как надо пушить на другой экран
-            // Потом удали все что не надо
-            Button {
-                vm.pushToSecond()
-            } label: {
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.blue)
-                    .frame(width: 200, height: 50)
+            VStack(alignment: .leading, spacing: .zero) {
+                Text("Home")
+                    .font(.manropeBold(size: 24.fitW))
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .foregroundStyle(.white)
+                    .padding(.bottom)
+                
+                ScrollView {
+                    MainSearchView(searchText: search)
+                    
+                    CategoryTabs(selection: $category)
+                        .padding(.top, 4.fitH)
+                        .padding(.bottom, 24.fitH)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 16.fitH) {
+                            ForEach(0..<5) { i in
+                                PlaylistCard(
+                                    cover: Image(.image),
+                                    title: "Playlist \(i+1)",
+                                    subtitle: "SZA, Rhye, Mac Miller",
+                                    onTap: { viewModel.pushToDetail() }
+                                )
+                            }
+                        }
+                        .padding(.horizontal)
+                        .contentMargins(.horizontal, 16.fitW, for: .scrollContent)
+                    }
+                    .padding(.bottom, 26.fitH)
+                    
+                    HStack {
+                        Text("Trending Now")
+                            .font(.manropeBold(size: 20.fitW))
+                            .foregroundStyle(.white)
+                        Spacer()
+                        Button("See all") {
+                            viewModel.pushToTrendingNow()
+                        }
+                        .font(.manropeSemiBold(size: 12.fitW))
+                        .foregroundStyle(.grayB3B3B3)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    
+                    LazyVStack(spacing: 14) {
+                        ForEach(1...10, id: \.self) { rank in
+                            let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
+                            TrendingRow(
+                                rank: rank,
+                                cover: t.cover,
+                                title: t.title,
+                                artist: t.artist,
+                                onMenuTap: { viewModel.openActions(for: t) }
+                            )
+                            .padding(.horizontal)
+                        }
+                    }
+                    .padding(.bottom, 100.fitH)
+                }
             }
+            .ignoresSafeArea(.container, edges: .bottom)
+            .compositingGroup()
+            .blur(radius: blurOn ? 20 : 0)
+            .animation(.easeInOut(duration: 0.3), value: blurOn)
+            .scrollIndicators(.hidden)
+            .onTapGesture {
+                UIApplication.shared.endEditing(true)
+            }
+            .task {
+                viewModel.attach(router: router)
+            }
+        }
+        .animation(nil, value: viewModel.isActionSheetPresented)
+        .toolbar(.hidden, for: .navigationBar)
+        .sheet(isPresented: $viewModel.isActionSheetPresented) {
+            if let t = viewModel.actionTrack {
+                TrackActionsSheet(
+                    track: t,
+                    onLike: {
+                        viewModel.like();
+                        viewModel.closeActions()
+                    },
+                    onAddToPlaylist: {
+                        viewModel.addToPlaylist();
+                        viewModel.closeActions()
+                    },
+                    onPlayNext: {
+                        viewModel.playNext();
+                        viewModel.closeActions()
+                    },
+                    onDownload: {
+                        viewModel.download();
+                        viewModel.closeActions()
+                    },
+                    onShare: {
+                        viewModel.share();
+                        viewModel.closeActions()
+                    },
+                    onGoToAlbum: {
+                        viewModel.goToAlbum();
+                        viewModel.closeActions()
+                    },
+                    onRemove: {
+                        viewModel.remove();
+                        viewModel.closeActions()
+                    }
+                )
+                .presentationDetents([.height(462)])
+                .presentationCornerRadius(28.fitW)
+                .presentationDragIndicator(.hidden)
+                .ignoresSafeArea()
+            }
+        }
+    }
+}
 
+
+enum HomeCategory: String, CaseIterable, Hashable {
+    case popular = "Popular", new = "New", trend = "Trend", favorites = "Favorites", relax = "Relax", sport = "Sport"
+}
+
+struct CategoryTabs: View {
+    @Binding var selection: HomeCategory
+    @Namespace private var underlineNS
+    
+    var selectedFont: Font = .manropeMedium(size: 14.fitW)
+    var normalFont: Font = .manropeRegular(size: 14.fitW)
+    
+    private let baseLineLeadingInset: CGFloat = 16
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: .zero) {
+                ForEach(HomeCategory.allCases, id: \.self) { item in
+                    let isSelected = (selection == item)
+                    
+                    Text(item.rawValue)
+                        .font(isSelected ? selectedFont : normalFont)
+                        .foregroundStyle(isSelected ? .white : .gray707070)
+                        .padding(.vertical, 10.fitH)
+                        .padding(.horizontal, 16.fitW)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                                selection = item
+                            }
+                        }
+                        .overlay(alignment: .bottom) {
+                            if isSelected {
+                                Capsule()
+                                    .matchedGeometryEffect(id: "underline", in: underlineNS)
+                                    .frame(height: 2.fitH)
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                }
+            }
+            .padding(.horizontal, 16.fitW)
+            .overlay(alignment: .bottomLeading) {
+                Rectangle()
+                    .frame(height: 1.fitH)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, baseLineLeadingInset)
+                    .foregroundStyle(.gray707070)
+                    .allowsHitTesting(false)
+            }
         }
-        .task {
-            vm.attach(router: router)
+    }
+}
+
+struct PlaylistCard: View {
+    let cover: Image
+    let title: String
+    let subtitle: String
+    var onTap: () -> Void = {}
+    
+    var body: some View {
+        Button(action: onTap) {
+            VStack(alignment: .leading, spacing: .zero) {
+                cover
+                    .resizable().scaledToFill()
+                    .frame(width: 152.fitW, height: 152.fitW)
+                    .clipShape(RoundedRectangle(cornerRadius: 22.fitW))
+                    .padding(.bottom, 8.fitH)
+                
+                Text(title)
+                    .font(.manropeSemiBold(size: 14.fitW))
+                    .foregroundStyle(.white)
+                    .padding(.bottom, 2.fitH)
+                
+                Text(subtitle)
+                    .font(.manropeRegular(size: 12.fitW))
+                    .foregroundStyle(.gray707070)
+            }
+            .frame(width: 152.fitW, alignment: .leading)
+            .contentShape(RoundedRectangle(cornerRadius: 22.fitW))
         }
+        .buttonStyle(.plain)
+    }
+}
+
+struct TrendingRow: View {
+    let rank: Int
+    let cover: Image
+    let title: String
+    let artist: String
+    var onMenuTap: () -> Void = {}
+    
+    var body: some View {
+        HStack(spacing: .zero) {
+            
+            VStack(spacing: 6.fitH) {
+                Text("\(rank)")
+                    .font(.manropeSemiBold(size: 20.fitW))
+                    .foregroundStyle(.white)
+                
+                Capsule()
+                    .frame(width: 14.fitW, height: 2.fitH)
+                    .foregroundStyle(.white)
+            }
+            .frame(width: 30.fitW, alignment: .center)
+            .padding(.trailing, 8)
+            
+            cover
+                .resizable()
+                .scaledToFill()
+                .frame(width: 60.fitW, height: 60.fitW)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+            
+            VStack(alignment: .leading, spacing: 2.fitH) {
+                Text(title)
+                    .font(.manropeSemiBold(size: 14.fitW))
+                    .foregroundStyle(.white)
+                
+                Text(artist)
+                    .font(.manropeRegular(size: 12.fitW))
+                    .foregroundStyle(.gray707070)
+            }
+            .padding(.leading, 10.fitW)
+            
+            Spacer(minLength: 12)
+            
+            Button(action: onMenuTap) {
+                Image(systemName: "ellipsis")
+                    .font(.manropeSemiBold(size: 18.fitW))
+                    .foregroundStyle(.white)
+            }
+            .buttonStyle(.plain)
+            
+        }
+        .contentShape(Rectangle())
     }
 }
 
 #Preview {
     MainView()
-}
-
-
-// Это тестовая view
-// Потом удали
-struct SecondView: View {
-    var body: some View {
-        ZStack {
-            Color.yellow
-                .ignoresSafeArea()
-            Text("Second View")
-        }
-        .navigationBarHidden(true)
-    }
+        .environmentObject(Router())
 }
