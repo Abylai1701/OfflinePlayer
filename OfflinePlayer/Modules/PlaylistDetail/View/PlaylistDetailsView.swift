@@ -107,24 +107,24 @@ struct PlaylistDetailsView: View {
             .task {
                 viewModel.attach(router: router)
             }
-            .sheet(isPresented: $viewModel.isActionSheetPresented) {
-                if let t = viewModel.actionTrack {
-                    TrackActionsSheet(
-                        track: t,
-                        onLike: { viewModel.like(); viewModel.closeActions() },
-                        onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
-                        onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
-                        onDownload: { viewModel.download(); viewModel.closeActions() },
-                        onShare: { viewModel.share(); viewModel.closeActions() },
-                        onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-                        onRemove: { viewModel.remove(); viewModel.closeActions() }
-                    )
-                    .presentationDetents([.height(462)])
-                    .presentationCornerRadius(28.fitW)
-                    .presentationDragIndicator(.hidden)
-                    .ignoresSafeArea()
-                }
-            }
+//            .sheet(isPresented: $viewModel.isActionSheetPresented) {
+//                if let t = viewModel.actionTrack {
+//                    TrackActionsSheet(
+//                        track: t,
+//                        onLike: { viewModel.like(); viewModel.closeActions() },
+//                        onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+//                        onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
+//                        onDownload: { viewModel.download(); viewModel.closeActions() },
+//                        onShare: { viewModel.share(); viewModel.closeActions() },
+//                        onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
+//                        onRemove: { viewModel.remove(); viewModel.closeActions() }
+//                    )
+//                    .presentationDetents([.height(462)])
+//                    .presentationCornerRadius(28.fitW)
+//                    .presentationDragIndicator(.hidden)
+//                    .ignoresSafeArea()
+//                }
+//            }
             .overlay {
                 Color.black
                     .opacity(viewModel.isShowMenuTapped ? 0.35 : 0)
@@ -132,32 +132,32 @@ struct PlaylistDetailsView: View {
             }
             .animation(.easeInOut(duration: viewModel.isShowMenuTapped ? 0.2 : 0.001), value: viewModel.isShowMenuTapped)
         }
-        
-        .sheet(isPresented: $viewModel.isShowMenuTapped) {
-            PlaylistActionsSheet(
-                onShare: {},
-                onRename: {},
-                onAddTrack: {},
-                onDelete: {}
-            )
-            .presentationDetents([.height(234)])
-            .presentationCornerRadius(28.fitW)
-            .presentationDragIndicator(.hidden)
-            .ignoresSafeArea()
-        }
-        .onTapGesture {
-            UIApplication.shared.endEditing(true)
-        }
-        .scrollIndicators(.hidden)
-        .blur(radius: viewModel.isShowMenuTapped || viewModel.isActionSheetPresented ? 20 : 0)
-        .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
-        .animation(.easeInOut(duration: 0.3), value: viewModel.isActionSheetPresented)
-        .toolbar(.hidden, for: .navigationBar)
-        .background {
-            LinearGradient(colors: [.gray222222, .black111111],
-                           startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
-        }
+//        
+//        .sheet(isPresented: $viewModel.isShowMenuTapped) {
+//            PlaylistActionsSheet(
+//                onShare: {},
+//                onRename: {},
+//                onAddTrack: {},
+//                onDelete: {}
+//            )
+//            .presentationDetents([.height(234)])
+//            .presentationCornerRadius(28.fitW)
+//            .presentationDragIndicator(.hidden)
+//            .ignoresSafeArea()
+//        }
+//        .onTapGesture {
+//            UIApplication.shared.endEditing(true)
+//        }
+//        .scrollIndicators(.hidden)
+//        .blur(radius: viewModel.isShowMenuTapped || viewModel.isActionSheetPresented ? 20 : 0)
+//        .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
+//        .animation(.easeInOut(duration: 0.3), value: viewModel.isActionSheetPresented)
+//        .toolbar(.hidden, for: .navigationBar)
+//        .background {
+//            LinearGradient(colors: [.gray222222, .black111111],
+//                           startPoint: .top, endPoint: .bottom)
+//            .ignoresSafeArea()
+//        }
     }
     private var sheetHeightClamped: CGFloat {
         let screenH = UIScreen.main.bounds.height

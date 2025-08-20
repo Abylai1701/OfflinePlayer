@@ -3,10 +3,24 @@ import SwiftUI
 struct TrendingNowView: View {
     
     @EnvironmentObject private var router: Router
-    @StateObject private var viewModel = TrendingNowViewModel()
+    @StateObject private var viewModel: TrendingNowViewModel
     
     @State private var search: String = ""
     @State private var sheetContentHeight: CGFloat = 430
+    
+    // ← принимаем данные маршрута
+    init(items: [MyTrack]) {
+        _viewModel = StateObject(wrappedValue: TrendingNowViewModel(items: items))
+    }
+    
+    private var filtered: [MyTrack] {
+        let q = viewModel.search.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !q.isEmpty else { return viewModel.items }
+        return viewModel.items.filter {
+            $0.title.localizedCaseInsensitiveContains(q) ||
+            $0.artist.localizedCaseInsensitiveContains(q)
+        }
+    }
     
     var body: some View {
         let blurOn = viewModel.isActionSheetPresented
@@ -39,17 +53,16 @@ struct TrendingNowView: View {
                 ScrollView {
                     SearchBar(text: $search)
                         .padding(.bottom, 16.fitH)
-                    
                     LazyVStack(spacing: 14.fitH) {
-                        ForEach(viewModel.items) { track in
-                            TrendingRow(
-                                rank: 7,
-                                cover: track.cover,
-                                title: track.title,
-                                artist: track.artist,
-                                onMenuTap: {
-                                    viewModel.openActions(for: track)
-                                }
+                        ForEach(Array(filtered.enumerated()), id: \.element.id) { idx, t in
+                            // Используй свой компонент с URL (KFImage),
+                            // или тот, что мы делали: TrendingRowRemote
+                            TrackCell(
+                                rank: idx + 1,
+                                coverURL: t.artworkURL,
+                                title: t.title,
+                                artist: t.artist,
+                                onMenuTap: { viewModel.openActions(for: t) }
                             )
                         }
                     }
@@ -68,21 +81,21 @@ struct TrendingNowView: View {
             .task {
                 viewModel.attach(router: router)
                 
-                if viewModel.items.isEmpty {
-                    viewModel.items = [
-                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
-                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
-                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image))
-                    ]
-                }
+//                if viewModel.items.isEmpty {
+//                    viewModel.items = [
+//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
+//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
+//                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
+//                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
+//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image))
+//                    ]
+//                }
             }
         }
         .animation(nil, value: viewModel.isActionSheetPresented)
@@ -92,6 +105,7 @@ struct TrendingNowView: View {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
                     track: t,
+                    coverURL: t.artworkURL,
                     onLike: { viewModel.like(); viewModel.closeActions() },
                     onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
                     onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
@@ -112,9 +126,4 @@ struct TrendingNowView: View {
         let screenH = UIScreen.main.bounds.height
         return min(sheetContentHeight, screenH * 0.9)
     }
-}
-
-#Preview {
-    TrendingNowView()
-        .environmentObject(Router())
 }

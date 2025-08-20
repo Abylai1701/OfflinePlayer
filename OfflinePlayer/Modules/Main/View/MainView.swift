@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 struct MainView: View {
     @EnvironmentObject private var router: Router
@@ -40,13 +41,14 @@ struct MainView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 16.fitH) {
-                            ForEach(0..<5) { i in
-                                PlaylistCard(
-                                    cover: Image(.image),
-                                    title: "Playlist \(i+1)",
-                                    subtitle: "SZA, Rhye, Mac Miller",
-                                    onTap: { viewModel.pushToDetail() }
-                                )
+                            ForEach(viewModel.heroPlaylists) { p in
+                                PlaylistCardRemote(
+                                    coverURL: viewModel.coverURL(for: p),   // <— вместо p.artworkURL
+                                    title: p.title,
+                                    subtitle: p.user?.name ?? p.user?.handle ?? ""
+                                ) {
+                                    viewModel.pushToDetail()
+                                }
                             }
                         }
                         .padding(.horizontal)
@@ -69,11 +71,10 @@ struct MainView: View {
                     .padding(.bottom)
                     
                     LazyVStack(spacing: 14) {
-                        ForEach(1...10, id: \.self) { rank in
-                            let t = Track(title: "Track \(rank)", artist: "Artist \(rank)", cover: Image(.image))
-                            TrendingRow(
-                                rank: rank,
-                                cover: t.cover,
+                        ForEach(Array(viewModel.trendItems.enumerated()), id: \.element.id) { idx, t in
+                            TrackCell(
+                                rank: idx + 1,
+                                coverURL: t.artworkURL,
                                 title: t.title,
                                 artist: t.artist,
                                 onMenuTap: { viewModel.openActions(for: t) }
@@ -94,14 +95,34 @@ struct MainView: View {
             }
             .task {
                 viewModel.attach(router: router)
+                await viewModel.bootstrap(initial: category)
+            }
+            .onChange(of: category) { _, newValue in
+                Task { await viewModel.setCategory(newValue) }
             }
         }
         .animation(nil, value: viewModel.isActionSheetPresented)
         .toolbar(.hidden, for: .navigationBar)
+        .overlay(alignment: .center) {
+            if viewModel.isLoading {
+                ProgressView().controlSize(.large)
+            } else if let err = viewModel.errorMessage {
+                VStack(spacing: 8) {
+                    Text("Ошибка").bold().foregroundStyle(.white)
+                    Text(err).font(.footnote).multilineTextAlignment(.center)
+                    Button("Повторить") { Task { await viewModel.setCategory(category) } }
+                        .buttonStyle(.borderedProminent)
+                }
+                .padding()
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                .padding()
+            }
+        }
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
                     track: t,
+                    coverURL: viewModel.coverURL(for: t),   // ← фолбэк из VM (если делаешь)
                     onLike: {
                         viewModel.like();
                         viewModel.closeActions()
@@ -137,144 +158,6 @@ struct MainView: View {
                 .ignoresSafeArea()
             }
         }
-    }
-}
-
-
-enum HomeCategory: String, CaseIterable, Hashable {
-    case popular = "Popular", new = "New", trend = "Trend", favorites = "Favorites", relax = "Relax", sport = "Sport"
-}
-
-struct CategoryTabs: View {
-    @Binding var selection: HomeCategory
-    @Namespace private var underlineNS
-    
-    var selectedFont: Font = .manropeMedium(size: 14.fitW)
-    var normalFont: Font = .manropeRegular(size: 14.fitW)
-    
-    private let baseLineLeadingInset: CGFloat = 16
-    
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: .zero) {
-                ForEach(HomeCategory.allCases, id: \.self) { item in
-                    let isSelected = (selection == item)
-                    
-                    Text(item.rawValue)
-                        .font(isSelected ? selectedFont : normalFont)
-                        .foregroundStyle(isSelected ? .white : .gray707070)
-                        .padding(.vertical, 10.fitH)
-                        .padding(.horizontal, 16.fitW)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
-                                selection = item
-                            }
-                        }
-                        .overlay(alignment: .bottom) {
-                            if isSelected {
-                                Capsule()
-                                    .matchedGeometryEffect(id: "underline", in: underlineNS)
-                                    .frame(height: 2.fitH)
-                                    .foregroundStyle(.white)
-                            }
-                        }
-                }
-            }
-            .padding(.horizontal, 16.fitW)
-            .overlay(alignment: .bottomLeading) {
-                Rectangle()
-                    .frame(height: 1.fitH)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, baseLineLeadingInset)
-                    .foregroundStyle(.gray707070)
-                    .allowsHitTesting(false)
-            }
-        }
-    }
-}
-
-struct PlaylistCard: View {
-    let cover: Image
-    let title: String
-    let subtitle: String
-    var onTap: () -> Void = {}
-    
-    var body: some View {
-        Button(action: onTap) {
-            VStack(alignment: .leading, spacing: .zero) {
-                cover
-                    .resizable().scaledToFill()
-                    .frame(width: 152.fitW, height: 152.fitW)
-                    .clipShape(RoundedRectangle(cornerRadius: 22.fitW))
-                    .padding(.bottom, 8.fitH)
-                
-                Text(title)
-                    .font(.manropeSemiBold(size: 14.fitW))
-                    .foregroundStyle(.white)
-                    .padding(.bottom, 2.fitH)
-                
-                Text(subtitle)
-                    .font(.manropeRegular(size: 12.fitW))
-                    .foregroundStyle(.gray707070)
-            }
-            .frame(width: 152.fitW, alignment: .leading)
-            .contentShape(RoundedRectangle(cornerRadius: 22.fitW))
-        }
-        .buttonStyle(.plain)
-    }
-}
-
-struct TrendingRow: View {
-    let rank: Int
-    let cover: Image
-    let title: String
-    let artist: String
-    var onMenuTap: () -> Void = {}
-    
-    var body: some View {
-        HStack(spacing: .zero) {
-            
-            VStack(spacing: 6.fitH) {
-                Text("\(rank)")
-                    .font(.manropeSemiBold(size: 20.fitW))
-                    .foregroundStyle(.white)
-                
-                Capsule()
-                    .frame(width: 14.fitW, height: 2.fitH)
-                    .foregroundStyle(.white)
-            }
-            .frame(width: 30.fitW, alignment: .center)
-            .padding(.trailing, 8)
-            
-            cover
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60.fitW, height: 60.fitW)
-                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-            
-            VStack(alignment: .leading, spacing: 2.fitH) {
-                Text(title)
-                    .font(.manropeSemiBold(size: 14.fitW))
-                    .foregroundStyle(.white)
-                
-                Text(artist)
-                    .font(.manropeRegular(size: 12.fitW))
-                    .foregroundStyle(.gray707070)
-            }
-            .padding(.leading, 10.fitW)
-            
-            Spacer(minLength: 12)
-            
-            Button(action: onMenuTap) {
-                Image(systemName: "ellipsis")
-                    .font(.manropeSemiBold(size: 18.fitW))
-                    .foregroundStyle(.white)
-            }
-            .buttonStyle(.plain)
-            
-        }
-        .contentShape(Rectangle())
     }
 }
 
