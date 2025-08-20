@@ -7,6 +7,8 @@ struct PlaylistView: View {
     @State private var search = ""
     @State private var showNewPlaylistAlert = false
     @State private var newPlaylistName = ""
+    @State private var showPlayer = false
+
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -75,9 +77,20 @@ struct PlaylistView: View {
                 cover: Image(.image),
                 title: "Midnight Mirage",
                 subtitle: "Léa Vellor",
-                onExpand: {}, onPlay: {},
+                onExpand: {
+                    showPlayer = true
+                },
+                onPlay: {},
                 onPause: {}
-            )
+            ).fullScreenCover(isPresented: $showPlayer) {
+                MusicPlayerView(
+                    cover: Image(.cover),
+                    title: "Pretty Woman",
+                    artist: "Inga Klaus",
+                    onDismiss: { showPlayer = false }
+                )
+            }
+
         }
         .overlay {
             if showNewPlaylistAlert {
@@ -206,7 +219,7 @@ struct MiniPlayerBar: View {
                     .buttonStyle(.plain)
 
                     Button(action: onPlay) {
-                        Image("playlistNextIcon")
+                        Image("NextIcon")
                             .frame(width: 32.fitW, height: 32.fitW)
                     }
                     .buttonStyle(.plain)
