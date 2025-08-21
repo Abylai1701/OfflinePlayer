@@ -15,7 +15,9 @@ struct PlaylistCardRemote: View {
     var onTap: () -> Void = {}
 
     var body: some View {
-        Button(action: onTap) {
+        Button(
+            action: onTap
+        ) {
             VStack(alignment: .leading, spacing: .zero) {
                 KFImage(coverURL)
                     .placeholder { Color.gray.opacity(0.2) }

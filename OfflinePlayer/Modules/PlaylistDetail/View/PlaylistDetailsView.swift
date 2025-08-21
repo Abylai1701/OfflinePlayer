@@ -1,15 +1,15 @@
 import SwiftUI
+import Kingfisher
 
 struct PlaylistDetailsView: View {
     @EnvironmentObject private var router: Router
-    @StateObject private var viewModel = PlaylistDetailsViewModel()
+    @StateObject private var viewModel: PlaylistDetailsViewModel
     @State private var sheetContentHeight: CGFloat = 430
     @State private var menuHeight: CGFloat = 260
-    
-    @State private var tracks: [Track] = [
-        .init(title: "Fireproof Heart", artist: "Novaa",   cover: Image(.image)),
-        .init(title: "Pretty", artist: "Inga Klaus", cover: Image(.image))
-    ]
+        
+    init(tracks: [MyTrack], playlist: MyPlaylist) {
+        _viewModel = StateObject(wrappedValue: PlaylistDetailsViewModel(tracks: tracks, playlist: playlist))
+    }
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -37,12 +37,14 @@ struct PlaylistDetailsView: View {
                 ScrollView {
                     // Big cover + play button
                     ZStack(alignment: .bottomTrailing) {
-                        Image(.image)
+                        KFImage(viewModel.playlist.artworkURL)
+                            .placeholder { Color.gray.opacity(0.2) }
+                            .cacheOriginalImage()
+                            .loadDiskFileSynchronously()
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 211.fitW, height: 211.fitH)
+                            .frame(width: 211.fitW, height: 211.fitW)
                             .clipShape(RoundedRectangle(cornerRadius: 24.fitW, style: .continuous))
-                            .frame(alignment: .center)
                         
                         Button { /* play whole playlist */ } label: {
                             ZStack {
@@ -90,9 +92,9 @@ struct PlaylistDetailsView: View {
                     
                     // Tracks
                     VStack(spacing: 14.fitH) {
-                        ForEach(tracks) { t in
+                        ForEach(viewModel.tracks) { t in
                             PlaylistTrackRow(
-                                cover: t.cover,
+                                coverURL: t.artworkURL,
                                 title: t.title,
                                 artist: t.artist,
                                 onMenuTap: { viewModel.openActions(for: t) }
@@ -106,25 +108,28 @@ struct PlaylistDetailsView: View {
             }
             .task {
                 viewModel.attach(router: router)
+                if viewModel.tracks.isEmpty {
+                    await viewModel.refresh()
+                }
             }
-//            .sheet(isPresented: $viewModel.isActionSheetPresented) {
-//                if let t = viewModel.actionTrack {
-//                    TrackActionsSheet(
-//                        track: t,
-//                        onLike: { viewModel.like(); viewModel.closeActions() },
-//                        onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
-//                        onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
-//                        onDownload: { viewModel.download(); viewModel.closeActions() },
-//                        onShare: { viewModel.share(); viewModel.closeActions() },
-//                        onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
-//                        onRemove: { viewModel.remove(); viewModel.closeActions() }
-//                    )
-//                    .presentationDetents([.height(462)])
-//                    .presentationCornerRadius(28.fitW)
-//                    .presentationDragIndicator(.hidden)
-//                    .ignoresSafeArea()
-//                }
-//            }
+            .sheet(isPresented: $viewModel.isActionSheetPresented) {
+                if let t = viewModel.actionTrack {
+                    TrackActionsSheet(
+                        track: t,
+                        onLike: { viewModel.like(); viewModel.closeActions() },
+                        onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+                        onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
+                        onDownload: { viewModel.download(); viewModel.closeActions() },
+                        onShare: { viewModel.share(); viewModel.closeActions() },
+                        onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
+                        onRemove: { viewModel.remove(); viewModel.closeActions() }
+                    )
+                    .presentationDetents([.height(462)])
+                    .presentationCornerRadius(28.fitW)
+                    .presentationDragIndicator(.hidden)
+                    .ignoresSafeArea()
+                }
+            }
             .overlay {
                 Color.black
                     .opacity(viewModel.isShowMenuTapped ? 0.35 : 0)
@@ -132,32 +137,32 @@ struct PlaylistDetailsView: View {
             }
             .animation(.easeInOut(duration: viewModel.isShowMenuTapped ? 0.2 : 0.001), value: viewModel.isShowMenuTapped)
         }
-//        
-//        .sheet(isPresented: $viewModel.isShowMenuTapped) {
-//            PlaylistActionsSheet(
-//                onShare: {},
-//                onRename: {},
-//                onAddTrack: {},
-//                onDelete: {}
-//            )
-//            .presentationDetents([.height(234)])
-//            .presentationCornerRadius(28.fitW)
-//            .presentationDragIndicator(.hidden)
-//            .ignoresSafeArea()
-//        }
-//        .onTapGesture {
-//            UIApplication.shared.endEditing(true)
-//        }
-//        .scrollIndicators(.hidden)
-//        .blur(radius: viewModel.isShowMenuTapped || viewModel.isActionSheetPresented ? 20 : 0)
-//        .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
-//        .animation(.easeInOut(duration: 0.3), value: viewModel.isActionSheetPresented)
-//        .toolbar(.hidden, for: .navigationBar)
-//        .background {
-//            LinearGradient(colors: [.gray222222, .black111111],
-//                           startPoint: .top, endPoint: .bottom)
-//            .ignoresSafeArea()
-//        }
+        
+        .sheet(isPresented: $viewModel.isShowMenuTapped) {
+            PlaylistActionsSheet(
+                onShare: {},
+                onRename: {},
+                onAddTrack: {},
+                onDelete: {}
+            )
+            .presentationDetents([.height(234)])
+            .presentationCornerRadius(28.fitW)
+            .presentationDragIndicator(.hidden)
+            .ignoresSafeArea()
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing(true)
+        }
+        .scrollIndicators(.hidden)
+        .blur(radius: viewModel.isShowMenuTapped || viewModel.isActionSheetPresented ? 20 : 0)
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isShowMenuTapped)
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isActionSheetPresented)
+        .toolbar(.hidden, for: .navigationBar)
+        .background {
+            LinearGradient(colors: [.gray222222, .black111111],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+        }
     }
     private var sheetHeightClamped: CGFloat {
         let screenH = UIScreen.main.bounds.height
@@ -197,45 +202,35 @@ private struct ActionTile: View {
     }
 }
 
-private struct PlaylistTrackRow: View {
-    let cover: Image
+struct PlaylistTrackRow: View {
+    let coverURL: URL?
     let title: String
     let artist: String
-    var onMenuTap: () -> Void
-    
+    var onMenuTap: () -> Void = {}
+
     var body: some View {
         HStack(spacing: 10.fitW) {
-            cover
+            KFImage(coverURL)
+                .placeholder { Color.gray.opacity(0.2) }
+                .cacheOriginalImage()
+                .loadDiskFileSynchronously()
                 .resizable()
                 .scaledToFill()
                 .frame(width: 60.fitW, height: 60.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 16.fitW, style: .continuous))
-            
+
             VStack(alignment: .leading, spacing: 2.fitH) {
-                Text(title)
-                    .font(.manropeSemiBold(size: 14.fitW))
-                    .foregroundStyle(.white)
-                Text(artist)
-                    .font(.manropeRegular(size: 12.fitW))
-                    .foregroundStyle(.gray707070)
+                Text(title).font(.manropeSemiBold(size: 14.fitW)).foregroundStyle(.white)
+                Text(artist).font(.manropeRegular(size: 12.fitW)).foregroundStyle(.gray707070)
             }
-            
             Spacer()
-            
             Button(action: onMenuTap) {
                 Image(systemName: "ellipsis")
                     .font(.system(size: 18.fitW, weight: .semibold))
                     .foregroundStyle(.grayB3B3B3)
-                    .frame(width: 18.fitW, height: 18.fitW)
-                    .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
         }
         .contentShape(Rectangle())
     }
-}
-
-#Preview {
-    PlaylistDetailsView()
-        .environmentObject(Router())
 }

@@ -10,7 +10,7 @@ final class PlaylistViewModel: ObservableObject {
     }
     
     @MainActor func pushToDetail() {
-        router?.push(.playlistDetails)
+//        router?.push(.playlistDetails)
     }
     
     @MainActor func back() {

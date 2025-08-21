@@ -9,19 +9,40 @@ import SwiftUI
 import Kingfisher
 
 struct TrackCell: View {
-    let rank: Int
+    
+    var rank: Int? = nil
     let coverURL: URL?
     let title: String
     let artist: String
     var onMenuTap: () -> Void = {}
 
+    init(
+        rank: Int? = nil,
+        coverURL: URL?,
+        title: String,
+        artist: String,
+        onMenuTap: @escaping () -> Void = {}
+    ) {
+        self.rank = rank
+        self.coverURL = coverURL
+        self.title = title
+        self.artist = artist
+        self.onMenuTap = onMenuTap
+    }
+
     var body: some View {
         HStack(spacing: .zero) {
-            VStack(spacing: 6.fitH) {
-                Text("\(rank)").font(.manropeSemiBold(size: 20.fitW)).foregroundStyle(.white)
-                Capsule().frame(width: 14.fitW, height: 2.fitH).foregroundStyle(.white)
+            
+            if let r = rank {
+                VStack(spacing: 6.fitH) {
+                    Text("\(r)").font(.manropeSemiBold(size: 20.fitW)).foregroundStyle(.white)
+                    Capsule().frame(width: 14.fitW, height: 2.fitH).foregroundStyle(.white)
+                }
+                .frame(width: 30.fitW).padding(.trailing, 8)
+            } else {
+                // без ранга – просто небольшой отступ, чтобы не прыгала вёрстка
+                Spacer().frame(width: 6.fitW)
             }
-            .frame(width: 30.fitW).padding(.trailing, 8)
 
             KFImage(coverURL)
                 .placeholder { Color.gray.opacity(0.2) }

@@ -10,7 +10,7 @@ enum AppRoute: Hashable {
     case main
     case trendingNow(items: [MyTrack])
     case playlists
-    case playlistDetails
+    case playlistDetails(playlist: MyPlaylist, items: [MyTrack])
     case library
 }
 
@@ -60,8 +60,8 @@ extension Router {
             TrendingNowView(items: items)
         case .playlists:
             PlaylistView()
-        case .playlistDetails:
-            PlaylistDetailsView()
+        case .playlistDetails(let playlist, let items):
+            PlaylistDetailsView(tracks: items, playlist: playlist)
         case .library:
             LibraryView()
         }

@@ -12,7 +12,7 @@ enum TimeWindow: String {
 }
 
 enum AudiusGenre: String {
-    case electronic = "Electronic", hipHop = "Hip-Hop", pop = "Pop", jazz = "Jazz"
+    case electronic = "", hipHop = "Electronic", pop = "Pop", jazz = "Jazz"
 }
 
 
@@ -51,7 +51,7 @@ struct MyPlaylist: Decodable, Identifiable, Hashable {
     struct Artwork: Decodable, Hashable {
         let _150x150: URL?
         let _480x480: URL?
-        let _640x: URL?        // встречается, например, в cover_photo
+        let _640x: URL?
         let _1000x1000: URL?
 
         private enum CodingKeys: String, CodingKey {
@@ -71,9 +71,9 @@ struct MyPlaylist: Decodable, Identifiable, Hashable {
 struct MyTrack: Decodable, Identifiable, Hashable {
     let id: String
     let title: String
-    let duration: Int?                  // было Double?
+    let duration: Int?
     let user: User?
-    let artwork: Artwork?               // было trackArtwork
+    let artwork: Artwork?
 
     var artist: String { user?.name ?? user?.handle ?? "" }
     var artworkURL: URL? {
@@ -83,7 +83,6 @@ struct MyTrack: Decodable, Identifiable, Hashable {
     struct User: Decodable, Hashable {
         let handle: String?
         let name: String?
-        // при желании можно добавить profilePicture как в плейлистах
     }
 
     struct Artwork: Decodable, Hashable {

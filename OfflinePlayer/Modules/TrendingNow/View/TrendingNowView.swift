@@ -80,27 +80,10 @@ struct TrendingNowView: View {
             }
             .task {
                 viewModel.attach(router: router)
-                
-//                if viewModel.items.isEmpty {
-//                    viewModel.items = [
-//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-//                        Track(title: "Dreamy Skies", artist: "Luma Rae", cover: Image(.image)),
-//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image)),
-//                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
-//                        Track(title: "No Sleep City", artist: "Drex Malone", cover: Image(.image)),
-//                        Track(title: "Lost in Static", artist: "Kai Verne", cover: Image(.image))
-//                    ]
-//                }
             }
         }
         .animation(nil, value: viewModel.isActionSheetPresented)
         .toolbar(.hidden, for: .navigationBar)
-        .toolbar(.hidden, for: .tabBar)
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(

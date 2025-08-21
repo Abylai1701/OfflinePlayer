@@ -12,6 +12,7 @@ import Kingfisher
 struct WeatherPoetryApp: App {
 
     @StateObject private var router = Router()
+    @StateObject private var homeCache = HomeCacheService.shared
 
     init() {
         configureImageCache()
@@ -22,6 +23,10 @@ struct WeatherPoetryApp: App {
             RootView()
                 .preferredColorScheme(.light)
                 .environmentObject(router)
+                .task {
+                    await homeCache.refreshAll()
+                }
+
         }
     }
     
