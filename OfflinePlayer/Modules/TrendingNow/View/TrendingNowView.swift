@@ -104,9 +104,4 @@ struct TrendingNowView: View {
             }
         }
     }
-    
-    private var sheetHeightClamped: CGFloat {
-        let screenH = UIScreen.main.bounds.height
-        return min(sheetContentHeight, screenH * 0.9)
-    }
 }

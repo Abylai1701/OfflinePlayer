@@ -7,8 +7,11 @@ struct PlaylistDetailsView: View {
     @State private var sheetContentHeight: CGFloat = 430
     @State private var menuHeight: CGFloat = 260
         
-    init(tracks: [MyTrack], playlist: MyPlaylist) {
+    private var isLocalPlaylist: Bool = false
+    
+    init(tracks: [MyTrack], playlist: MyPlaylist, isLocalPlaylist: Bool = false) {
         _viewModel = StateObject(wrappedValue: PlaylistDetailsViewModel(tracks: tracks, playlist: playlist))
+        self.isLocalPlaylist = isLocalPlaylist
     }
     
     var body: some View {
@@ -64,8 +67,7 @@ struct PlaylistDetailsView: View {
                     .padding(.horizontal, 24.fitW)
                     .padding(.bottom, 10.fitH)
                     
-                    // Title
-                    Text("Party All Night")
+                    Text(viewModel.playlist.playlistName)
                         .font(.manropeExtraBold(size: 24.fitW))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -73,23 +75,23 @@ struct PlaylistDetailsView: View {
                         .padding(.top, 10.fitH)
                         .padding(.bottom, 32.fitH)
                     
-                    // Action tiles
-                    VStack(spacing: 14.fitH) {
-                        ActionTile(
-                            icon: "playlistFileIcon",
-                            title: "Import from Device",
-                            onTap: { /* import action */ }
-                        )
-                        ActionTile(
-                            icon: "playlistMusicIcon",
-                            title: "Search in Library",
-                            onTap: { viewModel.pushToLibrary() }
-                        )
+                    if isLocalPlaylist {
+                        VStack(spacing: 14.fitH) {
+                            ActionTile(
+                                icon: "playlistFileIcon",
+                                title: "Import from Device",
+                                onTap: { /* import action */ }
+                            )
+                            ActionTile(
+                                icon: "playlistMusicIcon",
+                                title: "Search in Library",
+                                onTap: { viewModel.pushToLibrary() }
+                            )
+                        }
+                        .padding(.horizontal, 16.fitW)
+                        .padding(.top, 4.fitH)
+                        .padding(.bottom, 14.fitH)
                     }
-                    .padding(.horizontal, 16.fitW)
-                    .padding(.top, 4.fitH)
-                    .padding(.bottom, 14.fitH)
-                    
                     // Tracks
                     VStack(spacing: 14.fitH) {
                         ForEach(viewModel.tracks) { t in
