@@ -38,7 +38,7 @@ struct RootView: View {
             .tag(Tab.playlists)
 
             NavigationStack(path: $router.settingsPath) {
-                MainView() //Замени потом
+                SettingsView()
                     .navigationDestination(for: AppRoute.self) { router.destination(for: $0) }
             }
             .tabItem {
