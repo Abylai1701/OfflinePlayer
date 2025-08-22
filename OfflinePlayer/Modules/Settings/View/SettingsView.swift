@@ -27,62 +27,67 @@ struct SettingsView: View {
                            startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            ScrollView {
-                VStack(alignment: .leading, spacing: .zero) {
-
-                    Text("Settings")
-                        .font(.manropeBold(size: 24.fitW))
-                        .foregroundStyle(.white)
-                        .padding(.top, 8.fitH)
-                        .padding(.bottom, 32.fitH)
-
-                    // App
-                    Text("App")
-                        .font(.manropeRegular(size: 18))
-                        .foregroundStyle(.white.opacity(0.8))
-                        .padding(.bottom, 16.fitH)
-
-                    SettingsCard(
-                        rows: [
-                            .init(icon: "starSettingsIcon",
-                                  title: "Rate Us",
-                                  subtitle: "Leave a review in the store",
-                                  sheet: .rate),
-                            .init(icon: "shareSettingsIcon",
-                                  title: "Share with Friends",
-                                  subtitle: "Send a link to download the app",
-                                  sheet: .share)
-                        ],
-                        onTap: { activeSheet = $0 }
-                    )
-
-                    // Legal
-                    Text("Legal")
-                        .padding(.top, 24.fitH)
-                        .padding(.bottom, 16.fitH)
-                        .font(.manropeRegular(size: 18.fitW))
-                        .foregroundStyle(.white.opacity(0.8))
-
-                    SettingsCard(
-                        rows: [
-                            .init(icon: "lockSettingsIcon",
-                                  title: "Privacy Policy",
-                                  subtitle: "View how handle your data",
-                                  sheet: .privacy),
-                            .init(icon: "listSettingsIcon",
-                                  title: "Terms of Use",
-                                  subtitle: "Read our user agreement",
-                                  sheet: .terms),
-                            .init(icon: "messageSettingsIcon",
-                                  title: "Share Feedback",
-                                  subtitle: "Let us know what you think",
-                                  sheet: .feedback)
-                        ],
-                        onTap: { activeSheet = $0 }
-                    )
+            
+            VStack(alignment: .leading, spacing: .zero) {
+                
+                Text("Settings")
+                    .font(.manropeBold(size: 24.fitW))
+                    .foregroundStyle(.white)
+                    .padding(.top)
+                    .padding(.horizontal)
+                
+                
+                ScrollView() {
+                    VStack(alignment: .leading, spacing: .zero) {
+                        // App
+                        Text("App")
+                            .padding(.top, 32.fitH)
+                            .font(.manropeRegular(size: 18))
+                            .foregroundStyle(.white.opacity(0.8))
+                            .padding(.bottom)
+                        
+                        SettingsCard(
+                            rows: [
+                                .init(icon: "starSettingsIcon",
+                                      title: "Rate Us",
+                                      subtitle: "Leave a review in the store",
+                                      sheet: .rate),
+                                .init(icon: "shareSettingsIcon",
+                                      title: "Share with Friends",
+                                      subtitle: "Send a link to download the app",
+                                      sheet: .share)
+                            ],
+                            onTap: { activeSheet = $0 }
+                        )
+                        
+                        // Legal
+                        Text("Legal")
+                            .padding(.top, 24.fitH)
+                            .padding(.bottom, 16.fitH)
+                            .font(.manropeRegular(size: 18.fitW))
+                            .foregroundStyle(.white.opacity(0.8))
+                        
+                        SettingsCard(
+                            rows: [
+                                .init(icon: "lockSettingsIcon",
+                                      title: "Privacy Policy",
+                                      subtitle: "View how handle your data",
+                                      sheet: .privacy),
+                                .init(icon: "listSettingsIcon",
+                                      title: "Terms of Use",
+                                      subtitle: "Read our user agreement",
+                                      sheet: .terms),
+                                .init(icon: "messageSettingsIcon",
+                                      title: "Share Feedback",
+                                      subtitle: "Let us know what you think",
+                                      sheet: .feedback)
+                            ],
+                            onTap: { activeSheet = $0 }
+                        )
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 40.fitH)
                 }
-                .padding(.horizontal, 20.fitW)
-                .padding(.bottom, 40.fitH)
             }
         }
         .sheet(item: $activeSheet) { sheet in
