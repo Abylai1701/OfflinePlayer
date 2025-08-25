@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PlaylistActionsSheet: View {
     
+    let isLocal: Bool
     var onShare: () -> Void
     var onRename: () -> Void
     var onAddTrack: () -> Void
@@ -16,10 +17,14 @@ struct PlaylistActionsSheet: View {
                         .padding(.bottom)
                     
                     VStack(spacing: 2.fitH) {
-                        row(symbol: "playlistDetailShareIcon", title: "Share Playlist", action: onShare)
-                        row(symbol: "playlistDetailPenIcon", title: "Rename Playlist", action: onRename)
-                        row(symbol: "playlistDetailAddIcon", title: "Add track", action: onAddTrack)
-                        row(symbol: "deleteIcon", title: "Delete Playlist", action: onDelete, tint: .red)
+                        if isLocal {
+                            row(symbol: "playlistDetailShareIcon", title: "Share Playlist", action: onShare)
+                            row(symbol: "playlistDetailPenIcon", title: "Rename Playlist", action: onRename)
+                            row(symbol: "playlistDetailAddIcon", title: "Add track", action: onAddTrack)
+                            row(symbol: "deleteIcon", title: "Delete Playlist", action: onDelete, tint: .red)
+                        } else {
+                            row(symbol: "playlistDetailShareIcon", title: "Share Playlist", action: onShare)
+                        }
                     }
                 }
                 .padding(.top, 8)

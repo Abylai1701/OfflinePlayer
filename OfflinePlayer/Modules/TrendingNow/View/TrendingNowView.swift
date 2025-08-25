@@ -87,6 +87,7 @@ struct TrendingNowView: View {
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
+                    isLocal: false,
                     track: t,
                     coverURL: t.artworkURL,
                     onLike: { viewModel.like(); viewModel.closeActions() },
@@ -94,10 +95,9 @@ struct TrendingNowView: View {
                     onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
                     onDownload: { viewModel.download(); viewModel.closeActions() },
                     onShare: { viewModel.share(); viewModel.closeActions() },
-                    onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
                     onRemove: { viewModel.remove(); viewModel.closeActions() }
                 )
-                .presentationDetents([.height(462)])
+                .presentationDetents([.height(340)])
                 .presentationCornerRadius(28.fitW)
                 .presentationDragIndicator(.hidden)
                 .ignoresSafeArea()

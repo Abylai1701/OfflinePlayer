@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LibrarySearchView: View {
     
-    @State var searchText: String = ""
-    
+    @Binding var searchText: String
+
     var body: some View {
         SearchBar(text: $searchText, type: .library)
     }

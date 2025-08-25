@@ -11,7 +11,8 @@ enum AppRoute: Hashable {
     case trendingNow(items: [MyTrack])
     case playlists
     case playlistDetails(playlist: MyPlaylist, items: [MyTrack])
-    case library
+    case localPlaylist(playlist: LocalPlaylist)
+    case library(playlist: LocalPlaylist)
 }
 
 import SwiftUI
@@ -62,8 +63,10 @@ extension Router {
             PlaylistView()
         case .playlistDetails(let playlist, let items):
             PlaylistDetailsView(tracks: items, playlist: playlist)
-        case .library:
-            LibraryView()
+        case .library(playlist: let playlist):
+            LibraryView(playlist: playlist)
+        case .localPlaylist(playlist: let playlist):
+            LocalPlaylistDetailView(playlist: playlist)
         }
     }
 }

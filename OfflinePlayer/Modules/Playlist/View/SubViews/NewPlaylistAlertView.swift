@@ -6,6 +6,7 @@ struct NewPlaylistAlertView: View {
     @Binding var text: String
     var onSave: (String) -> Void = { _ in }
     var onCancel: () -> Void = {}
+    var title: String = "New playlist"
 
     @FocusState private var focus: Bool
 
@@ -20,7 +21,7 @@ struct NewPlaylistAlertView: View {
                 .onTapGesture { }
             
             VStack(spacing: 0) {
-                Text("New playlist")
+                Text(title)
                     .font(.manropeSemiBold(size: 17.fitW))
                     .foregroundStyle(.white)
                     .padding(.top, 16.fitH)

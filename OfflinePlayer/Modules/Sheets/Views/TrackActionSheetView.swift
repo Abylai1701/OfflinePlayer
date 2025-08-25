@@ -2,6 +2,7 @@ import SwiftUI
 import Kingfisher
 
 struct TrackActionsSheet: View {
+    let isLocal: Bool
     let track: MyTrack
     /// Можно прокинуть фолбэк-URL из VM (например, viewModel.coverURL(for: track))
     var coverURL: URL? = nil
@@ -11,7 +12,7 @@ struct TrackActionsSheet: View {
     var onPlayNext: () -> Void
     var onDownload: () -> Void
     var onShare: () -> Void
-    var onGoToAlbum: () -> Void
+//    var onGoToAlbum: () -> Void
     var onRemove: () -> Void
 
     var body: some View {
@@ -44,13 +45,22 @@ struct TrackActionsSheet: View {
                     .padding(.bottom, 8.fitH)
 
                     VStack(spacing: 2.fitH) {
-                        actionRow(symbol: "sheetLikeIcon",          title: "Like",              action: onLike)
-                        actionRow(symbol: "sheetMusicnoteIcon",     title: "Add to Playlist",   action: onAddToPlaylist)
-                        actionRow(symbol: "sheetForwardIcon",       title: "Play Next",         action: onPlayNext)
-                        actionRow(symbol: "sheetDownloadIcon",      title: "Download",          action: onDownload)
-                        actionRow(symbol: "sheetShareIcon",         title: "Share",             action: onShare)
-                        actionRow(symbol: "sheetRecordCircleIcon",  title: "Go to Album",       action: onGoToAlbum)
-                        actionRow(symbol: "deleteIcon",             title: "Remove",            action: onRemove)
+                        if isLocal {
+                            actionRow(symbol: "sheetLikeIcon", title: "Like", action: onLike)
+                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
+                            actionRow(symbol: "sheetForwardIcon", title: "Play Next", action: onPlayNext)
+                            actionRow(symbol: "sheetDownloadIcon", title: "Download", action: onDownload)
+                            actionRow(symbol: "sheetShareIcon", title: "Share", action: onShare)
+//                            actionRow(symbol: "sheetRecordCircleIcon", title: "Go to Album", action: onGoToAlbum)
+                            actionRow(symbol: "deleteIcon", title: "Remove", action: onRemove)
+                        } else {
+                            actionRow(symbol: "sheetLikeIcon", title: "Like", action: onLike)
+                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
+                            actionRow(symbol: "sheetForwardIcon", title: "Play Next", action: onPlayNext)
+                            actionRow(symbol: "sheetDownloadIcon", title: "Download", action: onDownload)
+                            actionRow(symbol: "sheetShareIcon", title: "Share", action: onShare)
+//                            actionRow(symbol: "sheetRecordCircleIcon", title: "Go to Album", action: onGoToAlbum)
+                        }
                     }
                     .padding(.horizontal, 32.fitW)
                 }

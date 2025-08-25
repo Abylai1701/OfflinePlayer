@@ -69,6 +69,7 @@ struct MainView: View {
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
+                    isLocal: false,
                     track: t,
                     coverURL: viewModel.coverURL(for: t),
                     onLike: {
@@ -91,16 +92,12 @@ struct MainView: View {
                         viewModel.share();
                         viewModel.closeActions()
                     },
-                    onGoToAlbum: {
-                        viewModel.goToAlbum();
-                        viewModel.closeActions()
-                    },
                     onRemove: {
                         viewModel.remove();
                         viewModel.closeActions()
                     }
                 )
-                .presentationDetents([.height(462)])
+                .presentationDetents([.height(340)])
                 .presentationCornerRadius(28.fitW)
                 .presentationDragIndicator(.hidden)
                 .ignoresSafeArea()

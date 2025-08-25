@@ -30,9 +30,6 @@ final class PlaylistDetailsViewModel: ObservableObject {
              await MainActor.run { self.tracks = full }
          } catch {}
      }
-    @MainActor func pushToLibrary() {
-        router?.push(.library)
-    }
     
     //MARK: - Тап по “три точки”
     func openActions(for track: MyTrack) {

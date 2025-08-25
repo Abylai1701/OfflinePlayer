@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import SwiftData
 
 @main
 struct WeatherPoetryApp: App {
@@ -23,12 +24,23 @@ struct WeatherPoetryApp: App {
             RootView()
                 .preferredColorScheme(.light)
                 .environmentObject(router)
+                .modelContainer(sharedModelContainer)
                 .task {
                     await homeCache.refreshAll()
                 }
 
         }
     }
+    
+    var sharedModelContainer: ModelContainer = {
+        let schema = Schema([
+            LocalPlaylist.self,
+            LocalTrack.self,
+            PlaylistItem.self
+        ])
+        let config = ModelConfiguration("LocalLibrary")
+        return try! ModelContainer(for: schema, configurations: [config])
+    }()
     
 
     func configureImageCache() {

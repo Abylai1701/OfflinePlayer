@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PlaylistView: View {
     @EnvironmentObject private var router: Router
+    @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = PlaylistViewModel()
     
     @State private var search = ""
@@ -9,30 +10,40 @@ struct PlaylistView: View {
     @State private var newPlaylistName = ""
     @State private var showPlayer = false
 
-
+    
     var body: some View {
+        content
+            .overlay {
+                if showNewPlaylistAlert {
+                    NewPlaylistAlertView(
+                        isPresented: $showNewPlaylistAlert,
+                        text: $newPlaylistName,
+                        onSave: { name in
+                            viewModel.createPlaylist(named: name)
+                        },
+                        onCancel: {}
+                    )
+                }
+            }
+            .task {
+                viewModel.attach(router: router)
+                viewModel.bindIfNeeded(context: modelContext)
+                viewModel.refresh()
+            }
+            .onTapGesture {
+                UIApplication.shared.endEditing(true)
+            }
+            .animation(.easeInOut(duration: 0.3), value: showNewPlaylistAlert)
+    }
+    
+    private var content: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: .zero) {
-                
-                HStack(spacing: 8.fitW) {
-                    Button {
-                        
-                    } label: {
-                        Image("backIcon")
-                            .foregroundStyle(.white)
-                            .frame(width: 14.fitW, height: 28.fitH)
-                            .contentShape(Rectangle())
-                    }
-                    
-                    Text("Playlists")
-                        .font(.manropeBold(size: 24.fitW))
-                        .foregroundStyle(.white)
-                    
-                    Spacer()
-                }
-                .padding(.top)
-                .padding(.horizontal)
-                .padding(.bottom)
+
+                navBar
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 
             ScrollView {
                     PlaylistSearchView(searchText: search)
@@ -47,18 +58,14 @@ struct PlaylistView: View {
                     .padding(.horizontal)
 
                     VStack(spacing: 14) {
-                        PlaylistRow(cover: Image(.image),
-                                    title: "Favorites",
-                                    subtitle: "456 tracks",
-                                    onTap: {viewModel.pushToDetail()})
-                        PlaylistRow(cover: Image(.image),
-                                    title: "Party All Night",
-                                    subtitle: "50 tracks",
-                                    onTap: {viewModel.pushToDetail()})
-                        PlaylistRow(cover: Image(.image),
-                                    title: "Party All Night",
-                                    subtitle: "78 tracks",
-                                    onTap: {viewModel.pushToDetail()})
+                        ForEach(viewModel.playlists) { p in
+                            PlaylistCell(
+                                cover: coverImage(for: p),
+                                title: p.title,
+                                subtitle: "\(p.items.count) tracks",
+                                onTap: { viewModel.pushToDetail(p) }
+                            )
+                        }
                     }
                     .padding(.horizontal)
                     
@@ -90,94 +97,36 @@ struct PlaylistView: View {
                     onDismiss: { showPlayer = false }
                 )
             }
-
-        }
-        .overlay {
-            if showNewPlaylistAlert {
-                NewPlaylistAlertView(
-                    isPresented: $showNewPlaylistAlert,
-                    text: $newPlaylistName,
-                    onSave: {_ in },
-                    onCancel: {}
-                )
-//                .zIndex(10)
-            }
-        }
-        .task {
-            viewModel.attach(router: router)
-        }
-        .onTapGesture {
-            UIApplication.shared.endEditing(true)
         }
     }
-}
-
-// MARK: - Rows
-
-private struct NewPlaylistRow: View {
-    var onTap: () -> Void
     
-    var body: some View {
-        Button(action: onTap) {
-            HStack(spacing: 10.fitW) {
-                RoundedRectangle(cornerRadius: 16.fitW, style: .continuous)
-                    .fill(.gray2C2C2C)
-                    .frame(width: 60.fitW, height: 60.fitW)
-                    .overlay {
-                        Image(systemName: "plus")
-                            .font(.manropeSemiBold(size: 22.fitW))
-                            .frame(width: 18.fitW, height: 18.fitW)
-                            .foregroundStyle(.gray707070)
-                    }
-                
-                Text("New Playlist")
-                    .font(.manropeSemiBold(size: 14.fitW))
-                    .foregroundStyle(.white)
-                
-                Spacer()
-            }
-            .contentShape(Rectangle())
+    private func coverImage(for p: LocalPlaylist) -> Image {
+        if let data = p.artworkData, let ui = UIImage(data: data) {
+            return Image(uiImage: ui)
+        } else {
+            return Image(.emptyPhoto)
         }
-        .buttonStyle(PressableRowStyle())
     }
-}
-
-struct PlaylistRow: View {
-    let cover: Image
-    let title: String
-    let subtitle: String
-    var onTap: () -> Void
     
-    var body: some View {
-        Button(action: onTap) {
-            HStack(spacing: 10.fitW) {
-                cover.resizable().scaledToFill()
-                    .frame(width: 60.fitW, height: 60.fitW)
-                    .clipShape(RoundedRectangle(cornerRadius: 16.fitW, style: .continuous))
+    private var navBar: some View {
+        HStack(spacing: 8.fitW) {
+            Button {
                 
-                VStack(alignment: .leading, spacing: 2.fitH) {
-                    Text(title)
-                        .font(.manropeSemiBold(size: 14.fitW))
-                        .foregroundStyle(.white)
-                    Text(subtitle)
-                        .font(.manropeRegular(size: 12.fitW))
-                        .foregroundStyle(.gray707070)
-                }
-                
-                Spacer()
-                
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 18.fitW, weight: .semibold))
-                    .frame(width: 18.fitW, height: 18.fitW)
+            } label: {
+                Image("backIcon")
                     .foregroundStyle(.white)
+                    .frame(width: 14.fitW, height: 28.fitH)
+                    .contentShape(Rectangle())
             }
-            .contentShape(Rectangle())
+            
+            Text("Playlists")
+                .font(.manropeBold(size: 24.fitW))
+                .foregroundStyle(.white)
+            
+            Spacer()
         }
-        .buttonStyle(PressableRowStyle())
     }
 }
-
-// MARK: - Mini Player
 
 struct MiniPlayerBar: View {
     let cover: Image
@@ -236,18 +185,6 @@ struct MiniPlayerBar: View {
         .background(.black191919)
         .padding(.horizontal, 8.fitW)
         .padding(.bottom, 4.fitH)
-    }
-}
-
-
-struct PressableRowStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .background(
-                RoundedRectangle(cornerRadius: 16.fitW, style: .continuous)
-                    .fill(.white.opacity(configuration.isPressed ? 0.08 : 0))
-            )
-            .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
     }
 }
 

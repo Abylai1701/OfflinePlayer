@@ -6,12 +6,9 @@ struct PlaylistDetailsView: View {
     @StateObject private var viewModel: PlaylistDetailsViewModel
     @State private var sheetContentHeight: CGFloat = 430
     @State private var menuHeight: CGFloat = 260
-        
-    private var isLocalPlaylist: Bool = false
-    
+            
     init(tracks: [MyTrack], playlist: MyPlaylist, isLocalPlaylist: Bool = false) {
         _viewModel = StateObject(wrappedValue: PlaylistDetailsViewModel(tracks: tracks, playlist: playlist))
-        self.isLocalPlaylist = isLocalPlaylist
     }
     
     var body: some View {
@@ -75,24 +72,6 @@ struct PlaylistDetailsView: View {
                         .padding(.top, 10.fitH)
                         .padding(.bottom, 32.fitH)
                     
-                    if isLocalPlaylist {
-                        VStack(spacing: 14.fitH) {
-                            ActionTile(
-                                icon: "playlistFileIcon",
-                                title: "Import from Device",
-                                onTap: { /* import action */ }
-                            )
-                            ActionTile(
-                                icon: "playlistMusicIcon",
-                                title: "Search in Library",
-                                onTap: { viewModel.pushToLibrary() }
-                            )
-                        }
-                        .padding(.horizontal, 16.fitW)
-                        .padding(.top, 4.fitH)
-                        .padding(.bottom, 14.fitH)
-                    }
-                    // Tracks
                     VStack(spacing: 14.fitH) {
                         ForEach(viewModel.tracks) { t in
                             PlaylistTrackRow(
@@ -105,7 +84,7 @@ struct PlaylistDetailsView: View {
                     }
                     .padding(.horizontal, 16.fitW)
                     
-                    Spacer(minLength: 120.fitH) // место под мини-плеер/табар
+                    Spacer(minLength: 120.fitH)
                 }
             }
             .task {
@@ -117,16 +96,16 @@ struct PlaylistDetailsView: View {
             .sheet(isPresented: $viewModel.isActionSheetPresented) {
                 if let t = viewModel.actionTrack {
                     TrackActionsSheet(
+                        isLocal: false,
                         track: t,
                         onLike: { viewModel.like(); viewModel.closeActions() },
                         onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
                         onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
                         onDownload: { viewModel.download(); viewModel.closeActions() },
                         onShare: { viewModel.share(); viewModel.closeActions() },
-                        onGoToAlbum: { viewModel.goToAlbum(); viewModel.closeActions() },
                         onRemove: { viewModel.remove(); viewModel.closeActions() }
                     )
-                    .presentationDetents([.height(462)])
+                    .presentationDetents([.height(340)])
                     .presentationCornerRadius(28.fitW)
                     .presentationDragIndicator(.hidden)
                     .ignoresSafeArea()
@@ -142,12 +121,13 @@ struct PlaylistDetailsView: View {
         
         .sheet(isPresented: $viewModel.isShowMenuTapped) {
             PlaylistActionsSheet(
+                isLocal: false,
                 onShare: {},
                 onRename: {},
                 onAddTrack: {},
                 onDelete: {}
             )
-            .presentationDetents([.height(234)])
+            .presentationDetents([.height(64)])
             .presentationCornerRadius(28.fitW)
             .presentationDragIndicator(.hidden)
             .ignoresSafeArea()
@@ -175,7 +155,7 @@ struct PlaylistDetailsView: View {
 
 
 // MARK: - Components
-private struct ActionTile: View {
+struct ActionTile: View {
     let icon: String
     let title: String
     var onTap: () -> Void
@@ -200,7 +180,7 @@ private struct ActionTile: View {
             }
             .contentShape(Rectangle())
         }
-        .buttonStyle(PressableRowStyle())
+        .buttonStyle(.plain)
     }
 }
 
