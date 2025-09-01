@@ -1,10 +1,12 @@
 import SwiftUI
+import SwiftData
 
 struct TrendingNowView: View {
     
     @EnvironmentObject private var router: Router
     @StateObject private var viewModel: TrendingNowViewModel
-    
+    @Environment(\.modelContext) private var modelContext
+
     @State private var search: String = ""
     @State private var sheetContentHeight: CGFloat = 430
     
@@ -80,6 +82,7 @@ struct TrendingNowView: View {
             }
             .task {
                 viewModel.attach(router: router)
+                viewModel.bindIfNeeded(context: modelContext)
             }
         }
         .animation(nil, value: viewModel.isActionSheetPresented)
@@ -90,18 +93,32 @@ struct TrendingNowView: View {
                     isLocal: false,
                     track: t,
                     coverURL: t.artworkURL,
-                    onLike: { viewModel.like(); viewModel.closeActions() },
-                    onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+                    onLike: {
+                        viewModel.isActionSheetPresented = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            viewModel.addCurrentTrackToFavorites()
+                        }
+                    },
                     onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
                     onDownload: { viewModel.download(); viewModel.closeActions() },
-                    onShare: { viewModel.share(); viewModel.closeActions() },
+                    onShare: {
+                        viewModel.closeActions()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            viewModel.shareCurrentTrack()
+                        }
+                    },
                     onRemove: { viewModel.remove(); viewModel.closeActions() }
                 )
-                .presentationDetents([.height(340)])
+                .presentationDetents([.height(290)])
                 .presentationCornerRadius(28.fitW)
                 .presentationDragIndicator(.hidden)
                 .ignoresSafeArea()
             }
+        }
+        .sheet(isPresented: $viewModel.isShareSheetPresented) {
+            ShareSheet(items: viewModel.shareItems)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
         }
     }
 }

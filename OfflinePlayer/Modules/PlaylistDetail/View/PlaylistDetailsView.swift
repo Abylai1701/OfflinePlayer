@@ -3,6 +3,8 @@ import Kingfisher
 
 struct PlaylistDetailsView: View {
     @EnvironmentObject private var router: Router
+    @Environment(\.modelContext) private var modelContext
+
     @StateObject private var viewModel: PlaylistDetailsViewModel
     @State private var sheetContentHeight: CGFloat = 430
     @State private var menuHeight: CGFloat = 260
@@ -89,6 +91,7 @@ struct PlaylistDetailsView: View {
             }
             .task {
                 viewModel.attach(router: router)
+                viewModel.bindIfNeeded(context: modelContext)
                 if viewModel.tracks.isEmpty {
                     await viewModel.refresh()
                 }
@@ -98,18 +101,32 @@ struct PlaylistDetailsView: View {
                     TrackActionsSheet(
                         isLocal: false,
                         track: t,
-                        onLike: { viewModel.like(); viewModel.closeActions() },
-                        onAddToPlaylist: { viewModel.addToPlaylist(); viewModel.closeActions() },
+                        onLike: {
+                            viewModel.isActionSheetPresented = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                viewModel.addCurrentTrackToFavorites()
+                            }
+                        },
                         onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
                         onDownload: { viewModel.download(); viewModel.closeActions() },
-                        onShare: { viewModel.share(); viewModel.closeActions() },
-                        onRemove: { viewModel.remove(); viewModel.closeActions() }
+                        onShare: {
+                            viewModel.closeActions()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                viewModel.shareCurrentTrack()
+                            }
+                        },
+                        onRemove: {
+                            
+                        }
                     )
-                    .presentationDetents([.height(340)])
+                    .presentationDetents([.height(290)])
                     .presentationCornerRadius(28.fitW)
                     .presentationDragIndicator(.hidden)
                     .ignoresSafeArea()
                 }
+            }
+            .sheet(isPresented: $viewModel.isShareSheetPresented) {
+                ShareSheet(items: viewModel.shareItems)
             }
             .overlay {
                 Color.black
@@ -122,7 +139,12 @@ struct PlaylistDetailsView: View {
         .sheet(isPresented: $viewModel.isShowMenuTapped) {
             PlaylistActionsSheet(
                 isLocal: false,
-                onShare: {},
+                onShare: {
+                    viewModel.isShowMenuTapped = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        viewModel.sharePlaylist()
+                    }
+                },
                 onRename: {},
                 onAddTrack: {},
                 onDelete: {}

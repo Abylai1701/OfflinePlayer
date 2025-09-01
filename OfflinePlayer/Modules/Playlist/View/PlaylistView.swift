@@ -110,15 +110,6 @@ struct PlaylistView: View {
     
     private var navBar: some View {
         HStack(spacing: 8.fitW) {
-            Button {
-                
-            } label: {
-                Image("backIcon")
-                    .foregroundStyle(.white)
-                    .frame(width: 14.fitW, height: 28.fitH)
-                    .contentShape(Rectangle())
-            }
-            
             Text("Playlists")
                 .font(.manropeBold(size: 24.fitW))
                 .foregroundStyle(.white)

@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-enum RepeatMode { case off, one }
+enum RepeatMode { case off, one, all }
 
 enum FlashEvent: Equatable {
     case likeOn, likeOff
     case shuffleOn, shaffleOff
     case repeatOne, repeatOff
 }
-
-
-

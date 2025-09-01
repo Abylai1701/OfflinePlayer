@@ -19,6 +19,8 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
     @Published var isShowMenuTapped = false
     @Published var localActionTrack: LocalTrack? = nil   // <- для локального шита
 
+    var isProtected: Bool { playlist.isProtected || playlist.title.caseInsensitiveCompare("Favorites") == .orderedSame }
+
     @Published var actionItem: PlaylistItem? = nil
     @Published var actionAudiusTrack: MyTrack? = nil
 
@@ -75,8 +77,7 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
         localActionTrack = item.track
         
         actionAudiusTrack = mapToMyTrackIfAudius(item.track)
-        // показываем твой общий шит только для аудиус-трека
-        isActionSheetPresented = (actionAudiusTrack != nil)
+        isActionSheetPresented = true
     }
 
     func closeActions() {
@@ -126,7 +127,7 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
 
             let fetched = try ctx.fetch(req)
             self.items = fetched
-            self.rows  = fetched.map { Row.from(item: $0) }
+            self.rows = fetched.map { Row.from(item: $0) }
         } catch {
             print("refresh error:", error.localizedDescription)
         }
@@ -166,7 +167,9 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
                 ctx.insert(item)
             }
             try ctx.save()
-            Task { await refresh() }
+            Task {
+                await refresh()
+            }
         } catch {
             print("importLocalFiles error:", error.localizedDescription)
         }
@@ -199,34 +202,6 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
             Task { await refresh() }
         } catch {
             print("addAudiusTracks error:", error.localizedDescription)
-        }
-    }
-
-    // MARK: Reorder / Delete
-
-    func move(fromOffsets: IndexSet, toOffset: Int) {
-        guard let ctx = context else { return }
-        var arr = items
-        arr.move(fromOffsets: fromOffsets, toOffset: toOffset)
-        // перенумеруем sortIndex
-        for (idx, it) in arr.enumerated() { it.sortIndex = idx }
-        do {
-            try ctx.save()
-            self.items = arr
-            self.rows  = arr.map { Row.from(item: $0) }
-        } catch {
-            print("move error:", error.localizedDescription)
-        }
-    }
-
-    func delete(at offsets: IndexSet) {
-        guard let ctx = context else { return }
-        do {
-            for i in offsets { ctx.delete(items[i]) }
-            try ctx.save()
-            Task { await refresh() }
-        } catch {
-            print("delete error:", error.localizedDescription)
         }
     }
 
@@ -292,6 +267,26 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
         self.isShareSheetPresented = true
     }
     
+    func shareLocalTrack() {
+        guard let t = localActionTrack else { return }
+
+        let text = "Track: \(t.title)\nArtist: \(t.artist.isEmpty ? "—" : t.artist)"
+        var items: [Any] = [text]
+
+        // локальный thumbnail, если есть
+        if let data = t.artworkThumb, let img = UIImage(data: data) {
+            items.append(img)
+        }
+
+        // если трек из Audius и есть artwork URL — можно приложить ссылку
+        if let s = t.artworkURLString, let url = URL(string: s) {
+            items.append(url)
+        }
+
+        self.shareItems = items
+        self.isShareSheetPresented = true
+    }
+    
     // MARK: - View snapshot
     struct Row: Identifiable, Hashable {
         let id: UUID
@@ -311,4 +306,65 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
             )
         }
     }
+    
+    // MARK: - Add to Favorites
+    
+    func addCurrentTrackToFavorites() {
+        guard let ctx = context, let src = localActionTrack else { return }
+        let fav = ensureFavorites(in: ctx)
+
+        // не дублируем
+        if isAlreadyInFavorites(src, favorites: fav) { return }
+
+        // клонируем трек (важно: у PlaylistItem deleteRule .cascade, поэтому лучше делать копию)
+        let copy = cloneTrack(src)
+        let nextIndex = (fav.items.map(\.sortIndex).max() ?? -1) + 1
+        let item = PlaylistItem(sortIndex: nextIndex, playlist: fav, track: copy)
+
+        ctx.insert(copy)
+        ctx.insert(item)
+        fav.updatedAt = .now
+        try? ctx.save()
+    }
+
+    private func ensureFavorites(in ctx: ModelContext) -> LocalPlaylist {
+        // ищем защищённый плейлист
+        if let existed = try? ctx.fetch(
+            FetchDescriptor<LocalPlaylist>(
+                predicate: #Predicate { $0.isProtected == true }
+            )
+        ).first {
+            return existed
+        }
+        // если нет — создаём
+        let fav = LocalPlaylist(title: "Favorites", artworkData: nil, createdAt: .now, isProtected: true)
+        ctx.insert(fav)
+        try? ctx.save()
+        return fav
+    }
+
+    private func isAlreadyInFavorites(_ src: LocalTrack, favorites: LocalPlaylist) -> Bool {
+        for it in favorites.items {
+            guard let t = it.track else { continue }
+            if let a = src.audiusId, !a.isEmpty, a == t.audiusId { return true }
+            if let f = src.localFilename, !f.isEmpty, f == t.localFilename { return true }
+            if src.title == t.title && src.artist == t.artist { return true }
+        }
+        return false
+    }
+
+    private func cloneTrack(_ t: LocalTrack) -> LocalTrack {
+        LocalTrack(
+            source: t.source,
+            title: t.title,
+            artist: t.artist,
+            duration: t.duration,
+            localFilename: t.localFilename,
+            localBookmark: t.localBookmark,
+            audiusId: t.audiusId,
+            artworkURLString: t.artworkURLString,
+            artworkThumb: t.artworkThumb
+        )
+    }
+
 }

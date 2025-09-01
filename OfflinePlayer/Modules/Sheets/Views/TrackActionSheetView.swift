@@ -8,7 +8,7 @@ struct TrackActionsSheet: View {
     var coverURL: URL? = nil
 
     var onLike: () -> Void
-    var onAddToPlaylist: () -> Void
+//    var onAddToPlaylist: () -> Void
     var onPlayNext: () -> Void
     var onDownload: () -> Void
     var onShare: () -> Void
@@ -47,7 +47,7 @@ struct TrackActionsSheet: View {
                     VStack(spacing: 2.fitH) {
                         if isLocal {
                             actionRow(symbol: "sheetLikeIcon", title: "Like", action: onLike)
-                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
+//                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
                             actionRow(symbol: "sheetForwardIcon", title: "Play Next", action: onPlayNext)
                             actionRow(symbol: "sheetDownloadIcon", title: "Download", action: onDownload)
                             actionRow(symbol: "sheetShareIcon", title: "Share", action: onShare)
@@ -55,7 +55,7 @@ struct TrackActionsSheet: View {
                             actionRow(symbol: "deleteIcon", title: "Remove", action: onRemove)
                         } else {
                             actionRow(symbol: "sheetLikeIcon", title: "Like", action: onLike)
-                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
+//                            actionRow(symbol: "sheetMusicnoteIcon", title: "Add to Playlist", action: onAddToPlaylist)
                             actionRow(symbol: "sheetForwardIcon", title: "Play Next", action: onPlayNext)
                             actionRow(symbol: "sheetDownloadIcon", title: "Download", action: onDownload)
                             actionRow(symbol: "sheetShareIcon", title: "Share", action: onShare)

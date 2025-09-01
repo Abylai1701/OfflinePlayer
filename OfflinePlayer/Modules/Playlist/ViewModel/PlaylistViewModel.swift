@@ -16,6 +16,7 @@ final class PlaylistViewModel: ObservableObject {
     func bindIfNeeded(context: ModelContext) {
         guard manager == nil else { return }
         manager = LocalPlaylistsManager(context: context)
+        manager?.ensureFavoritesExists()
         refresh()
     }
 

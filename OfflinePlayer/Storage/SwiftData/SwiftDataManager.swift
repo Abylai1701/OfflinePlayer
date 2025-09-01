@@ -23,13 +23,26 @@ final class LocalPlaylistsManager: ObservableObject {
     // MARK: Playlists CRUD
 
     @discardableResult
-    func createPlaylist(title: String, artworkData: Data? = nil) -> LocalPlaylist {
-        let p = LocalPlaylist(title: title, artworkData: artworkData, createdAt: .now)
+    func createPlaylist(title: String, artworkData: Data? = nil, isProtected: Bool = false) -> LocalPlaylist {
+        let p = LocalPlaylist(title: title, artworkData: artworkData, createdAt: .now, isProtected: isProtected)
         context.insert(p)
         try? context.save()
         return p
     }
 
+    @discardableResult
+    func ensureFavoritesExists(title: String = "Favorites") -> LocalPlaylist {
+        if let existing = fetchFavorites() { return existing }
+        // можно попробовать найти по названию и пометить защищённым — по простоте просто создаём
+        return createPlaylist(title: title, isProtected: true)
+    }
+    
+    func fetchFavorites() -> LocalPlaylist? {
+        let predicate = #Predicate<LocalPlaylist> { $0.isProtected == true }
+        let descriptor = FetchDescriptor<LocalPlaylist>(predicate: predicate)
+        return try? context.fetch(descriptor).first
+    }
+    
     func renamePlaylist(_ playlist: LocalPlaylist, to newTitle: String) {
         playlist.title = newTitle
         playlist.updatedAt = .now
@@ -37,15 +50,21 @@ final class LocalPlaylistsManager: ObservableObject {
     }
 
     func deletePlaylist(_ playlist: LocalPlaylist) {
+        guard playlist.isProtected == false else { return }  // ⬅️ нельзя удалять системный
         context.delete(playlist)
         try? context.save()
     }
 
-    func fetchPlaylists() -> [LocalPlaylist] {
-        let descriptor = FetchDescriptor<LocalPlaylist>(sortBy: [SortDescriptor(\.updatedAt, order: .reverse)])
-        return (try? context.fetch(descriptor)) ?? []
-    }
 
+    func fetchPlaylists() -> [LocalPlaylist] {
+        let byUpdated = SortDescriptor<LocalPlaylist>(\.updatedAt, order: SortOrder.reverse)
+        let fetched = (try? context.fetch(FetchDescriptor<LocalPlaylist>(sortBy: [byUpdated]))) ?? []
+        // Favorites (isProtected == true) наверх, внутри — по дате
+        return fetched.sorted {
+            ($0.isProtected ? 1 : 0, $0.updatedAt) > ($1.isProtected ? 1 : 0, $1.updatedAt)
+        }
+    }
+    
     // MARK: Items (Add / Remove / Reorder)
 
     /// Добавить локальный файл (из DocumentPicker/Photos, etc.)

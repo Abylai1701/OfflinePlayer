@@ -158,7 +158,9 @@ final class AudiusAPI {
 
     func trendingTracks(time: TimeWindow, genre: AudiusGenre? = nil, limit: Int = 20, offset: Int = 0) async throws -> [MyTrack] {
         var q: [String: String] = ["time": time.rawValue, "limit": "\(limit)", "offset": "\(offset)"]
-        if let g = genre { q["genre"] = g.rawValue }
+        if let g = genre {
+            q["genre"] = g.rawValue
+        }
         return try await call("/v1/tracks/trending", query: q)
     }
 
@@ -174,8 +176,12 @@ final class AudiusAPI {
         try await call("/v1/tracks/search", query: ["query": query, "limit": "\(limit)", "offset": "\(offset)"])
     }
 
-    func streamURL(for trackId: String) throws -> URL {
-        try ensureBase().appending(queryItems: [URLQueryItem(name: "app_name", value: appName)], path: "/v1/tracks/\(trackId)/stream")
+    func streamURL(for trackId: String) async throws -> URL {
+        try await host.ensureHost() // ← гарантируем baseURL
+        return try ensureBase().appending(
+            queryItems: [URLQueryItem(name: "app_name", value: appName)],
+            path: "/v1/tracks/\(trackId)/stream"
+        )
     }
 
     // MARK: - Internals

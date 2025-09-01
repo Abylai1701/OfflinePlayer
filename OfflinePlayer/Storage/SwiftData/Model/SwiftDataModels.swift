@@ -20,11 +20,19 @@ final class LocalPlaylist {
     @Relationship(deleteRule: .cascade, inverse: \PlaylistItem.playlist)
     var items: [PlaylistItem] = []
 
-    init(title: String, artworkData: Data? = nil, createdAt: Date = .now) {
+    var isProtected: Bool = false
+
+    init(
+        title: String,
+        artworkData: Data? = nil,
+        createdAt: Date = .now,
+        isProtected: Bool = false
+    ) {
         self.title = title
         self.createdAt = createdAt
         self.updatedAt = createdAt
         self.artworkData = artworkData
+        self.isProtected = isProtected
     }
 }
 

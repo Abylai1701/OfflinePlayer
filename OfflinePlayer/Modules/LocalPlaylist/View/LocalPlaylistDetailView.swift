@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Kingfisher
 import PhotosUI
+import UniformTypeIdentifiers
 
 struct LocalPlaylistDetailView: View {
     @EnvironmentObject private var router: Router
@@ -21,6 +22,8 @@ struct LocalPlaylistDetailView: View {
     @State private var photoItem: PhotosPickerItem?
     @State private var playlistName = ""
     
+    @State private var isFileImporterPresented = false
+
     init(playlist: LocalPlaylist) {
         _viewModel = StateObject(wrappedValue: LocalPlaylistDetailViewModel(playlist: playlist))
     }
@@ -28,42 +31,67 @@ struct LocalPlaylistDetailView: View {
     var body: some View {
         content
             .sheet(isPresented: $viewModel.isShowMenuTapped) {
-                PlaylistActionsSheet(
-                    isLocal: true,
-                    onShare: {
-                        viewModel.isShowMenuTapped = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            viewModel.sharePlaylist()
-                        }
-                    },
-                    onRename: {
-                        viewModel.isShowMenuTapped = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            viewModel.isRenameSheetPresented = true
-                        }
-                    },
-                    onAddTrack: {
+                if viewModel.isProtected {
+                    PlaylistActionsSheetForFavorites {
                         viewModel.isShowMenuTapped = false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             viewModel.pushToLibrary()
                         }
-                    },
-                    onDelete: {
-                        viewModel.isShowMenuTapped = false
-                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                             Task {
-                                 await viewModel.deletePlaylist()
-                             }
-                         }
                     }
-                )
-                .presentationDetents([.height(234)])
-                .presentationCornerRadius(28.fitW)
-                .presentationDragIndicator(.hidden)
-                .ignoresSafeArea()
+                    .presentationDetents([.height(64)])
+                    .presentationCornerRadius(28.fitW)
+                    .presentationDragIndicator(.hidden)
+                    .ignoresSafeArea()
+                } else {
+                    PlaylistActionsSheet(
+                        isLocal: true,
+                        onShare: {
+                            viewModel.isShowMenuTapped = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                viewModel.sharePlaylist()
+                            }
+                        },
+                        onRename: {
+                            viewModel.isShowMenuTapped = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                viewModel.isRenameSheetPresented = true
+                            }
+                        },
+                        onAddTrack: {
+                            viewModel.isShowMenuTapped = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                viewModel.pushToLibrary()
+                            }
+                        },
+                        onDelete: {
+                            viewModel.isShowMenuTapped = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                Task {
+                                    await viewModel.deletePlaylist()
+                                }
+                            }
+                        }
+                    )
+                    .presentationDetents([.height(234)])
+                    .presentationCornerRadius(28.fitW)
+                    .presentationDragIndicator(.hidden)
+                    .ignoresSafeArea()
+                }
             }
             .sheet(isPresented: $viewModel.isShareSheetPresented) {
                 ShareSheet(items: viewModel.shareItems)
+            }
+            .fileImporter(
+                isPresented: $isFileImporterPresented,
+                allowedContentTypes: [.audio],
+                allowsMultipleSelection: true
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    viewModel.importLocalFiles(urls: urls)
+                case .failure(let error):
+                    print("Import error:", error.localizedDescription)
+                }
             }
             .onTapGesture {
                 UIApplication.shared.endEditing(true)
@@ -122,21 +150,64 @@ struct LocalPlaylistDetailView: View {
             }
             .sheet(isPresented: $viewModel.isActionSheetPresented) {
                 if let t = viewModel.localActionTrack {
-                    LocalTrackActionsSheet(
-                        title: t.title,
-                        artist: t.artist,
-                        coverURL: URL(string: t.artworkURLString ?? ""),
-                        onLike: { },
-                        onAddToPlaylist: { },
-                        onPlayNext: { },
-                        onDownload: { },
-                        onShare: { },
-                        onRemove: { }
-                    )
-                    .presentationDetents([.height(400)])
-                    .presentationCornerRadius(28.fitW)
-                    .presentationDragIndicator(.hidden)
-                    .ignoresSafeArea()
+                    if viewModel.isProtected {
+                        LocalTrackActionsSheet(
+                            isFavorite: true,
+                            title: t.title,
+                            artist: t.artist,
+                            coverURL: URL(string: t.artworkURLString ?? ""),
+                            onLike: { },
+                            onPlayNext: { },
+                            onDownload: { },
+                            onShare: {
+                                viewModel.isActionSheetPresented = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    viewModel.shareLocalTrack()
+                                }
+                            },
+                            onRemove: {
+                                viewModel.isActionSheetPresented = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    viewModel.remove()
+                                }
+                            }
+                        )
+                        .presentationDetents([.height(290)])
+                        .presentationCornerRadius(28.fitW)
+                        .presentationDragIndicator(.hidden)
+                        .ignoresSafeArea()
+                    } else {
+                        LocalTrackActionsSheet(
+                            isFavorite: false,
+                            title: t.title,
+                            artist: t.artist,
+                            coverURL: URL(string: t.artworkURLString ?? ""),
+                            onLike: {
+                                viewModel.isActionSheetPresented = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    viewModel.addCurrentTrackToFavorites()
+                                }
+                            },
+                            onPlayNext: { },
+                            onDownload: { },
+                            onShare: {
+                                viewModel.isActionSheetPresented = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    viewModel.shareLocalTrack()
+                                }
+                            },
+                            onRemove: {
+                                viewModel.isActionSheetPresented = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    viewModel.remove()
+                                }
+                            }
+                        )
+                        .presentationDetents([.height(340)])
+                        .presentationCornerRadius(28.fitW)
+                        .presentationDragIndicator(.hidden)
+                        .ignoresSafeArea()
+                    }
                 }
             }
             .overlay {
@@ -211,7 +282,7 @@ struct LocalPlaylistDetailView: View {
                     icon: "playlistFileIcon",
                     title: "Import from Device",
                     onTap: {
-                        
+                        isFileImporterPresented = true
                     }
                 )
                 ActionTile(

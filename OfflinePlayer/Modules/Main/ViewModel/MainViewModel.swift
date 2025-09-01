@@ -1,4 +1,5 @@
 import Foundation
+import SwiftData
 import Kingfisher
 
 @MainActor
@@ -7,13 +8,21 @@ final class MainViewModel: ObservableObject {
     // MARK: Router
     private weak var router: Router?
     
+    private var manager: LocalPlaylistsManager?
+    
+    // Шаринг
+    @Published var isShareSheetPresented = false     // ⬅️ ПЕРЕНЕСИ ИЛИ ДОБАВЬ
+    @Published var shareItems: [Any] = []
+    
+    var trackURLProvider: ((MyTrack) -> URL?)?
+    
     func attach(router: Router) {
         self.router = router
     }
     func pushToTrendingNow() {
         router?.push(.trendingNow(items: trendItems))
     }
-
+    
     @MainActor
     func openPlaylist(_ p: MyPlaylist) async {
         isLoading = true
@@ -27,7 +36,7 @@ final class MainViewModel: ObservableObject {
         }
         isLoading = false
     }
-
+    
     // MARK: Audius
     private let host = AudiusHostProvider()
     private lazy var api = AudiusAPI(host: host, appName: "OfflineOlen", logLevel: .info)
@@ -60,8 +69,14 @@ final class MainViewModel: ObservableObject {
         trackCovers[t.id] ?? t.artworkURL
     }
     
+    func bindIfNeeded(context: ModelContext) {
+        guard manager == nil else { return }
+        manager = LocalPlaylistsManager(context: context)
+        manager?.ensureFavoritesExists()
+    }
+    
     func setCategory(_ category: HomeCategory) async {
-                
+        
         guard category != .favorites else {
             return
         }
@@ -197,6 +212,7 @@ final class MainViewModel: ObservableObject {
     }
     
     // MARK: Actions (трёхточечное меню)
+    
     func openActions(for track: MyTrack) {
         actionTrack = track
         isActionSheetPresented = true
@@ -210,7 +226,7 @@ final class MainViewModel: ObservableObject {
     func playNext() {}
     
     func download() {
-        guard let t = actionTrack, let url = try? api.streamURL(for: t.id) else { return }
+//        guard let t = actionTrack, let url = try? api.streamURL(for: t.id) else { return }
         // DownloadService.shared.download(trackId: t.id, from: url)
     }
     
@@ -218,6 +234,33 @@ final class MainViewModel: ObservableObject {
     func goToAlbum() {}
     func remove() {}
     
+    
+    func addCurrentTrackToFavorites() {
+        guard let m = manager, let t = actionTrack else { return }
+        let fav = m.ensureFavoritesExists()
+        
+        // не создаём дубликаты (по audiusId)
+        if fav.items.contains(where: { $0.track?.audiusId == t.id }) { return }
+        
+        _ = m.addAudiusTrack(t, to: fav)
+        // можно показать тост по желанию
+    }
+    
+    // MARK: - Share (track)
+    func shareCurrentTrack() {
+        guard let t = actionTrack else { return }
+        let text = "Track: \(t.title)\nArtist: \(t.artist.isEmpty ? "—" : t.artist)"
+        
+        var items: [Any] = [text]
+        if let url = trackURLProvider?(t) {
+            items.append(url)
+        } else if let art = t.artworkURL {
+            items.append(art) // фолбэк — обложка
+        }
+        
+        shareItems = items
+        isShareSheetPresented = true
+    }
     // MARK: - Search Logic
     
     // MARK: - Search state
@@ -282,12 +325,12 @@ final class MainViewModel: ObservableObject {
         
         var seen = Set<String>()
         foundTracks = foundTracks.filter { seen.insert($0.id).inserted }
-
+        
         self.foundPlaylists = pls
-
+        
         var seenP = Set<String>()
         foundPlaylists = foundPlaylists.filter { seenP.insert($0.id).inserted }
-
+        
         self.foundAlbums = als
         
         var seenA = Set<String>()
@@ -324,5 +367,22 @@ extension HomeCategory {
         default:
             return nil
         }
+    }
+}
+
+
+extension MainViewModel {
+    @MainActor
+    func play(_ t: MyTrack) async {
+        guard let url = try? await api.streamURL(for: t.id) else {
+            print("failed to construct stream URL")
+            return
+        }
+        let entry = PlayerQueueEntry(
+            id: t.id,
+            url: url,
+            meta: .init(title: t.title, artist: t.artist, artworkURL: t.artworkURL)
+        )
+        PlayerCenter.shared.replaceWithSingle(entry, autoplay: true)
     }
 }

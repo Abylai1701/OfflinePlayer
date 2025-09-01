@@ -37,7 +37,7 @@ struct LibraryView: View {
                             .foregroundStyle(.grayB3B3B3)
                             .padding(.top, 24)
                     } else if viewModel.results.isEmpty, !search.isEmpty {
-                        Text("Ничего не найдено")
+                        Text("Nothing found")
                             .font(.footnote)
                             .foregroundStyle(.grayB3B3B3)
                             .padding(.top, 24)

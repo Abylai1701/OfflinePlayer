@@ -62,3 +62,55 @@ struct PlaylistActionsSheet: View {
         .buttonStyle(.plain)
     }
 }
+
+struct PlaylistActionsSheetForFavorites: View {
+
+    var onAddTrack: () -> Void
+
+    var body: some View {
+        Rectangle()
+            .fill(.gray353434)
+            .overlay(alignment: .top) {
+                VStack(spacing: .zero) {
+                    dragIndicator()
+                        .padding(.bottom)
+                    
+                    VStack(spacing: 2.fitH) {
+                            row(symbol: "playlistDetailAddIcon", title: "Add track", action: onAddTrack)
+                    }
+                }
+                .padding(.top, 8)
+                .padding(.horizontal, 36.fitW)
+            }
+    }
+
+    private func dragIndicator() -> some View {
+        RoundedRectangle(cornerRadius: 1.5)
+            .fill(.gray707070)
+            .frame(width: 33.fitW, height: 3)
+    }
+    
+    private func row(
+        symbol: String,
+        title: String,
+        action: @escaping () -> Void,
+        tint: Color = .white
+    ) -> some View {
+        Button(action: action) {
+            HStack(spacing: 14.fitW) {
+                Image(symbol)
+                    .font(.system(size: 20.fitW, weight: .semibold))
+                    .frame(width: 28.fitW, alignment: .leading)
+                    .foregroundStyle(tint)
+
+                Text(title)
+                    .font(.manropeSemiBold(size: 17.fitW))
+                    .foregroundStyle(.white)
+
+                Spacer()
+            }
+            .padding(.vertical, 12.fitH)
+        }
+        .buttonStyle(.plain)
+    }
+}

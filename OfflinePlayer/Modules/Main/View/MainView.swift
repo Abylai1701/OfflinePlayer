@@ -11,6 +11,8 @@ import Kingfisher
 
 struct MainView: View {
     @EnvironmentObject private var router: Router
+    @Environment(\.modelContext) private var modelContext
+
     @StateObject private var viewModel = MainViewModel()
     
     @State private var search = ""
@@ -32,6 +34,7 @@ struct MainView: View {
                 }
                 .task {
                     viewModel.attach(router: router)
+                    viewModel.bindIfNeeded(context: modelContext)
                     await viewModel.bootstrap(initial: category)
                 }
                 .onChange(of: category) { _, newValue in
@@ -66,6 +69,10 @@ struct MainView: View {
             }
         }
         .allowsHitTesting(!viewModel.isLoading)
+        .sheet(isPresented: $viewModel.isShareSheetPresented) {
+            ShareSheet(items: viewModel.shareItems)
+                .presentationDetents([.medium, .large])
+        }
         .sheet(isPresented: $viewModel.isActionSheetPresented) {
             if let t = viewModel.actionTrack {
                 TrackActionsSheet(
@@ -73,12 +80,10 @@ struct MainView: View {
                     track: t,
                     coverURL: viewModel.coverURL(for: t),
                     onLike: {
-                        viewModel.like();
-                        viewModel.closeActions()
-                    },
-                    onAddToPlaylist: {
-                        viewModel.addToPlaylist();
-                        viewModel.closeActions()
+                        viewModel.isActionSheetPresented = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            viewModel.addCurrentTrackToFavorites()
+                        }
                     },
                     onPlayNext: {
                         viewModel.playNext();
@@ -89,15 +94,17 @@ struct MainView: View {
                         viewModel.closeActions()
                     },
                     onShare: {
-                        viewModel.share();
-                        viewModel.closeActions()
+                        viewModel.isActionSheetPresented = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            viewModel.shareCurrentTrack()
+                        }
                     },
                     onRemove: {
                         viewModel.remove();
                         viewModel.closeActions()
                     }
                 )
-                .presentationDetents([.height(340)])
+                .presentationDetents([.height(290)])
                 .presentationCornerRadius(28.fitW)
                 .presentationDragIndicator(.hidden)
                 .ignoresSafeArea()
@@ -147,7 +154,9 @@ struct MainView: View {
                                     coverURL: t.artworkURL,
                                     title: t.title,
                                     artist: t.artist,
-                                    onMenuTap: { viewModel.openActions(for: t) }
+                                    onMenuTap: {
+                                        viewModel.openActions(for: t)
+                                    }
                                 )
                                 .padding(.horizontal)
                             }
@@ -238,9 +247,16 @@ struct MainView: View {
                             coverURL: t.artworkURL,
                             title: t.title,
                             artist: t.artist,
-                            onMenuTap: { viewModel.openActions(for: t) }
+                            onMenuTap: {
+                                viewModel.openActions(for: t)
+                            }
                         )
                         .padding(.horizontal)
+                        .onTapGesture {
+                            Task {
+                                await viewModel.play(t)
+                            }
+                        }
                     }
                 }
                 .padding(.bottom, 100.fitH)

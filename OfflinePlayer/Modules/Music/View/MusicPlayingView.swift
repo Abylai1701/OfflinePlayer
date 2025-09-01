@@ -1,7 +1,10 @@
 import SwiftUI
+import AVFoundation
 
 struct MusicPlayerView: View {
     @EnvironmentObject private var router: Router
+    @ObservedObject private var player = PlayerCenter.shared
+    
     @StateObject private var viewModel = MusicPlayingViewModel()
     
     // входные данные
@@ -11,15 +14,13 @@ struct MusicPlayerView: View {
     var onDismiss: () -> Void = {}
     
     // состояние
-    @State private var isPlaying   = true
     @State private var isScrubbing = false
-    @State private var duration: Double = 117     // 1:57
-    @State private var position: Double = 46      // 0:46
     
     @State private var isLiked = false
     @State private var isShuffleOn = false
     @State private var repeatMode: RepeatMode = .off
     @State private var flash: FlashEvent? = nil
+    @State private var seekValue: Double = 0
     
     // метрики под макет
     private var artCorner: CGFloat { 26.fitW }
@@ -129,15 +130,15 @@ struct MusicPlayerView: View {
                     .clipShape(RoundedRectangle(cornerRadius: artCorner, style: .continuous))
                     .shadow(color: .black.opacity(0.35), radius: 20, x: 0, y: 10)
                     .overlay {
-                                if flash != nil {
-                                    shape
-                                        .fill(Color.black.opacity(0.22))
-                                        .allowsHitTesting(false)
-                                        .transition(.opacity)
-                                }
-                            }
-
-
+                        if flash != nil {
+                            shape
+                                .fill(Color.black.opacity(0.22))
+                                .allowsHitTesting(false)
+                                .transition(.opacity)
+                        }
+                    }
+                
+                
                 if let flash {
                     FlashOverlay(event: flash)
                         .transition(.scale.combined(with: .opacity))
@@ -145,7 +146,7 @@ struct MusicPlayerView: View {
             }
             .padding(.top, 62.fitH)
             .padding(.bottom, 40.fitH)
-
+            
             VStack {
                 // Титул
                 HStack(spacing: 0) {
@@ -157,10 +158,10 @@ struct MusicPlayerView: View {
                         .padding(.trailing, 10.fitW)
                     
                     VStack(alignment: .leading) {
-                        Text(title)
+                        Text(player.meta.title.isEmpty ? title : player.meta.title)
                             .font(.manropeBold(size: 24.fitW))
                             .foregroundStyle(.white)
-                        Text(artist)
+                        Text(player.meta.artist.isEmpty ? artist : player.meta.artist)
                             .font(.manropeSemiBold(size: 14.fitW))
                             .foregroundStyle(.gray707070)
                     }
@@ -191,30 +192,41 @@ struct MusicPlayerView: View {
                 // Прогресс
                 VStack() {
                     ThinSeekBar(
-                        value: $position,
-                        range: 0...duration,
+                        value: $seekValue,
+                        range: 0...max(player.duration, 0.1),
                         trackHeight: 3.fitH,
                         thumbRadius: 6.fitW,
                         activeColor: .white,
                         inactiveColor: .gray707070,
-                        onEditingChanged: { isDragging in
-                            
+                        onEditingChanged: { dragging in
+                            if dragging {
+                                player.beginScrubbing()
+                            } else {
+                                player.endScrubbing(to: seekValue) // единичный seek в конце
+                            }
                         }
                     )
                     
+                    
                     HStack {
-                        Text(timeString(position))
+                        Text(timeString(player.currentTime))
                             .font(.manropeRegular(size: 14.fitW))
                             .foregroundStyle(.gray707070)
-                        
                         Spacer()
-                        
-                        Text(timeString(duration))
+                        Text(timeString(player.duration))
                             .font(.manropeRegular(size: 14.fitW))
                             .foregroundStyle(.gray707070)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, -20.fitH)
+                }
+                .onAppear {
+                    seekValue = player.currentTime
+                }
+                // пока пользователь НЕ скраббит — подтягиваем актуальный прогресс из плеера
+                .onChange(of: player.currentTime) { _, newVal in
+                    // PlayerCenter сам хранит флаг isScrubbing; если его нет — можно
+                    seekValue = newVal
                 }
             }
             .padding(.horizontal)
@@ -262,33 +274,35 @@ struct MusicPlayerView: View {
         VStack(spacing: 18.fitH) {
             HStack(spacing: .zero) {
                 Button {
-                    isScrubbing.toggle()
-                    if isScrubbing {
-                        flashHint(.repeatOne)
+                    // toggle repeat (пример: off -> one -> all -> off)
+                    switch player.repeatMode {
+                    case .off: player.repeatMode = .one; flashHint(.repeatOne)
+                    case .one: player.repeatMode = .all;  flashHint(.repeatOne) // можешь сделать отдельный икон
+                    case .all: player.repeatMode = .off;  flashHint(.repeatOff)
                     }
-                }
-                label: { Image(isScrubbing ? "repeatSmallFillIcon" : "repeatSmallMusicIcon") }
+                } label: { Image(player.repeatMode == .off ? "repeatSmallMusicIcon" : "repeatSmallFillIcon") }
                     .frame(width: 24.fitW, height: 24.fitW)
                     .padding(.trailing, 55.fitW)
                 
-                Button { }
+                
+                Button { player.prev() }
                 label: { Image("backMusicIcon") }
                     .frame(width: 32.fitW, height: 32.fitW)
                     .padding(.trailing, 28.fitW)
                 
-                Button { isPlaying.toggle() }  label: {
+                Button { player.togglePlay() } label: {
                     ZStack {
                         Circle().fill(.white.opacity(0.16))
                             .frame(width: 66.fitW, height: 66.fitW)
-                        Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                        Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
                             .font(.system(size: 26.fitW, weight: .bold))
                     }
                 }
                 .frame(width: 66.fitW, height: 66.fitW)
                 .padding(.trailing, 28.fitW)
                 
-                Button {
-                }
+                Button { player.next() }
+                
                 label: {
                     Image("NextIcon")
                 }
@@ -296,10 +310,9 @@ struct MusicPlayerView: View {
                 .padding(.trailing, 55.fitW)
                 
                 Button {
-                    isShuffleOn.toggle()
-                    if isShuffleOn {
-                        flashHint(.shuffleOn)
-                    }
+                    player.isShuffleOn.toggle()
+                    if player.isShuffleOn { flashHint(.shuffleOn) }
+                    
                 }
                 label: { Image(isShuffleOn ? "shuffleFillSmallIcon" : "shuffleSmallMusicIcon") }
                     .frame(width: 24.fitW, height: 24.fitW)
@@ -313,13 +326,13 @@ struct MusicPlayerView: View {
         .background(
             LinearGradient(colors:
                             [.black.opacity(0.12),
-                                .black.opacity(0.06),
-                                .clear],
+                             .black.opacity(0.06),
+                             .clear],
                            startPoint: .bottom, endPoint: .top)
         )
     }
     
-   
+    
     
     private func timeString(_ v: Double) -> String {
         let t = Int(v.rounded())

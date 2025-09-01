@@ -24,6 +24,7 @@ struct WeatherPoetryApp: App {
             RootView()
                 .preferredColorScheme(.light)
                 .environmentObject(router)
+                .environmentObject(PlayerCenter.shared)
                 .modelContainer(sharedModelContainer)
                 .task {
                     await homeCache.refreshAll()

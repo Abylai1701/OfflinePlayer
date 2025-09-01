@@ -36,6 +36,7 @@ struct PlaylistCardRemote: View {
                     .foregroundStyle(.white)
                     .padding(.top, 8.fitH)
                     .padding(.bottom, 2.fitH)
+                    .lineLimit(1)
 
                 Text(subtitle)
                     .font(.manropeRegular(size: 12.fitW))
