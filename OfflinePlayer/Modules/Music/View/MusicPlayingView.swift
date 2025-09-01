@@ -55,7 +55,9 @@ struct MusicPlayerView: View {
                         .foregroundStyle(.white)
                 }
                 Spacer()
-                Button { /* more */ } label: {
+                Button {
+                    //
+                } label: {
                     Image(systemName: "ellipsis")
                         .font(.system(size: 20.fitW, weight: .semibold))
                         .frame(width: 44, height: 44)
