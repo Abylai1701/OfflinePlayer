@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct EqualizerScreenView: View {
-
+    
     @StateObject private var viewModel = EQChartViewModel()
     @EnvironmentObject private var router: Router
     
     @State private var isOn: Bool = true
     @State private var selectedPreset: EQPreset
     private let presets: [EQPreset]
-
+    
     @State private var currentBands: [EQBand]
     
     init() {
@@ -21,7 +21,7 @@ struct EqualizerScreenView: View {
             .init(label: "2.4 kHz", gain:  0),
             .init(label: "15 kHz",  gain:  3),
         ]
-
+        
         let presets: [EQPreset] = [
             EQPreset(name: "Default", bands: [
                 .init(label: "60 Hz",   gain: 0),
@@ -89,12 +89,12 @@ struct EqualizerScreenView: View {
                 .init(label: "15 kHz",  gain: 3),
             ]),
         ]
-
+        
         self.presets = presets
         _selectedPreset = State(initialValue: presets[0])
         _currentBands   = State(initialValue: presets[0].bands)
     }
-
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.gray222222, .black111111],
@@ -113,13 +113,13 @@ struct EqualizerScreenView: View {
                             .frame(width: 14.fitW, height: 28.fitW)
                             .contentShape(Rectangle())
                     }
-
+                    
                     Text("Equalizer")
                         .font(.manropeBold(size: 24.fitW))
                         .foregroundStyle(.white)
-
+                    
                     Spacer()
-
+                    
                     Toggle("", isOn: $isOn)
                         .labelsHidden()
                         .tint(.blue)
@@ -127,14 +127,14 @@ struct EqualizerScreenView: View {
                 .padding(.top)
                 .padding(.horizontal)
                 .padding(.bottom, 20.fitH)
-
+                
                 // Chart
                 EQChartView(bands: currentBands)
                     .frame(height: 240.fitH)
                     .padding(.horizontal)
                     .opacity(isOn ? 1 : 0.4)
                     .padding(.bottom, 38.fitH)
-
+                
                 ScrollView {
                     LazyVStack(spacing: 0) {
                         ForEach(presets) { preset in
@@ -157,7 +157,7 @@ struct EqualizerScreenView: View {
                                 .contentShape(Rectangle())
                             }
                             .buttonStyle(.plain)
-                           
+                            
                             .overlay(
                                 Divider()
                                     .background(.gray2C2C2C.opacity(0.8)),
@@ -171,7 +171,7 @@ struct EqualizerScreenView: View {
             }
         }
         .preferredColorScheme(.dark)
-//        .toolbar(.hidden, for: .navigationBar)
+        //        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

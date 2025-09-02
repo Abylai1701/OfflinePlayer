@@ -4,23 +4,23 @@ import SwiftData
 struct LibraryView: View {
     @EnvironmentObject private var router: Router
     @Environment(\.modelContext) private var modelContext
-
+    
     @StateObject private var viewModel: LibraryViewModel
     @State private var search = ""
-
+    
     init(playlist: LocalPlaylist) {
         _viewModel = StateObject(wrappedValue: LibraryViewModel(playlist: playlist))
     }
-
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
-
+            
             VStack(spacing: 0) {
                 header
-
+                
                 ScrollView {
                     LibrarySearchView(searchText: $search)
                         .onChange(of: search) { _, newValue in
@@ -28,7 +28,7 @@ struct LibraryView: View {
                             viewModel.onQueryChanged()
                         }
                         .padding(.bottom, 12.fitH)
-
+                    
                     if viewModel.isLoading {
                         ProgressView().controlSize(.large).padding(.top, 40)
                     } else if let err = viewModel.errorMessage {
@@ -67,7 +67,7 @@ struct LibraryView: View {
             viewModel.onQueryChanged()
         }
     }
-
+    
     private var header: some View {
         HStack(spacing: 8.fitW) {
             Button { viewModel.back() } label: {
@@ -77,11 +77,11 @@ struct LibraryView: View {
                     .frame(width: 14.fitW, height: 28.fitH)
                     .contentShape(Rectangle())
             }
-
+            
             Text("Search in Library")
                 .font(.manropeExtraBold(size: 24.fitW))
                 .foregroundStyle(.white)
-
+            
             Spacer()
         }
         .padding(.horizontal)
@@ -98,7 +98,7 @@ private struct APISearchTrackRow: View {
     let title: String
     let artist: String
     var onAdd: () -> Void
-
+    
     var body: some View {
         HStack(spacing: 12.fitW) {
             KFImage(coverURL)
@@ -109,7 +109,7 @@ private struct APISearchTrackRow: View {
                 .scaledToFill()
                 .frame(width: 60.fitW, height: 60.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 14.fitW, style: .continuous))
-
+            
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title)
                     .font(.manropeSemiBold(size: 14.fitW))
@@ -120,9 +120,9 @@ private struct APISearchTrackRow: View {
                     .foregroundStyle(.gray707070)
                     .lineLimit(1)
             }
-
+            
             Spacer()
-
+            
             Button(action: onAdd) {
                 Image(systemName: "plus")
                     .font(.manropeSemiBold(size: 18.fitW))

@@ -20,12 +20,12 @@ struct SettingsView: View {
     @EnvironmentObject private var router: Router
     
     @State private var activeSheet: SheetType?
-
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+            .ignoresSafeArea()
             
             
             VStack(alignment: .leading, spacing: .zero) {
@@ -94,7 +94,7 @@ struct SettingsView: View {
             sheetView(for: sheet)
         }
     }
-
+    
     // MARK: Sheet factory
     @ViewBuilder
     private func sheetView(for sheet: SheetType) -> some View {
@@ -128,7 +128,7 @@ struct SettingsView: View {
 struct SettingsCard: View {
     let rows: [SettingsRowData]
     var onTap: (SheetType) -> Void
-
+    
     var body: some View {
         VStack(spacing: 0) {
             ForEach(Array(rows.enumerated()), id: \.element.id) { index, row in
@@ -152,7 +152,7 @@ private struct SettingsRow: View {
     let row: SettingsRowData
     let showDivider: Bool
     var onTap: (SheetType) -> Void
-
+    
     var body: some View {
         Button { onTap(row.sheet) } label: {
             HStack(spacing: 10.fitW) {
@@ -160,7 +160,7 @@ private struct SettingsRow: View {
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundStyle(.white)
                     .frame(width: 24.fitW, height: 24.fitW)
-
+                
                 VStack(alignment: .leading, spacing: 2.fitH) {
                     Text(row.title)
                         .foregroundStyle(.white)
@@ -169,9 +169,9 @@ private struct SettingsRow: View {
                         .foregroundStyle(.gray707070)
                         .font(.manropeRegular(size: 14.fitW))
                 }
-
+                
                 Spacer()
-
+                
                 Image(systemName: "chevron.right")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(.white)
@@ -186,13 +186,13 @@ private struct SettingsRow: View {
 struct SheetScaffold<Content: View>: View {
     let title: String
     @ViewBuilder var content: Content
-
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.gray222222, .black111111],
                            startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-
+            .ignoresSafeArea()
+            
             VStack(alignment: .leading, spacing: 16.fitH) {
                 Text(title)
                     .font(.manropeBold(size: 22))

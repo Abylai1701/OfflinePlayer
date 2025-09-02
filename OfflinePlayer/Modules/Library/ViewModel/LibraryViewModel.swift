@@ -4,29 +4,29 @@ import Kingfisher
 
 @MainActor
 final class LibraryViewModel: ObservableObject {
-
+    
     // MARK: - DI / Inputs
     private weak var router: Router?
     private(set) var context: ModelContext?
     private(set) var targetPlaylist: LocalPlaylist
-
+    
     // MARK: - API
     private let host = AudiusHostProvider()
     private lazy var api = AudiusAPI(host: host, appName: "OfflineOlen", logLevel: .info)
-
+    
     // MARK: - UI State
     @Published var query: String = ""
     @Published private(set) var results: [MyTrack] = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
-
+    
     // дебаунс
     private var pendingSearch: DispatchWorkItem?
-
+    
     init(playlist: LocalPlaylist) {
         self.targetPlaylist = playlist
     }
-
+    
     // MARK: - Wiring
     func attach(router: Router) {
         self.router = router
@@ -39,7 +39,7 @@ final class LibraryViewModel: ObservableObject {
     func back() {
         router?.pop()
     }
-
+    
     // MARK: - Search
     func onQueryChanged() {
         pendingSearch?.cancel()
@@ -49,7 +49,7 @@ final class LibraryViewModel: ObservableObject {
         pendingSearch = work
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: work)
     }
-
+    
     private func performSearch() async {
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !q.isEmpty else {
@@ -57,15 +57,15 @@ final class LibraryViewModel: ObservableObject {
             self.errorMessage = nil
             return
         }
-
+        
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
-
+        
         do {
             try await host.ensureHost()
             let tracks = try await api.searchTracks(q, limit: 50, offset: 0)
-
+            
             // Уберём дубли по id (на всякий случай)
             var seen = Set<String>()
             let unique = tracks.filter { seen.insert($0.id).inserted }
@@ -75,14 +75,14 @@ final class LibraryViewModel: ObservableObject {
             self.errorMessage = error.localizedDescription
         }
     }
-
+    
     // MARK: - Add to local playlist (SwiftData)
     func addToPlaylist(_ t: MyTrack) {
         guard let ctx = context else { return }
-
+        
         let pid = targetPlaylist.id
         let qid = t.id
-
+        
         // Проверка на дубликаты: есть ли уже такой трек с таким audiusId в плейлисте
         var checkReq = FetchDescriptor<PlaylistItem>(
             predicate: #Predicate { item in
@@ -91,11 +91,11 @@ final class LibraryViewModel: ObservableObject {
             sortBy: []
         )
         checkReq.fetchLimit = 1
-
+        
         if let existing = try? ctx.fetch(checkReq).first, existing != nil {
             return // уже добавлен
         }
-
+        
         // Найти или создать LocalTrack
         let localTrack: LocalTrack
         let existingTrackReq = FetchDescriptor<LocalTrack>(
@@ -119,8 +119,8 @@ final class LibraryViewModel: ObservableObject {
             ctx.insert(newTrack)
             localTrack = newTrack
         }
-
-
+        
+        
         // Найти следующий индекс
         var lastReq = FetchDescriptor<PlaylistItem>(
             predicate: #Predicate { $0.playlist?.id == pid },
@@ -129,7 +129,7 @@ final class LibraryViewModel: ObservableObject {
         lastReq.fetchLimit = 1
         let last = try? ctx.fetch(lastReq).first
         let nextIndex = (last?.sortIndex ?? -1) + 1
-
+        
         // Добавить PlaylistItem
         let newItem = PlaylistItem(
             sortIndex: nextIndex,
@@ -137,12 +137,12 @@ final class LibraryViewModel: ObservableObject {
             track: localTrack
         )
         ctx.insert(newItem)
-
+        
         do {
             try ctx.save()
         } catch {
             print("addToPlaylist save error:", error.localizedDescription)
         }
     }
-
+    
 }

@@ -5,15 +5,15 @@ import SwiftData
 final class TrendingNowViewModel: ObservableObject {
     
     private weak var router: Router?
-
+    
     @Published var search = ""
     @Published var items: [MyTrack]
     @Published var actionTrack: MyTrack? = nil
     @Published var isActionSheetPresented = false
-
+    
     @Published var isShareSheetPresented = false
     @Published var shareItems: [Any] = []
-
+    
     private var manager: LocalPlaylistsManager?
     var trackURLProvider: ((MyTrack) -> URL?)?
     
@@ -24,11 +24,11 @@ final class TrendingNowViewModel: ObservableObject {
     func attach(router: Router) {
         self.router = router
     }
-
+    
     @MainActor func back() {
         router?.pop()
     }
-
+    
     // Тап по “три точки”
     @MainActor func openActions(for track: MyTrack) {
         actionTrack = track
@@ -38,7 +38,7 @@ final class TrendingNowViewModel: ObservableObject {
     @MainActor func closeActions() {
         isActionSheetPresented = false
     }
-
+    
     // Примеры экшенов (заглушки)
     func like() {}
     func addToPlaylist() {}
@@ -66,21 +66,21 @@ final class TrendingNowViewModel: ObservableObject {
         if fav.items.contains(where: { $0.track?.audiusId == t.id }) { return }
         _ = m.addAudiusTrack(t, to: fav)
     }
-
+    
     // MARK: - Share (track)
     func shareCurrentTrack() {
         guard let t = actionTrack else { return }
         let text = "Track: \(t.title)\nArtist: \(t.artist.isEmpty ? "—" : t.artist)"
         var items: [Any] = [text]
-
+        
         if let url = trackURLProvider?(t) {
             items.append(url)
         } else if let art = t.artworkURL {
             items.append(art) // фолбэк — обложка
         }
-
+        
         shareItems = items
         isShareSheetPresented = true
     }
-
+    
 }

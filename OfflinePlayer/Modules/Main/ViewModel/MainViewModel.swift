@@ -226,7 +226,7 @@ final class MainViewModel: ObservableObject {
     func playNext() {}
     
     func download() {
-//        guard let t = actionTrack, let url = try? api.streamURL(for: t.id) else { return }
+        //        guard let t = actionTrack, let url = try? api.streamURL(for: t.id) else { return }
         // DownloadService.shared.download(trackId: t.id, from: url)
     }
     

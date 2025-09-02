@@ -4,11 +4,11 @@ import Kingfisher
 struct PlaylistDetailsView: View {
     @EnvironmentObject private var router: Router
     @Environment(\.modelContext) private var modelContext
-
+    
     @StateObject private var viewModel: PlaylistDetailsViewModel
     @State private var sheetContentHeight: CGFloat = 430
     @State private var menuHeight: CGFloat = 260
-            
+    
     init(tracks: [MyTrack], playlist: MyPlaylist, isLocalPlaylist: Bool = false) {
         _viewModel = StateObject(wrappedValue: PlaylistDetailsViewModel(tracks: tracks, playlist: playlist))
     }
@@ -94,7 +94,7 @@ struct PlaylistDetailsView: View {
                         }
                     }
                     .padding(.horizontal, 16.fitW)
-
+                    
                     
                     Spacer(minLength: 120.fitH)
                 }
@@ -221,7 +221,7 @@ struct PlaylistTrackRow: View {
     let title: String
     let artist: String
     var onMenuTap: () -> Void = {}
-
+    
     var body: some View {
         HStack(spacing: 10.fitW) {
             KFImage(coverURL)
@@ -232,7 +232,7 @@ struct PlaylistTrackRow: View {
                 .scaledToFill()
                 .frame(width: 60.fitW, height: 60.fitW)
                 .clipShape(RoundedRectangle(cornerRadius: 16.fitW, style: .continuous))
-
+            
             VStack(alignment: .leading, spacing: 2.fitH) {
                 Text(title).font(.manropeSemiBold(size: 14.fitW)).foregroundStyle(.white)
                 Text(artist).font(.manropeRegular(size: 12.fitW)).foregroundStyle(.gray707070)

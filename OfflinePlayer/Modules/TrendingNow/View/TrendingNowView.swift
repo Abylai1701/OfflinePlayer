@@ -6,7 +6,7 @@ struct TrendingNowView: View {
     @EnvironmentObject private var router: Router
     @StateObject private var viewModel: TrendingNowViewModel
     @Environment(\.modelContext) private var modelContext
-
+    
     @State private var search: String = ""
     @State private var sheetContentHeight: CGFloat = 430
     

@@ -13,7 +13,7 @@ struct RootView: View {
             NavigationStack(path: $router.homePath) {
                 MainView()
                     .navigationDestination(for: AppRoute.self) { router.destination(for: $0) }
-
+                
             }
             .tabItem {
                 Label {
@@ -24,7 +24,7 @@ struct RootView: View {
                 }
             }
             .tag(Tab.home)
-
+            
             NavigationStack(path: $router.playlistsPath) {
                 PlaylistView()
                     .navigationDestination(for: AppRoute.self) { router.destination(for: $0) }
@@ -38,7 +38,7 @@ struct RootView: View {
                 }
             }
             .tag(Tab.playlists)
-
+            
             NavigationStack(path: $router.settingsPath) {
                 SettingsView()
                     .navigationDestination(for: AppRoute.self) { router.destination(for: $0) }
@@ -70,7 +70,7 @@ struct RootView: View {
                 )
                 
                 .padding(.bottom, 44)
-
+                
             } else {
                 EmptyView()
             }

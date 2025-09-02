@@ -9,7 +9,7 @@ struct PlaylistView: View {
     @State private var showNewPlaylistAlert = false
     @State private var newPlaylistName = ""
     @State private var showPlayer = false
-
+    
     
     var body: some View {
         content
@@ -39,16 +39,16 @@ struct PlaylistView: View {
     private var content: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: .zero) {
-
+                
                 navBar
                     .padding(.top)
                     .padding(.horizontal)
                     .padding(.bottom)
                 
-            ScrollView {
+                ScrollView {
                     PlaylistSearchView(searchText: search)
                         .padding(.bottom)
-
+                    
                     NewPlaylistRow(
                         onTap: {
                             newPlaylistName = ""
@@ -56,7 +56,7 @@ struct PlaylistView: View {
                         }
                     )
                     .padding(.horizontal)
-
+                    
                     VStack(spacing: 14) {
                         ForEach(viewModel.playlists) { p in
                             PlaylistCell(
@@ -110,7 +110,7 @@ struct MiniPlayerBarRemote: View {
     var onExpand: () -> Void = {}
     var onPlay: () -> Void = {}
     var onPause: () -> Void = {}
-
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 12.fitW) {
@@ -124,7 +124,7 @@ struct MiniPlayerBarRemote: View {
                             .scaledToFill()
                             .frame(width: 44.fitW, height: 44.fitW)
                             .clipShape(RoundedRectangle(cornerRadius: 10.fitW))
-
+                        
                         VStack(alignment: .leading, spacing: 2.fitH) {
                             Text(title)
                                 .font(.manropeSemiBold(size: 16.fitW))
@@ -138,16 +138,16 @@ struct MiniPlayerBarRemote: View {
                     }
                 }
                 .buttonStyle(.plain)
-
+                
                 Spacer()
-
+                
                 HStack(spacing: 14.fitW) {
                     Button(action: onPause) {
                         Image("playlistPauseIcon")
                             .frame(width: 32.fitW, height: 32.fitW)
                     }
                     .buttonStyle(.plain)
-
+                    
                     Button(action: onPlay) {
                         Image("NextIcon")
                             .frame(width: 32.fitW, height: 32.fitW)
@@ -158,7 +158,7 @@ struct MiniPlayerBarRemote: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 12.fitH)
-
+            
             Rectangle()
                 .fill(Color.blue.opacity(0.9))
                 .frame(height: max(2 / UIScreen.main.scale, 1))

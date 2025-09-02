@@ -23,7 +23,7 @@ struct LocalPlaylistDetailView: View {
     @State private var playlistName = ""
     
     @State private var isFileImporterPresented = false
-
+    
     init(playlist: LocalPlaylist) {
         _viewModel = StateObject(wrappedValue: LocalPlaylistDetailViewModel(playlist: playlist))
     }
@@ -322,7 +322,7 @@ struct LocalPlaylistDetailView: View {
                 }
             }
             .padding(.horizontal, 16.fitW)
-
+            
             
             Spacer(minLength: 120.fitH)
         }

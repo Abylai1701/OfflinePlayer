@@ -11,10 +11,10 @@ import SwiftData
 
 @main
 struct OfflinePlayerApp: App {
-
+    
     @StateObject private var router = Router()
     @StateObject private var homeCache = HomeCacheService.shared
-
+    
     init() {
         configureImageCache()
     }
@@ -29,7 +29,6 @@ struct OfflinePlayerApp: App {
                 .task {
                     await homeCache.refreshAll()
                 }
-
         }
     }
     
@@ -43,7 +42,7 @@ struct OfflinePlayerApp: App {
         return try! ModelContainer(for: schema, configurations: [config])
     }()
     
-
+    
     func configureImageCache() {
         // Память: ~128 MB
         ImageCache.default.memoryStorage.config.totalCostLimit = 128 * 1024 * 1024
