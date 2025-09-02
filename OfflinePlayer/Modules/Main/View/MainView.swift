@@ -12,7 +12,7 @@ import Kingfisher
 struct MainView: View {
     @EnvironmentObject private var router: Router
     @Environment(\.modelContext) private var modelContext
-
+    
     @StateObject private var viewModel = MainViewModel()
     
     @State private var search = ""
@@ -136,72 +136,82 @@ struct MainView: View {
     private var scrollView: some View {
         ScrollView {
             MainSearchView(searchText: $viewModel.searchText)
-                    .onChange(of: viewModel.searchText) { _, _ in
-                        viewModel.onSearchTextChanged()
-                    }
+                .onChange(of: viewModel.searchText) { _, _ in
+                    viewModel.onSearchTextChanged()
+                }
             
             if viewModel.isSearching {
-                    SearchTabs(selection: $viewModel.searchScope)
-                        .padding(.top, 4.fitH)
-                        .padding(.bottom, 16.fitH)
-
-                    // Контент по вкладке
-                    switch viewModel.searchScope {
-                    case .all, .top, .tracks:
-                        LazyVStack(spacing: 14) {
-                            ForEach(viewModel.foundTracks, id: \.id) { t in
-                                TrackCell(
-                                    coverURL: t.artworkURL,
-                                    title: t.title,
-                                    artist: t.artist,
-                                    onMenuTap: {
-                                        viewModel.openActions(for: t)
-                                    }
-                                )
-                                .padding(.horizontal)
+                SearchTabs(selection: $viewModel.searchScope)
+                    .padding(.top, 4.fitH)
+                    .padding(.bottom, 16.fitH)
+                
+                // Контент по вкладке
+                switch viewModel.searchScope {
+                case .all, .top, .tracks:
+                    LazyVStack(spacing: 14) {
+                        ForEach(viewModel.foundTracks, id: \.id) { t in
+                            TrackCell(
+                                coverURL: t.artworkURL,
+                                title: t.title,
+                                artist: t.artist,
+                                onMenuTap: {
+                                    viewModel.openActions(for: t)
+                                }
+                            )
+                            .padding(.horizontal)
+                            .onTapGesture {
+                                Task {
+                                    viewModel.play(t)
+                                }
                             }
                         }
-                        .padding(.bottom, 100.fitH)
-
-                    case .playlists:
-                        LazyVStack(spacing: 14) {
-                            ForEach(viewModel.foundPlaylists, id: \.id) { p in
-                                SearchRowSquare(
-                                    imageURL: viewModel.coverURL(for: p),
-                                    title: p.title,
-                                    subtitle: p.user?.name ?? p.user?.handle ?? ""
-                                )
-                            }
-                        }
-                        .padding(.horizontal, 16.fitW)
-                        .padding(.bottom, 100.fitH)
-
-                    case .album:
-                        LazyVStack(spacing: 14) {
-                            ForEach(viewModel.foundAlbums, id: \.id) { p in
-                                SearchRowSquare(
-                                    imageURL: viewModel.coverURL(for: p),
-                                    title: p.title,
-                                    subtitle: p.user?.name ?? p.user?.handle ?? ""
-                                )
-                            }
-                        }
-                        .padding(.horizontal, 16.fitW)
-                        .padding(.bottom, 100.fitH)
-
-                    case .singer:
-                        LazyVStack(spacing: 14) {
-                            ForEach(viewModel.foundArtists, id: \.self) { name in
-                                SearchRowCircle(
-                                    imageURL: nil, // позже — аватар из твоего хранилища
-                                    title: name
-                                )
-                            }
-                        }
-                        .padding(.horizontal, 16.fitW)
-                        .padding(.bottom, 100.fitH)
                     }
-
+                    .padding(.bottom, 200.fitH)
+                    
+                case .playlists:
+                    LazyVStack(spacing: 14) {
+                        ForEach(viewModel.foundPlaylists, id: \.id) { p in
+                            SearchRowSquare(
+                                imageURL: viewModel.coverURL(for: p),
+                                title: p.title,
+                                subtitle: p.user?.name ?? p.user?.handle ?? ""
+                            )
+                            .onTapGesture {
+                                Task {
+                                    await viewModel.openPlaylist(p)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16.fitW)
+                    .padding(.bottom, 200.fitH)
+                    
+                case .album:
+                    LazyVStack(spacing: 14) {
+                        ForEach(viewModel.foundAlbums, id: \.id) { p in
+                            SearchRowSquare(
+                                imageURL: viewModel.coverURL(for: p),
+                                title: p.title,
+                                subtitle: p.user?.name ?? p.user?.handle ?? ""
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 16.fitW)
+                    .padding(.bottom, 200.fitH)
+                    
+                case .singer:
+                    LazyVStack(spacing: 14) {
+                        ForEach(viewModel.foundArtists, id: \.self) { name in
+                            SearchRowCircle(
+                                imageURL: nil, // позже — аватар из твоего хранилища
+                                title: name
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 16.fitW)
+                    .padding(.bottom, 200.fitH)
+                }
+                
             } else {
                 CategoryTabs(selection: $category)
                     .padding(.top, 4.fitH)
@@ -254,12 +264,12 @@ struct MainView: View {
                         .padding(.horizontal)
                         .onTapGesture {
                             Task {
-                                await viewModel.play(t)
+                                viewModel.playAllTrending(startAt: idx)
                             }
                         }
                     }
                 }
-                .padding(.bottom, 100.fitH)
+                .padding(.bottom, 200.fitH)
             }
         }
     }

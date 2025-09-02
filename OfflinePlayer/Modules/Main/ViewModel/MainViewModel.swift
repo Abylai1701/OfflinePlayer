@@ -11,7 +11,7 @@ final class MainViewModel: ObservableObject {
     private var manager: LocalPlaylistsManager?
     
     // Шаринг
-    @Published var isShareSheetPresented = false     // ⬅️ ПЕРЕНЕСИ ИЛИ ДОБАВЬ
+    @Published var isShareSheetPresented = false
     @Published var shareItems: [Any] = []
     
     var trackURLProvider: ((MyTrack) -> URL?)?
@@ -372,17 +372,18 @@ extension HomeCategory {
 
 
 extension MainViewModel {
+    
     @MainActor
-    func play(_ t: MyTrack) async {
-        guard let url = try? await api.streamURL(for: t.id) else {
-            print("failed to construct stream URL")
-            return
+    func play(_ t: MyTrack) {
+        Task {
+            await PlaybackService.shared.play(t)
         }
-        let entry = PlayerQueueEntry(
-            id: t.id,
-            url: url,
-            meta: .init(title: t.title, artist: t.artist, artworkURL: t.artworkURL)
-        )
-        PlayerCenter.shared.replaceWithSingle(entry, autoplay: true)
+    }
+    
+    @MainActor
+    func playAllTrending(startAt idx: Int = 0) {
+        Task {
+            await PlaybackService.shared.playQueue(trendItems, startAt: idx)
+        }
     }
 }

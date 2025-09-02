@@ -57,8 +57,6 @@ struct TrendingNowView: View {
                         .padding(.bottom, 16.fitH)
                     LazyVStack(spacing: 14.fitH) {
                         ForEach(Array(filtered.enumerated()), id: \.element.id) { idx, t in
-                            // Используй свой компонент с URL (KFImage),
-                            // или тот, что мы делали: TrendingRowRemote
                             TrackCell(
                                 rank: idx + 1,
                                 coverURL: t.artworkURL,
@@ -66,11 +64,17 @@ struct TrendingNowView: View {
                                 artist: t.artist,
                                 onMenuTap: { viewModel.openActions(for: t) }
                             )
+                            .onTapGesture {
+                                Task {
+                                    await PlaybackService.shared.playQueue(viewModel.items, startAt: idx)
+                                }
+                            }
                         }
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 24.fitH)
                 }
+                .padding(.bottom, 200)
             }
             .ignoresSafeArea(.container, edges: .bottom)
             .compositingGroup()
@@ -99,7 +103,10 @@ struct TrendingNowView: View {
                             viewModel.addCurrentTrackToFavorites()
                         }
                     },
-                    onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
+                    onPlayNext: {
+                        viewModel.playNext(track: t)
+                        viewModel.closeActions()
+                    },
                     onDownload: { viewModel.download(); viewModel.closeActions() },
                     onShare: {
                         viewModel.closeActions()

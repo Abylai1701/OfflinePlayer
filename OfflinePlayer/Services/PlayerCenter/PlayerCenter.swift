@@ -102,7 +102,9 @@ final class PlayerCenter: ObservableObject {
         queue = entries
         currentIndex = max(0, min(index, entries.count - 1))
         loadCurrentItem()
-        if autoplay { play() }
+        if autoplay {
+            play()
+        }
     }
 
     func replaceWithSingle(_ entry: PlayerQueueEntry, autoplay: Bool = true) {
@@ -246,5 +248,11 @@ final class PlayerCenter: ObservableObject {
         var info = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+    }
+}
+
+extension PlayerCenter {
+    var currentEntry: PlayerQueueEntry? {
+        queue.indices.contains(currentIndex) ? queue[currentIndex] : nil
     }
 }

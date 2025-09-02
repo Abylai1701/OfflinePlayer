@@ -42,7 +42,11 @@ final class TrendingNowViewModel: ObservableObject {
     // Примеры экшенов (заглушки)
     func like() {}
     func addToPlaylist() {}
-    func playNext() {}
+    func playNext(track: MyTrack) {
+        Task {
+            await PlaybackService.shared.enqueue(track)
+        }
+    }
     func download() {}
     func share() {}
     func goToAlbum() {}

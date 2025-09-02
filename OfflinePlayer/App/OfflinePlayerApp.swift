@@ -10,7 +10,7 @@ import Kingfisher
 import SwiftData
 
 @main
-struct WeatherPoetryApp: App {
+struct OfflinePlayerApp: App {
 
     @StateObject private var router = Router()
     @StateObject private var homeCache = HomeCacheService.shared

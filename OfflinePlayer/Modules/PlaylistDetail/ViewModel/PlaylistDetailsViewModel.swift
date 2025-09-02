@@ -151,4 +151,9 @@ final class PlaylistDetailsViewModel: ObservableObject {
         }
     }
 
+    @MainActor
+    func play(startAt idx: Int = 0) {
+        Task { await PlaybackService.shared.playQueue(tracks, startAt: idx) }
+    }
+    
 }

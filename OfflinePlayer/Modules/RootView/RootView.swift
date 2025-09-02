@@ -5,7 +5,9 @@ enum Tab: Hashable { case home, playlists, settings }
 struct RootView: View {
     
     @EnvironmentObject private var router: Router
-
+    @EnvironmentObject private var player: PlayerCenter
+    @State private var showFullPlayer = false
+    
     var body: some View {
         TabView(selection: $router.selectedTab) {
             NavigationStack(path: $router.homePath) {
@@ -55,5 +57,36 @@ struct RootView: View {
             TabBarAppearanceConfigurator.apply()
         }
         .toolbar(.visible, for: .tabBar)
+        
+        .safeAreaInset(edge: .bottom) {
+            if let entry = player.currentEntry {
+                MiniPlayerBarRemote(
+                    coverURL: entry.meta.artworkURL,
+                    title: entry.meta.title,
+                    subtitle: entry.meta.artist,
+                    onExpand: { showFullPlayer = true },
+                    onPlay: { player.play() },
+                    onPause: { player.pause() }
+                )
+                
+                .padding(.bottom, 44)
+
+            } else {
+                EmptyView()
+            }
+        }
+        .fullScreenCover(isPresented: $showFullPlayer) {
+            if let e = player.currentEntry {
+                // MusicPlayerView у тебя сейчас принимает Image — можно дать плейсхолдер,
+                // а при желании позже сделать версию с URL.
+                MusicPlayerView(
+                    cover: Image(.cover),
+                    title: e.meta.title,
+                    artist: e.meta.artist,
+                    onDismiss: { showFullPlayer = false }
+                )
+                .environmentObject(router)
+            }
+        }
     }
 }

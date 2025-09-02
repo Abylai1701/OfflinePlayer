@@ -229,8 +229,12 @@ struct LocalPlaylistDetailView: View {
                     .foregroundStyle(.white)
                     .frame(width: 14.fitW, height: 28.fitW)
             }
+            
             Spacer()
-            Button { viewModel.openMenu() } label: {
+            
+            Button {
+                viewModel.openMenu()
+            } label: {
                 Image(systemName: "ellipsis")
                     .font(.system(size: 20.fitW, weight: .semibold))
                     .foregroundStyle(.white)
@@ -250,7 +254,9 @@ struct LocalPlaylistDetailView: View {
                 .buttonStyle(.plain)
                 
                 Button {
-                    
+                    Task {
+                        await viewModel.play()
+                    }
                 } label: {
                     ZStack {
                         Circle()
@@ -296,7 +302,7 @@ struct LocalPlaylistDetailView: View {
             .padding(.bottom, 14.fitH)
             
             VStack(spacing: 14.fitH) {
-                ForEach(viewModel.rows) { row in
+                ForEach(Array(viewModel.rows.enumerated()), id: \.element.id) { idx, row in
                     PlaylistTrackRow(
                         coverURL: row.remoteArtworkURL,
                         title: row.title,
@@ -307,9 +313,16 @@ struct LocalPlaylistDetailView: View {
                             }
                         }
                     )
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        Task {
+                            await viewModel.play(startAt: idx)
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 16.fitW)
+
             
             Spacer(minLength: 120.fitH)
         }

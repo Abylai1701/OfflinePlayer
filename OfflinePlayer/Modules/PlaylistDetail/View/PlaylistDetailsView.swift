@@ -37,10 +37,11 @@ struct PlaylistDetailsView: View {
                 .padding(.top, 8.fitH)
                 .padding(.bottom, 26.fitH)
                 ScrollView {
-                    // Big cover + play button
                     ZStack(alignment: .bottomTrailing) {
                         KFImage(viewModel.playlist.artworkURL)
-                            .placeholder { Color.gray.opacity(0.2) }
+                            .placeholder {
+                                Color.gray.opacity(0.2)
+                            }
                             .cacheOriginalImage()
                             .loadDiskFileSynchronously()
                             .resizable()
@@ -48,7 +49,11 @@ struct PlaylistDetailsView: View {
                             .frame(width: 211.fitW, height: 211.fitW)
                             .clipShape(RoundedRectangle(cornerRadius: 24.fitW, style: .continuous))
                         
-                        Button { /* play whole playlist */ } label: {
+                        Button {
+                            Task {
+                                viewModel.play()
+                            }
+                        } label: {
                             ZStack {
                                 Circle()
                                     .fill(.white)
@@ -75,16 +80,21 @@ struct PlaylistDetailsView: View {
                         .padding(.bottom, 32.fitH)
                     
                     VStack(spacing: 14.fitH) {
-                        ForEach(viewModel.tracks) { t in
+                        ForEach(Array(viewModel.tracks.enumerated()), id: \.element.id) { idx, t in
                             PlaylistTrackRow(
                                 coverURL: t.artworkURL,
                                 title: t.title,
                                 artist: t.artist,
                                 onMenuTap: { viewModel.openActions(for: t) }
                             )
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                viewModel.play(startAt: idx)
+                            }
                         }
                     }
                     .padding(.horizontal, 16.fitW)
+
                     
                     Spacer(minLength: 120.fitH)
                 }

@@ -79,24 +79,6 @@ struct PlaylistView: View {
                 .ignoresSafeArea()
             }
             .toolbar(.hidden, for: .navigationBar)
-            
-            MiniPlayerBar(
-                cover: Image(.image),
-                title: "Midnight Mirage",
-                subtitle: "Léa Vellor",
-                onExpand: {
-                    showPlayer = true
-                },
-                onPlay: {},
-                onPause: {}
-            ).fullScreenCover(isPresented: $showPlayer) {
-                MusicPlayerView(
-                    cover: Image(.cover),
-                    title: "Pretty Woman",
-                    artist: "Inga Klaus",
-                    onDismiss: { showPlayer = false }
-                )
-            }
         }
     }
     
@@ -119,8 +101,10 @@ struct PlaylistView: View {
     }
 }
 
-struct MiniPlayerBar: View {
-    let cover: Image
+import Kingfisher
+
+struct MiniPlayerBarRemote: View {
+    let coverURL: URL?
     let title: String
     let subtitle: String
     var onExpand: () -> Void = {}
@@ -132,8 +116,12 @@ struct MiniPlayerBar: View {
             HStack(spacing: 12.fitW) {
                 Button(action: onExpand) {
                     HStack(spacing: 12.fitW) {
-                        cover
-                            .resizable().scaledToFill()
+                        KFImage(coverURL)
+                            .placeholder { Color.gray.opacity(0.2) }
+                            .cacheOriginalImage()
+                            .loadDiskFileSynchronously()
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: 44.fitW, height: 44.fitW)
                             .clipShape(RoundedRectangle(cornerRadius: 10.fitW))
 
@@ -141,9 +129,11 @@ struct MiniPlayerBar: View {
                             Text(title)
                                 .font(.manropeSemiBold(size: 16.fitW))
                                 .foregroundStyle(.white)
+                                .lineLimit(1)
                             Text(subtitle)
                                 .font(.manropeRegular(size: 13.fitW))
                                 .foregroundStyle(.white.opacity(0.7))
+                                .lineLimit(1)
                         }
                     }
                 }
@@ -168,7 +158,7 @@ struct MiniPlayerBar: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 12.fitH)
-            
+
             Rectangle()
                 .fill(Color.blue.opacity(0.9))
                 .frame(height: max(2 / UIScreen.main.scale, 1))
@@ -178,6 +168,66 @@ struct MiniPlayerBar: View {
         .padding(.bottom, 4.fitH)
     }
 }
+
+//struct MiniPlayerBar: View {
+//    let cover: Image
+//    let title: String
+//    let subtitle: String
+//    var onExpand: () -> Void = {}
+//    var onPlay: () -> Void = {}
+//    var onPause: () -> Void = {}
+//
+//    var body: some View {
+//        VStack(spacing: 0) {
+//            HStack(spacing: 12.fitW) {
+//                Button(action: onExpand) {
+//                    HStack(spacing: 12.fitW) {
+//                        cover
+//                            .resizable().scaledToFill()
+//                            .frame(width: 44.fitW, height: 44.fitW)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10.fitW))
+//
+//                        VStack(alignment: .leading, spacing: 2.fitH) {
+//                            Text(title)
+//                                .font(.manropeSemiBold(size: 16.fitW))
+//                                .foregroundStyle(.white)
+//                            Text(subtitle)
+//                                .font(.manropeRegular(size: 13.fitW))
+//                                .foregroundStyle(.white.opacity(0.7))
+//                        }
+//                    }
+//                }
+//                .buttonStyle(.plain)
+//
+//                Spacer()
+//
+//                HStack(spacing: 14.fitW) {
+//                    Button(action: onPause) {
+//                        Image("playlistPauseIcon")
+//                            .frame(width: 32.fitW, height: 32.fitW)
+//                    }
+//                    .buttonStyle(.plain)
+//
+//                    Button(action: onPlay) {
+//                        Image("NextIcon")
+//                            .frame(width: 32.fitW, height: 32.fitW)
+//                    }
+//                    .buttonStyle(.plain)
+//                }
+//                .foregroundStyle(.white)
+//            }
+//            .padding(.horizontal)
+//            .padding(.vertical, 12.fitH)
+//            
+//            Rectangle()
+//                .fill(Color.blue.opacity(0.9))
+//                .frame(height: max(2 / UIScreen.main.scale, 1))
+//        }
+//        .background(.black191919)
+//        .padding(.horizontal, 8.fitW)
+//        .padding(.bottom, 4.fitH)
+//    }
+//}
 
 #Preview {
     PlaylistView()
