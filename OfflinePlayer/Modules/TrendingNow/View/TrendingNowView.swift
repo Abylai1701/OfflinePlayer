@@ -7,8 +7,8 @@ struct TrendingNowView: View {
     @StateObject private var viewModel: TrendingNowViewModel
     @Environment(\.modelContext) private var modelContext
     
-    @State private var search: String = ""
     @State private var sheetContentHeight: CGFloat = 430
+    @StateObject private var speech = VoiceSearchRecognizer()
     
     // ← принимаем данные маршрута
     init(items: [MyTrack]) {
@@ -53,8 +53,21 @@ struct TrendingNowView: View {
                 .padding(.top, 16.fitH)
                 
                 ScrollView {
-                    SearchBar(text: $search)
+                    SearchBar(text: $viewModel.search,
+                              isRecording: speech.isRecording,
+                              onMicTap: {
+                                    speech.toggle { [weak viewModel] text in
+                                        Task { @MainActor in
+                                                viewModel?.search = text
+                                                viewModel?.onSearchTextChanged()
+                                        }
+                                    }
+                        }
+                    )
                         .padding(.bottom, 16.fitH)
+                        .onChange(of: viewModel.search) { _, _ in
+                            viewModel.onSearchTextChanged()
+                        }
                     LazyVStack(spacing: 14.fitH) {
                         ForEach(Array(filtered.enumerated()), id: \.element.id) { idx, t in
                             TrackCell(
@@ -87,6 +100,7 @@ struct TrendingNowView: View {
             .task {
                 viewModel.attach(router: router)
                 viewModel.bindIfNeeded(context: modelContext)
+                try? await speech.ensurePermissions()
             }
         }
         .animation(nil, value: viewModel.isActionSheetPresented)
@@ -107,7 +121,9 @@ struct TrendingNowView: View {
                         viewModel.playNext(track: t)
                         viewModel.closeActions()
                     },
-                    onDownload: { viewModel.download(); viewModel.closeActions() },
+                    onDownload: {
+                        viewModel.download(t);
+                        viewModel.closeActions() },
                     onShare: {
                         viewModel.closeActions()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {

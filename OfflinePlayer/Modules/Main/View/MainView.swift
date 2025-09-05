@@ -90,7 +90,7 @@ struct MainView: View {
                         viewModel.closeActions()
                     },
                     onDownload: {
-                        viewModel.download();
+                        viewModel.download(t);
                         viewModel.closeActions()
                     },
                     onShare: {

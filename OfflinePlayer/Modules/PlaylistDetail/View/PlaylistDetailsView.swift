@@ -117,17 +117,23 @@ struct PlaylistDetailsView: View {
                                 viewModel.addCurrentTrackToFavorites()
                             }
                         },
-                        onPlayNext: { viewModel.playNext(); viewModel.closeActions() },
-                        onDownload: { viewModel.download(); viewModel.closeActions() },
+                        
+                        onPlayNext: {
+                            viewModel.playNext();
+                            viewModel.closeActions() },
+                        
+                        onDownload: {
+                            viewModel.download(t);
+                            viewModel.closeActions() },
+                        
                         onShare: {
                             viewModel.closeActions()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                                 viewModel.shareCurrentTrack()
                             }
                         },
-                        onRemove: {
-                            
-                        }
+                        
+                        onRemove: {}
                     )
                     .presentationDetents([.height(290)])
                     .presentationCornerRadius(28.fitW)

@@ -14,6 +14,7 @@ struct NowPlayingMeta: Equatable {
     var title: String
     var artist: String
     var artworkURL: URL?
+    var avatarURL: URL?
 }
 
 /// Элемент очереди плеера
@@ -116,8 +117,7 @@ final class PlayerCenter: ObservableObject {
         let e = queue[currentIndex]
         let item = AVPlayerItem(url: e.url)
         player.replaceCurrentItem(with: item)
-        
-        // reset cached values
+
         currentTime = 0
         duration = 0
         buffered = 0
@@ -165,7 +165,6 @@ final class PlayerCenter: ObservableObject {
                 if repeatMode == .all {
                     currentIndex = 0
                 } else {
-                    // стоп на последнем
                     pause()
                     seek(to: 0)
                     return
@@ -181,7 +180,6 @@ final class PlayerCenter: ObservableObject {
     func prev() {
         guard !queue.isEmpty else { return }
         if currentTime > 3 {
-            // рестарт текущего
             seek(to: 0); return
         }
         if isShuffleOn {
@@ -208,8 +206,7 @@ final class PlayerCenter: ObservableObject {
             next()
         }
     }
-    
-    // MARK: Now Playing / Remote
+
     private func setupRemoteCommands() {
         let c = MPRemoteCommandCenter.shared()
         c.playCommand.addTarget { [weak self] _ in self?.play(); return .success }
@@ -233,8 +230,7 @@ final class PlayerCenter: ObservableObject {
         }
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
         info[MPNowPlayingInfoPropertyPlaybackRate] = isPlaying ? 1.0 : 0.0
-        
-        // Обложка (если есть URL — можно подкачать ассинхронно; для простоты — позже)
+  
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
     
@@ -255,4 +251,23 @@ extension PlayerCenter {
     var currentEntry: PlayerQueueEntry? {
         queue.indices.contains(currentIndex) ? queue[currentIndex] : nil
     }
+    //Nureke
+    func currentDurationSecondsAsync() async -> TimeInterval {
+           guard let item = player.currentItem else { return 0 }
+           if #available(iOS 16.0, *) {
+               do {
+                   let cm = try await item.asset.load(.duration)
+                   return cm.isNumeric ? cm.seconds : 0
+               } catch {
+                   return 0
+               }
+           } else {
+               let cm = item.asset.duration
+               return cm.isNumeric ? cm.seconds : 0
+           }
+       }
+
+    func currentTimeSeconds() -> TimeInterval {
+            player.currentItem?.currentTime().seconds ?? 0
+        }
 }

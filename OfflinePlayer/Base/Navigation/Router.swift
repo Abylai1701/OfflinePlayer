@@ -13,6 +13,7 @@ enum AppRoute: Hashable {
     case playlistDetails(playlist: MyPlaylist, items: [MyTrack])
     case localPlaylist(playlist: LocalPlaylist)
     case library(playlist: LocalPlaylist)
+    case equalizer
 }
 
 import SwiftUI
@@ -67,6 +68,8 @@ extension Router {
             LibraryView(playlist: playlist)
         case .localPlaylist(playlist: let playlist):
             LocalPlaylistDetailView(playlist: playlist)
+        case .equalizer:
+            EqualizerScreenView()
         }
     }
 }

@@ -16,7 +16,7 @@ final class MusicPlayingViewModel: ObservableObject {
     }
     
     func pushToEQ() {
-//        router?.push(.equalizer)
+        router?.push(.equalizer)
     }
     
     func back() {

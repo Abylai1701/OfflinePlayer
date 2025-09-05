@@ -8,6 +8,8 @@ struct RootView: View {
     @EnvironmentObject private var player: PlayerCenter
     @State private var showFullPlayer = false
     
+    @StateObject private var kb = KeyboardState()
+    
     var body: some View {
         TabView(selection: $router.selectedTab) {
             NavigationStack(path: $router.homePath) {
@@ -65,11 +67,15 @@ struct RootView: View {
                     title: entry.meta.title,
                     subtitle: entry.meta.artist,
                     onExpand: { showFullPlayer = true },
-                    onPlay: { player.play() },
-                    onPause: { player.pause() }
+                    onPlay: { /*player.play()*/
+                        PlaybackService.shared.togglePlay()
+                    },
+                    onPause: { /*player.pause()*/
+                        PlaybackService.shared.pause()
+                    }
                 )
-                
-                .padding(.bottom, 44)
+                  .environmentObject(kb)
+//                .padding(.bottom, 44)
                 
             } else {
                 EmptyView()
@@ -77,13 +83,16 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $showFullPlayer) {
             if let e = player.currentEntry {
-                // MusicPlayerView у тебя сейчас принимает Image — можно дать плейсхолдер,
-                // а при желании позже сделать версию с URL.
                 MusicPlayerView(
+                    coverURL: e.meta.artworkURL,
+                    avatarURL: e.meta.avatarURL,
                     cover: Image(.cover),
                     title: e.meta.title,
                     artist: e.meta.artist,
-                    onDismiss: { showFullPlayer = false }
+                    onDismiss: { showFullPlayer = false },
+                    onNavigationEqualizer: {
+                        router.push(.equalizer)
+                    }
                 )
                 .environmentObject(router)
             }

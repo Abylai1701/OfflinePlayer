@@ -225,10 +225,24 @@ final class MainViewModel: ObservableObject {
     func addToPlaylist() {}
     func playNext() {}
     
-    func download() {
-        //        guard let t = actionTrack, let url = try? api.streamURL(for: t.id) else { return }
-        // DownloadService.shared.download(trackId: t.id, from: url)
+    func download(_ track: MyTrack) {
+        Task {
+            do {
+
+                let url = try await PlaybackService.shared.streamURL(for: track)
+
+                let base = track.artist.isEmpty ? track.title : "\(track.artist) - \(track.title)"
+                let saved = try await DownloadManager.shared.downloadTrack(
+                    from: url,
+                    suggestedName: base
+                )
+                print("✅ Saved to:", saved.path)
+            } catch {
+                print("Download error:", error.localizedDescription)
+            }
+        }
     }
+
     
     func share() {}
     func goToAlbum() {}

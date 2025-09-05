@@ -79,10 +79,20 @@ struct MyTrack: Decodable, Identifiable, Hashable {
     var artworkURL: URL? {
         artwork?._1000x1000 ?? artwork?._480x480 ?? artwork?._150x150
     }
-
+    
+    var artistAvatarURL: URL? {
+        user?.profilePicture?._1000x1000 ?? user?.profilePicture?._480x480 ?? user?.profilePicture?._150x150
+    }
+    
     struct User: Decodable, Hashable {
         let handle: String?
         let name: String?
+        let profilePicture: Artwork?
+        
+        enum CodingKeys: String, CodingKey {
+            case handle, name
+            case profilePicture = "profile_picture"
+        }
     }
 
     struct Artwork: Decodable, Hashable {

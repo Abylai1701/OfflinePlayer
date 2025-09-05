@@ -64,7 +64,24 @@ final class PlaylistDetailsViewModel: ObservableObject {
     func like() {}
     func addToPlaylist() {}
     func playNext() {}
-    func download() {}
+    func download(_ track: MyTrack) {
+        Task {
+            do {
+
+                let url = try await PlaybackService.shared.streamURL(for: track)
+
+                let base = track.artist.isEmpty ? track.title : "\(track.artist) - \(track.title)"
+                let saved = try await DownloadManager.shared.downloadTrack(
+                    from: url,
+                    suggestedName: base
+                )
+                print("✅ Saved to:", saved.path)
+            } catch {
+                print("Download error:", error.localizedDescription)
+            }
+        }
+    }
+
     func goToAlbum() {}
     func remove() {}
     

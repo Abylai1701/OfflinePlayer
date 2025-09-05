@@ -17,6 +17,8 @@ struct SearchBar: View {
     
     @Binding var text: String
     var type: SearchBarType = .home
+    var isRecording: Bool = false
+    var onMicTap: (() -> Void)? = nil
     
     private var placeholder: String {
         switch type {
@@ -43,9 +45,11 @@ struct SearchBar: View {
             .textInputAutocapitalization(.never)
             .foregroundStyle(.white)
             Button {
-                print("SFX: Tap")
-            } label: {
-                Image(systemName: "mic.fill")
+                onMicTap?()
+            }
+            label: {
+                Image(systemName: isRecording ? "mic.fill" : "mic")
+                    .symbolEffect(.pulse, isActive: isRecording)
                     .foregroundStyle(.grayB3B3B3)
             }
         }

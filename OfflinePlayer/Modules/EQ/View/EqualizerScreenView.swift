@@ -102,10 +102,10 @@ struct EqualizerScreenView: View {
             .ignoresSafeArea()
             
             VStack {
-                // Top bar
                 HStack {
                     Button {
-                        //
+                        isOn = false
+                        router.pop()
                     } label: {
                         Image("backIcon")
                             .font(.system(size: 18, weight: .semibold))
@@ -123,6 +123,11 @@ struct EqualizerScreenView: View {
                     Toggle("", isOn: $isOn)
                         .labelsHidden()
                         .tint(.blue)
+                        .onChange(of: isOn) { _, v in //Nureke
+                            PlaybackService.shared.setEqualizer(isOn: v,
+                                                                bands: currentBands,
+                                                                restartIfNeeded: v)
+                        }
                 }
                 .padding(.top)
                 .padding(.horizontal)
@@ -140,7 +145,10 @@ struct EqualizerScreenView: View {
                         ForEach(presets) { preset in
                             Button {
                                 selectedPreset = preset
-                                currentBands   = preset.bands
+                                currentBands = preset.bands
+                                PlaybackService.shared.setEqualizer(isOn: isOn, //Nureke
+                                                                    bands: preset.bands,
+                                                                    restartIfNeeded: false)
                             } label: {
                                 HStack {
                                     Text(preset.name)
@@ -157,7 +165,6 @@ struct EqualizerScreenView: View {
                                 .contentShape(Rectangle())
                             }
                             .buttonStyle(.plain)
-                            
                             .overlay(
                                 Divider()
                                     .background(.gray2C2C2C.opacity(0.8)),
@@ -171,7 +178,12 @@ struct EqualizerScreenView: View {
             }
         }
         .preferredColorScheme(.dark)
-        //        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .navigationBar)
+        .onAppear {
+            PlaybackService.shared.setEqualizer(isOn: isOn,
+                                                bands: currentBands,
+                                                restartIfNeeded: false)
+        }
     }
 }
 

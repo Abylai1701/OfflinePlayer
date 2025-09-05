@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import Kingfisher
 
 struct MusicPlayerView: View {
     @EnvironmentObject private var router: Router
@@ -7,13 +8,14 @@ struct MusicPlayerView: View {
     
     @StateObject private var viewModel = MusicPlayingViewModel()
     
-    // входные данные
+    let coverURL: URL?
+    let avatarURL: URL?
     let cover: Image
     let title: String
     let artist: String
     var onDismiss: () -> Void = {}
+    var onNavigationEqualizer: () -> Void = {}
     
-    // состояние
     @State private var isScrubbing = false
     
     @State private var isLiked = false
@@ -22,8 +24,35 @@ struct MusicPlayerView: View {
     @State private var flash: FlashEvent? = nil
     @State private var seekValue: Double = 0
     
-    // метрики под макет
     private var artCorner: CGFloat { 26.fitW }
+    
+    @ViewBuilder private func artworkView() -> some View {
+        if let url = coverURL {
+            KFImage(url)
+                .placeholder { cover.resizable().scaledToFill().opacity(0.15) }
+                .cacheOriginalImage()
+                .loadDiskFileSynchronously()
+                .fade(duration: 0.15)
+                .cancelOnDisappear(true)
+                .resizable()
+                .scaledToFill()
+        } else {
+            cover.resizable().scaledToFill()
+        }
+    }
+    
+    @ViewBuilder private func avatarView() -> some View {
+        if let url = avatarURL {
+            KFImage(url)
+                .placeholder { Color.gray.opacity(0.2) }
+                .resizable()
+                .scaledToFill()
+        } else if let url = coverURL {
+            KFImage(url).resizable().scaledToFill()
+        } else {
+            Image(systemName: "person.crop.circle.fill").resizable().scaledToFill()
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -83,9 +112,7 @@ struct MusicPlayerView: View {
             let size = geo.size
             let r = max(size.width, size.height) * 0.65
             
-            cover
-                .resizable()
-                .scaledToFill()
+            artworkView()
                 .clipped()
                 .blur(radius: 18, opaque: true)
                 .overlay(
@@ -121,13 +148,10 @@ struct MusicPlayerView: View {
     private var contentLayer: some View {
         
         VStack(spacing: 0) {
-            // Обложка
             ZStack {
                 let shape = RoundedRectangle(cornerRadius: artCorner, style: .continuous)
                 
-                cover
-                    .resizable()
-                    .scaledToFill()
+                artworkView()
                     .frame(width: 295.fitW, height: 295.fitH)
                     .clipShape(RoundedRectangle(cornerRadius: artCorner, style: .continuous))
                     .shadow(color: .black.opacity(0.35), radius: 20, x: 0, y: 10)
@@ -140,7 +164,6 @@ struct MusicPlayerView: View {
                         }
                     }
                 
-                
                 if let flash {
                     FlashOverlay(event: flash)
                         .transition(.scale.combined(with: .opacity))
@@ -150,11 +173,8 @@ struct MusicPlayerView: View {
             .padding(.bottom, 40.fitH)
             
             VStack {
-                // Титул
                 HStack(spacing: 0) {
-                    cover
-                        .resizable()
-                        .scaledToFill()
+                    avatarView()
                         .frame(width: 55.fitW, height: 55.fitW)
                         .clipShape(Circle())
                         .padding(.trailing, 10.fitW)
@@ -163,6 +183,7 @@ struct MusicPlayerView: View {
                         Text(player.meta.title.isEmpty ? title : player.meta.title)
                             .font(.manropeBold(size: 24.fitW))
                             .foregroundStyle(.white)
+                            .lineLimit(1)
                         Text(player.meta.artist.isEmpty ? artist : player.meta.artist)
                             .font(.manropeSemiBold(size: 14.fitW))
                             .foregroundStyle(.gray707070)
@@ -170,7 +191,10 @@ struct MusicPlayerView: View {
                     .padding(.trailing, 54.fitW)
                     
                     Button {
-                        //
+                        onDismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            onNavigationEqualizer() 
+                        }
                     } label: {
                         Image("settingMusicIcon")
                             .font(.system(size: 24.fitW, weight: .semibold))
@@ -191,7 +215,6 @@ struct MusicPlayerView: View {
                 }
                 .padding(.bottom, 40.fitH)
                 
-                // Прогресс
                 VStack() {
                     ThinSeekBar(
                         value: $seekValue,
@@ -204,7 +227,7 @@ struct MusicPlayerView: View {
                             if dragging {
                                 player.beginScrubbing()
                             } else {
-                                player.endScrubbing(to: seekValue) // единичный seek в конце
+                                player.endScrubbing(to: seekValue)
                             }
                         }
                     )
@@ -225,9 +248,8 @@ struct MusicPlayerView: View {
                 .onAppear {
                     seekValue = player.currentTime
                 }
-                // пока пользователь НЕ скраббит — подтягиваем актуальный прогресс из плеера
+                
                 .onChange(of: player.currentTime) { _, newVal in
-                    // PlayerCenter сам хранит флаг isScrubbing; если его нет — можно
                     seekValue = newVal
                 }
             }
@@ -252,12 +274,18 @@ struct MusicPlayerView: View {
         
         private var symbol: String {
             switch event {
-            case .likeOn:     return "favoriteMusicIcon"
-            case .likeOff:    return "notFavoriteMusicIcon"
-            case .repeatOne:  return "repeatMusicIcon"
-            case .repeatOff:  return ""
-            case .shuffleOn:  return "shuffleMusicIcon"
-            case .shaffleOff: return ""
+            case .likeOn: 
+                return "favoriteMusicIcon"
+            case .likeOff: 
+                return "notFavoriteMusicIcon"
+            case .repeatOne:  
+                return "repeatMusicIcon"
+            case .repeatOff:  
+                return ""
+            case .shuffleOn:  
+                return "shuffleMusicIcon"
+            case .shaffleOff: 
+                return ""
             }
         }
     }
@@ -276,25 +304,39 @@ struct MusicPlayerView: View {
         VStack(spacing: 18.fitH) {
             HStack(spacing: .zero) {
                 Button {
-                    // toggle repeat (пример: off -> one -> all -> off)
                     switch player.repeatMode {
-                    case .off: player.repeatMode = .one; flashHint(.repeatOne)
-                    case .one: player.repeatMode = .all;  flashHint(.repeatOne) // можешь сделать отдельный икон
-                    case .all: player.repeatMode = .off;  flashHint(.repeatOff)
+                    case .off:
+                        player.repeatMode = .one;
+                        flashHint(.repeatOne)
+                    case .one:
+                        player.repeatMode = .all;
+                        flashHint(.repeatOne)
+                    case .all:
+                        player.repeatMode = .off;
+                        flashHint(.repeatOff)
                     }
-                } label: { Image(player.repeatMode == .off ? "repeatSmallMusicIcon" : "repeatSmallFillIcon") }
-                    .frame(width: 24.fitW, height: 24.fitW)
-                    .padding(.trailing, 55.fitW)
+                } label: {
+                    Image(player.repeatMode == .off ? "repeatSmallMusicIcon" : "repeatSmallFillIcon")
+                }
+                .frame(width: 24.fitW, height: 24.fitW)
+                .padding(.trailing, 55.fitW)
                 
                 
-                Button { player.prev() }
-                label: { Image("backMusicIcon") }
-                    .frame(width: 32.fitW, height: 32.fitW)
-                    .padding(.trailing, 28.fitW)
+                Button {
+                    player.prev()
+                }
+                label: {
+                    Image("backMusicIcon")
+                }
+                .frame(width: 32.fitW, height: 32.fitW)
+                .padding(.trailing, 28.fitW)
                 
-                Button { player.togglePlay() } label: {
+                Button {
+                    player.togglePlay()
+                } label: {
                     ZStack {
-                        Circle().fill(.white.opacity(0.16))
+                        Circle()
+                            .fill(.white.opacity(0.16))
                             .frame(width: 66.fitW, height: 66.fitW)
                         Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
                             .font(.system(size: 26.fitW, weight: .bold))
@@ -303,7 +345,9 @@ struct MusicPlayerView: View {
                 .frame(width: 66.fitW, height: 66.fitW)
                 .padding(.trailing, 28.fitW)
                 
-                Button { player.next() }
+                Button {
+                    player.next()
+                }
                 
                 label: {
                     Image("NextIcon")
@@ -316,8 +360,10 @@ struct MusicPlayerView: View {
                     if player.isShuffleOn { flashHint(.shuffleOn) }
                     
                 }
-                label: { Image(isShuffleOn ? "shuffleFillSmallIcon" : "shuffleSmallMusicIcon") }
-                    .frame(width: 24.fitW, height: 24.fitW)
+                label: {
+                    Image(isShuffleOn ? "shuffleFillSmallIcon" : "shuffleSmallMusicIcon")
+                }
+                .frame(width: 24.fitW, height: 24.fitW)
             }
             .foregroundStyle(.white)
             
@@ -334,8 +380,6 @@ struct MusicPlayerView: View {
         )
     }
     
-    
-    
     private func timeString(_ v: Double) -> String {
         let t = Int(v.rounded())
         return String(format: "%d:%02d", t/60, t%60)
@@ -344,6 +388,7 @@ struct MusicPlayerView: View {
 
 #Preview {
     MusicPlayerView(
+        coverURL: URL(string: "https://picsum.photos/600"), avatarURL: URL(string: "https://picsum.photos/600"),
         cover: Image(.cover),
         title: "Pretty Woman",
         artist: "Inga Klaus"

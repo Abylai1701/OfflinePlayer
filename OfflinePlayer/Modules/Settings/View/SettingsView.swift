@@ -39,7 +39,6 @@ struct SettingsView: View {
                 
                 ScrollView() {
                     VStack(alignment: .leading, spacing: .zero) {
-                        // App
                         Text("App")
                             .padding(.top, 32.fitH)
                             .font(.manropeRegular(size: 18))
@@ -60,7 +59,6 @@ struct SettingsView: View {
                             onTap: { activeSheet = $0 }
                         )
                         
-                        // Legal
                         Text("Legal")
                             .padding(.top, 24.fitH)
                             .padding(.bottom, 16.fitH)
@@ -124,7 +122,6 @@ struct SettingsView: View {
 }
 
 // MARK: - Components
-
 struct SettingsCard: View {
     let rows: [SettingsRowData]
     var onTap: (SheetType) -> Void
