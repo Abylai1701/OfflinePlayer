@@ -145,7 +145,6 @@ struct MainView: View {
                     .padding(.top, 4.fitH)
                     .padding(.bottom, 16.fitH)
                 
-                // Контент по вкладке
                 switch viewModel.searchScope {
                 case .all, .top, .tracks:
                     LazyVStack(spacing: 14) {

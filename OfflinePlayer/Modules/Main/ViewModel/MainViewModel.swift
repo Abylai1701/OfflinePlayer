@@ -164,7 +164,7 @@ final class MainViewModel: ObservableObject {
         
         // Локальная не-actor-isolated функция: можно безопасно вызывать в фоновых тасках
         let bestUserPictureURL: (MyPlaylist.User?) -> URL? = { u in
-            u?.profilePicture?._1000x1000 ?? u?.profilePicture?._480x480 ?? u?.profilePicture?._150x150
+            u?.coverPhoto?._640x ?? u?.coverPhoto?._2000x
         }
         
         await withTaskGroup(of: (String, URL?).self) { group in

@@ -231,7 +231,7 @@ final class LocalPlaylistDetailViewModel: ObservableObject {
             id: id,
             title: t.title,
             duration: t.duration.map { Int($0) },
-            user: .init(handle: nil, name: t.artist.isEmpty ? nil : t.artist, profilePicture: nil),
+            user: .init(handle: nil, name: t.artist.isEmpty ? nil : t.artist, coverPhoto: nil, profilePicture: nil),
             artwork: nil
         )
     }

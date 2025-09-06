@@ -195,7 +195,7 @@ final class AudiusAPI {
                 path: path
             )
         }
-
+        
         // 1-я попытка
         let url1 = try buildURL()
         let start = Date()
@@ -205,7 +205,9 @@ final class AudiusAPI {
             let elapsed = Date().timeIntervalSince(start)
             try validate(resp)
             let items: [T] = try decodeWrapped([T].self, from: data)
+            print(String(data: data, encoding: .utf8) ?? "(no data)")
             logInfo("✅ \(url1.path) \(status(of: resp)) · \(items.count) items · \(data.count)B · \(Int(elapsed*1000))ms")
+            
             return items
         } catch {
             logErr("first attempt failed for \(url1.path): \(error.localizedDescription). Refreshing host…")

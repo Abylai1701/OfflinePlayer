@@ -29,7 +29,11 @@ final class PlaybackService: ObservableObject {
             let entry = PlayerQueueEntry(
                 id: t.id,
                 url: url,
-                meta: .init(title: t.title, artist: t.artist, artworkURL: t.artworkURL)
+                meta: .init(title: t.title,
+                            artist: t.artist,
+                            artworkURL: t.artworkURL,
+                            avatarURL: t.artistAvatarURL
+                           )
             )
             //            PlayerCenter.shared.replaceWithSingle(entry, autoplay: autoplay)
             //Nureke
@@ -57,7 +61,10 @@ final class PlaybackService: ObservableObject {
                     entries.append(PlayerQueueEntry(
                         id: t.id,
                         url: url,
-                        meta: .init(title: t.title, artist: t.artist, artworkURL: t.artworkURL)
+                        meta: .init(title: t.title,
+                                    artist: t.artist,
+                                    artworkURL: t.artworkURL,
+                                    avatarURL: t.artistAvatarURL)
                     ))
                 }
             }
@@ -87,7 +94,11 @@ final class PlaybackService: ObservableObject {
             let entry = PlayerQueueEntry(
                 id: t.id,
                 url: url,
-                meta: .init(title: t.title, artist: t.artist, artworkURL: t.artworkURL)
+                meta: .init(title: t.title,
+                            artist: t.artist,
+                            artworkURL: t.artworkURL,
+                            avatarURL: t.artistAvatarURL
+                           )
             )
             var q = PlayerCenter.shared.queue
             q.append(entry)
@@ -106,7 +117,7 @@ extension PlaybackService {
     
     func setEqualizer(isOn: Bool, bands: [EQBand], restartIfNeeded: Bool = false) {
         eqEnabled = isOn
-        eqBands   = bands
+        eqBands = bands
         EqualizerService.shared.isEnabled = isOn
         EqualizerService.shared.apply(bands: bands)
         

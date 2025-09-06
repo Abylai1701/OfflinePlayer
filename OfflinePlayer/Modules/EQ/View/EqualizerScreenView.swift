@@ -5,7 +5,7 @@ struct EqualizerScreenView: View {
     @StateObject private var viewModel = EQChartViewModel()
     @EnvironmentObject private var router: Router
     
-    @State private var isOn: Bool = true
+    @State private var isOn: Bool = false
     @State private var selectedPreset: EQPreset
     private let presets: [EQPreset]
     
@@ -179,11 +179,6 @@ struct EqualizerScreenView: View {
         }
         .preferredColorScheme(.dark)
         .toolbar(.hidden, for: .navigationBar)
-        .onAppear {
-            PlaybackService.shared.setEqualizer(isOn: isOn,
-                                                bands: currentBands,
-                                                restartIfNeeded: false)
-        }
     }
 }
 

@@ -81,9 +81,7 @@ final class HomeCacheService: ObservableObject {
             for p in playlists {
                 group.addTask {
                     if let u = p.artworkURL { return (p.id, u) }
-                    if let u = p.user?.profilePicture?._1000x1000
-                        ?? p.user?.profilePicture?._480x480
-                        ?? p.user?.profilePicture?._150x150 { return (p.id, u) }
+                    if let u = p.artistAvatarURL { return (p.id, u) }
                     if let first = try? await api.playlistTracks(id: p.id, limit: 3).first,
                        let u = first.artworkURL { return (p.id, u) }
                     return (p.id, nil)

@@ -34,7 +34,7 @@ final class PlayerCenter: ObservableObject {
     @Published private(set) var duration: Double = 0
     @Published private(set) var buffered: Double = 0
     
-    @Published private(set) var meta: NowPlayingMeta = .init(title: "", artist: "", artworkURL: nil)
+    @Published private(set) var meta: NowPlayingMeta = .init(title: "", artist: "", artworkURL: nil, avatarURL: nil)
     @Published var repeatMode: RepeatMode = .off
     @Published var isShuffleOn: Bool = false
     
@@ -95,7 +95,9 @@ final class PlayerCenter: ObservableObject {
             forName: .AVPlayerItemDidPlayToEndTime,
             object: nil,
             queue: .main
-        ) { [weak self] _ in self?.handleItemFinished() }
+        ) { [weak self] _ in
+            self?.handleItemFinished()
+        }
     }
     
     // MARK: Queue / Play

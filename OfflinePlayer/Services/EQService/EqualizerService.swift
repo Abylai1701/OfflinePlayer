@@ -42,6 +42,26 @@ final class EqualizerService: ObservableObject {
         file != nil && totalFrames > 0
     }
 
+    private func buildGraphIfNeeded(format: AVAudioFormat) throws {
+        if engine.attachedNodes.contains(player) == false {
+            engine.attach(player)
+        }
+        if engine.attachedNodes.contains(eq) == false {
+            engine.attach(eq)
+        }
+
+        // player -> eq -> mainMixer
+        engine.connect(player, to: eq, format: format)
+        engine.connect(eq, to: engine.mainMixerNode, format: format)
+
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+        try AVAudioSession.sharedInstance().setActive(true)
+
+        if engine.isRunning == false {
+            try engine.start()
+        }
+    }
+    
     private func ensurePlaybackSession() throws {
             let s = AVAudioSession.sharedInstance()
 

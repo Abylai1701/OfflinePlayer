@@ -29,21 +29,31 @@ struct MyPlaylist: Decodable, Identifiable, Hashable {
     var artworkURL: URL? {
         artwork?._1000x1000 ?? artwork?._640x ?? artwork?._480x480 ?? artwork?._150x150
     }
+    
+    var artistAvatarURL: URL? {
+        user?.coverPhoto?._640x ?? user?.coverPhoto?._2000x ?? user?.profilePicture?._1000x1000 ?? user?.profilePicture?._480x480 ?? user?.profilePicture?._150x150
+    }
 
     struct User: Decodable, Hashable {
         let handle: String?
         let name: String?
-        let profilePicture: Picture?
+        let coverPhoto: Picture?
+        let profilePicture: Artwork?
+        
+        enum CodingKeys: String, CodingKey {
+            case handle, name
+            case coverPhoto = "cover_photo"
+            case profilePicture = "profile_picture"
+            
+        }
 
         struct Picture: Decodable, Hashable {
-            let _150x150: URL?
-            let _480x480: URL?
-            let _1000x1000: URL?
+            let _640x: URL?
+            let _2000x: URL?
 
             private enum CodingKeys: String, CodingKey {
-                case _150x150 = "150x150"
-                case _480x480 = "480x480"
-                case _1000x1000 = "1000x1000"
+                case _640x = "640x"
+                case _2000x = "2000x"
             }
         }
     }
@@ -57,7 +67,7 @@ struct MyPlaylist: Decodable, Identifiable, Hashable {
         private enum CodingKeys: String, CodingKey {
             case _150x150 = "150x150"
             case _480x480 = "480x480"
-            case _640x     = "640x"
+            case _640x = "640x"
             case _1000x1000 = "1000x1000"
         }
     }
@@ -75,24 +85,45 @@ struct MyTrack: Decodable, Identifiable, Hashable {
     let user: User?
     let artwork: Artwork?
 
-    var artist: String { user?.name ?? user?.handle ?? "" }
+    var artist: String {
+        user?.name ?? user?.handle ?? ""
+    }
+    
     var artworkURL: URL? {
         artwork?._1000x1000 ?? artwork?._480x480 ?? artwork?._150x150
     }
     
     var artistAvatarURL: URL? {
-        user?.profilePicture?._1000x1000 ?? user?.profilePicture?._480x480 ?? user?.profilePicture?._150x150
+        user?.avatarURL
     }
     
     struct User: Decodable, Hashable {
         let handle: String?
         let name: String?
+        let coverPhoto: CoverPhoto?
         let profilePicture: Artwork?
-        
+       
         enum CodingKeys: String, CodingKey {
             case handle, name
+            case coverPhoto = "cover_photo"
             case profilePicture = "profile_picture"
         }
+        
+        var avatarURL: URL? {
+            profilePicture?.best ?? coverPhoto?.best
+                }
+    }
+    
+    struct CoverPhoto: Decodable, Hashable {
+        let _640x: URL?
+        let _2000x: URL?
+        
+        enum CodingKeys: String, CodingKey {
+            case _640x = "640x"
+            case _2000x = "2000x"
+        }
+        
+        var best: URL? { _2000x ?? _640x }
     }
 
     struct Artwork: Decodable, Hashable {
@@ -105,6 +136,8 @@ struct MyTrack: Decodable, Identifiable, Hashable {
             case _480x480 = "480x480"
             case _1000x1000 = "1000x1000"
         }
+        
+        var best: URL? { _1000x1000 ?? _480x480 ?? _150x150 }
     }
 
     private enum CodingKeys: String, CodingKey {
