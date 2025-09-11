@@ -1,0 +1,1087 @@
+2025-09-10 9:40:20 PM +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x352ebaea0; archive(resolved)="<IDEArchive: 0x60002c1349a0>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x352ebaea0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x352ee7210; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3519f39d0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3d474df90; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x35314f720; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3665b4200; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3760ee200; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3760f1cf0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3558aafa0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x60000f0e5340; teamID='3847K57V35', teamName='Georgiy Dzhaliashvili', teamType='Individual', username='georgiy.dz@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3558ab5a0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="(null)">
+	<IDEDistributionContext: 0x380426060; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="(null)">
+	<IDEDistributionContext: 0x3d479ee60; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="(null)">
+	<IDEDistributionContext: 0x3519d61b0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000e84dba0>", team="(null)">
+	<IDEDistributionContext: 0x3568c69d0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x352e7b3b0; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x3519d7840; archive = "<IDEArchive: 0x60002c1349a0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x352ebaea0>
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionCreateDestRootStep
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionCopyItemStep
+2025-09-10 9:40:20 PM +0000  Running /usr/bin/ditto '-V' '/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app' '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app'
+2025-09-10 9:40:20 PM +0000  >>> Copying /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app 
+2025-09-10 9:40:20 PM +0000  copying file ./_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  27597 bytes for ./_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Packaging.log ... 
+2025-09-10 9:40:20 PM +0000  169265 bytes for ./Packaging.log
+2025-09-10 9:40:20 PM +0000  copying file ./AppIcon60x60@2x.png ... 
+2025-09-10 9:40:20 PM +0000  4767 bytes for ./AppIcon60x60@2x.png
+2025-09-10 9:40:20 PM +0000  copying file ./CreateDiet.ipa ... 
+2025-09-10 9:40:20 PM +0000  18272915 bytes for ./CreateDiet.ipa
+2025-09-10 9:40:20 PM +0000  copying file ./CreateDiet ... 
+2025-09-10 9:40:20 PM +0000  3235824 bytes for ./CreateDiet
+2025-09-10 9:40:20 PM +0000  copying file ./ExportOptions.plist ... 
+2025-09-10 9:40:20 PM +0000  180 bytes for ./ExportOptions.plist
+copying file ./Assets.car ... 
+2025-09-10 9:40:20 PM +0000  7020223 bytes for ./Assets.car
+2025-09-10 9:40:20 PM +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+5862 bytes for ./AppIcon76x76@2x~ipad.png
+copying file ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2025-09-10 9:40:20 PM +0000  1466 bytes for ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2025-09-10 9:40:20 PM +0000  copying file ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2025-09-10 9:40:20 PM +0000  924 bytes for ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2025-09-10 9:40:20 PM +0000  copying file ./LaunchScreen.storyboardc/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  258 bytes for ./LaunchScreen.storyboardc/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./DistributionSummary.plist ... 
+2025-09-10 9:40:20 PM +0000  1730 bytes for ./DistributionSummary.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2380 bytes for ./Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport ... 
+2025-09-10 9:40:20 PM +0000  380896 bytes for ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  1105 bytes for ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  801 bytes for ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleDataTransport.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  810 bytes for ./Frameworks/GoogleDataTransport.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/ApphudSDK.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2308 bytes for ./Frameworks/ApphudSDK.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/ApphudSDK.framework/ApphudSDK.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  1273 bytes for ./Frameworks/ApphudSDK.framework/ApphudSDK.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/ApphudSDK.framework/ApphudSDK.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  762 bytes for ./Frameworks/ApphudSDK.framework/ApphudSDK.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/ApphudSDK.framework/ApphudSDK ... 
+2025-09-10 9:40:20 PM +0000  1810128 bytes for ./Frameworks/ApphudSDK.framework/ApphudSDK
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/ApphudSDK.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  787 bytes for ./Frameworks/ApphudSDK.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FBLPromises.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2492 bytes for ./Frameworks/FBLPromises.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  373 bytes for ./Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  783 bytes for ./Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FBLPromises.framework/FBLPromises ... 
+2025-09-10 9:40:20 PM +0000  173472 bytes for ./Frameworks/FBLPromises.framework/FBLPromises
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FBLPromises.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  790 bytes for ./Frameworks/FBLPromises.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2384 bytes for ./Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  855 bytes for ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  803 bytes for ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal ... 
+2025-09-10 9:40:20 PM +0000  348736 bytes for ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  812 bytes for ./Frameworks/FirebaseCoreInternal.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseSharedSwift.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  1798 bytes for ./Frameworks/FirebaseSharedSwift.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift ... 
+2025-09-10 9:40:20 PM +0000  525696 bytes for ./Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseSharedSwift.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  810 bytes for ./Frameworks/FirebaseSharedSwift.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2352 bytes for ./Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  855 bytes for ./Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  787 bytes for ./Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCore.framework/FirebaseCore ... 
+2025-09-10 9:40:20 PM +0000  200192 bytes for ./Frameworks/FirebaseCore.framework/FirebaseCore
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseCore.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  794 bytes for ./Frameworks/FirebaseCore.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfig.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2384 bytes for ./Frameworks/FirebaseRemoteConfig.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  1482 bytes for ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  803 bytes for ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig ... 
+2025-09-10 9:40:20 PM +0000  471536 bytes for ./Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfig.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  812 bytes for ./Frameworks/FirebaseRemoteConfig.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2364 bytes for ./Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  1233 bytes for ./Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  792 bytes for ./Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleUtilities.framework/GoogleUtilities ... 
+2025-09-10 9:40:20 PM +0000  287728 bytes for ./Frameworks/GoogleUtilities.framework/GoogleUtilities
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/GoogleUtilities.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  801 bytes for ./Frameworks/GoogleUtilities.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2372 bytes for ./Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  2357 bytes for ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  797 bytes for ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging ... 
+2025-09-10 9:40:20 PM +0000  503024 bytes for ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseMessaging.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  806 bytes for ./Frameworks/FirebaseMessaging.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/nanopb.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2328 bytes for ./Frameworks/nanopb.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  374 bytes for ./Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  776 bytes for ./Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/nanopb.framework/nanopb ... 
+2025-09-10 9:40:20 PM +0000  78928 bytes for ./Frameworks/nanopb.framework/nanopb
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/nanopb.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  785 bytes for ./Frameworks/nanopb.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfigInterop.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  1798 bytes for ./Frameworks/FirebaseRemoteConfigInterop.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop ... 
+2025-09-10 9:40:20 PM +0000  124192 bytes for ./Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  826 bytes for ./Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2388 bytes for ./Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations ... 
+2025-09-10 9:40:20 PM +0000  256160 bytes for ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  1105 bytes for ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  805 bytes for ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseInstallations.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  814 bytes for ./Frameworks/FirebaseInstallations.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Alamofire.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2452 bytes for ./Frameworks/Alamofire.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Alamofire.framework/Alamofire ... 
+2025-09-10 9:40:20 PM +0000  2778240 bytes for ./Frameworks/Alamofire.framework/Alamofire
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Alamofire.framework/Alamofire.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  600 bytes for ./Frameworks/Alamofire.framework/Alamofire.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Alamofire.framework/Alamofire.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  763 bytes for ./Frameworks/Alamofire.framework/Alamofire.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Alamofire.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  788 bytes for ./Frameworks/Alamofire.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseABTesting.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2372 bytes for ./Frameworks/FirebaseABTesting.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting ... 
+2025-09-10 9:40:20 PM +0000  129024 bytes for ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseABTesting.framework/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  806 bytes for ./Frameworks/FirebaseABTesting.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  478 bytes for ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  797 bytes for ./Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Lottie.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:20 PM +0000  2340 bytes for ./Frameworks/Lottie.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  599 bytes for ./Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  780 bytes for ./Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Lottie.framework/Lottie ... 
+2025-09-10 9:40:20 PM +0000  4436000 bytes for ./Frameworks/Lottie.framework/Lottie
+2025-09-10 9:40:20 PM +0000  copying file ./Frameworks/Lottie.framework/Info.plist ... 
+781 bytes for ./Frameworks/Lottie.framework/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:20 PM +0000  2495 bytes for ./AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:20 PM +0000  copying file ./AppsFlyerLib_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:20 PM +0000  787 bytes for ./AppsFlyerLib_Privacy.bundle/Info.plist
+2025-09-10 9:40:20 PM +0000  copying file ./embedded.mobileprovision ... 
+2025-09-10 9:40:20 PM +0000  15188 bytes for ./embedded.mobileprovision
+2025-09-10 9:40:20 PM +0000  copying file ./anim.json ... 
+2025-09-10 9:40:20 PM +0000  9043329 bytes for ./anim.json
+2025-09-10 9:40:20 PM +0000  copying file ./Info.plist ... 
+1248 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+8 bytes for ./PkgInfo
+2025-09-10 9:40:20 PM +0000  /usr/bin/ditto exited with 0
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionEmbedProfileStep
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e11620; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60002c130700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce617a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x600030e734e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce619e0; bundleID='org.cocoapods.ApphudSDK', path='<DVTFilePath:0x60002c130540:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.ApphudSDK', executablePath='<DVTFilePath:0x600030e702a0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce60c60; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60002c131490:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x600030e712c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce61c80; bundleID='org.cocoapods.FirebaseABTesting', path='<DVTFilePath:0x60002c132990:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13000; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseABTesting', executablePath='<DVTFilePath:0x60002c133db0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce60420; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60002c133cd0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e12a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x600030e73d20:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce625e0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60002c1300e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600068f4bc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60002c130cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce610e0; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60002c130620:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e11d40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60002c1308c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e12e80; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60002c13ebc0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60720; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60002c13f2c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce635a0; bundleID='org.cocoapods.FirebaseRemoteConfig', path='<DVTFilePath:0x60002c1048c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63420; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfig', executablePath='<DVTFilePath:0x60002c1152d0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e13300; bundleID='org.cocoapods.FirebaseRemoteConfigInterop', path='<DVTFilePath:0x60002c77a280:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce61aa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfigInterop', executablePath='<DVTFilePath:0x60002c112b50:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce60060; bundleID='org.cocoapods.FirebaseSharedSwift', path='<DVTFilePath:0x60002c134310:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13960; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseSharedSwift', executablePath='<DVTFilePath:0x60002c134700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e135a0; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x60002c134150:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce627c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60002c134cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e11740; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x60002c1351f0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60540; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x600030e67360:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x600030e12e20; bundleID='org.cocoapods.Lottie', path='<DVTFilePath:0x60002c135730:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Lottie', executablePath='<DVTFilePath:0x600030e65440:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework/Lottie'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Skipping profile for item: <IDEDistributionItem: 0x60004ce615c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60002c136060:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13e40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x600030e66be0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'>
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionInfoPlistStep
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionAppThinningPlistStep
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionSymbolsStep
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionAppThinningStep
+2025-09-10 9:40:20 PM +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionArchThinningStep
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "Alamofire" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "ApphudSDK" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FBLPromises" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseABTesting" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseCore" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseCoreInternal" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseInstallations" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseMessaging" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseRemoteConfig" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseRemoteConfigInterop" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "FirebaseSharedSwift" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "GoogleDataTransport" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "GoogleUtilities" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Lottie.framework/Lottie' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "Lottie" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "nanopb" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Archs to thin for item /Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app are ["arm64e"]
+2025-09-10 9:40:20 PM +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/CreateDiet' '-verify_arch' 'arm64e'
+2025-09-10 9:40:20 PM +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2025-09-10 9:40:20 PM +0000  Skipping architecture thinning for item "CreateDiet" because arch "arm64e" wasn't found
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionODRStep
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionStripXattrsStep
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2025-09-10 9:40:20 PM +0000  Processing step: IDEDistributionCodesignStep
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e11620; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60002c130700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce617a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8240; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x600030e734e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e11620; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60002c130700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce617a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x600030e734e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e11620; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60002c130700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce617a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x600030e734e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~SlENha
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac3700; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~SlENha",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Alamofire.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Alamofire.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Alamofire.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.Alamofire]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce619e0; bundleID='org.cocoapods.ApphudSDK', path='<DVTFilePath:0x60002c130540:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.ApphudSDK', executablePath='<DVTFilePath:0x600030e702a0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce619e0; bundleID='org.cocoapods.ApphudSDK', path='<DVTFilePath:0x60002c130540:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.ApphudSDK', executablePath='<DVTFilePath:0x600030e702a0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce619e0; bundleID='org.cocoapods.ApphudSDK', path='<DVTFilePath:0x60002c130540:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.ApphudSDK', executablePath='<DVTFilePath:0x600030e702a0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~qQk1EJ
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac38e0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~qQk1EJ",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/ApphudSDK.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/ApphudSDK.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/ApphudSDK.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.ApphudSDK]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60c60; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60002c131490:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x600030e712c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60c60; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60002c131490:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x600030e712c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce60c60; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60002c131490:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x600030e712c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~vT8YVs
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac1900; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~vT8YVs",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FBLPromises.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FBLPromises.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FBLPromises.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FBLPromises]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce61c80; bundleID='org.cocoapods.FirebaseABTesting', path='<DVTFilePath:0x60002c132990:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13000; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseABTesting', executablePath='<DVTFilePath:0x60002c133db0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce61c80; bundleID='org.cocoapods.FirebaseABTesting', path='<DVTFilePath:0x60002c132990:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13000; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseABTesting', executablePath='<DVTFilePath:0x60002c133db0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce61c80; bundleID='org.cocoapods.FirebaseABTesting', path='<DVTFilePath:0x60002c132990:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13000; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseABTesting', executablePath='<DVTFilePath:0x60002c133db0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~LefL4J
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a4c280; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~LefL4J",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseABTesting]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60420; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60002c133cd0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e12a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x600030e73d20:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60420; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60002c133cd0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e12a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x600030e73d20:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce60420; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60002c133cd0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e12a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x600030e73d20:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~OUScgS
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a4c370; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~OUScgS",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCore.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCore.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCore.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseCore]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce625e0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60002c1300e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600068f4bc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60002c130cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce625e0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60002c1300e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600068f4bc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60002c130cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce625e0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60002c1300e0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600068f4bc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60002c130cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~efg9AO
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac18b0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~efg9AO",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework"
+)'>
+2025-09-10 9:40:20 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseCoreInternal]
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce610e0; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60002c130620:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e11d40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60002c1308c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:20 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:20 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce610e0; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60002c130620:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e11d40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60002c1308c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:20 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce610e0; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60002c130620:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e11d40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60002c1308c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~DLgbpR
+2025-09-10 9:40:20 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a50690; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~DLgbpR",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseInstallations]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e12e80; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60002c13ebc0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60720; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60002c13f2c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e12e80; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60002c13ebc0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60720; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60002c13f2c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e12e80; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60002c13ebc0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60720; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60002c13f2c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~aQn2oE
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a50aa0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~aQn2oE",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseMessaging]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce635a0; bundleID='org.cocoapods.FirebaseRemoteConfig', path='<DVTFilePath:0x60002c1048c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63420; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfig', executablePath='<DVTFilePath:0x60002c1152d0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce635a0; bundleID='org.cocoapods.FirebaseRemoteConfig', path='<DVTFilePath:0x60002c1048c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63420; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfig', executablePath='<DVTFilePath:0x60002c1152d0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce635a0; bundleID='org.cocoapods.FirebaseRemoteConfig', path='<DVTFilePath:0x60002c1048c0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63420; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfig', executablePath='<DVTFilePath:0x60002c1152d0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~zTKxvy
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a4c6e0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~zTKxvy",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseRemoteConfig]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e13300; bundleID='org.cocoapods.FirebaseRemoteConfigInterop', path='<DVTFilePath:0x60002c77a280:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce61aa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfigInterop', executablePath='<DVTFilePath:0x60002c112b50:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e13300; bundleID='org.cocoapods.FirebaseRemoteConfigInterop', path='<DVTFilePath:0x60002c77a280:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce61aa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfigInterop', executablePath='<DVTFilePath:0x60002c112b50:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e13300; bundleID='org.cocoapods.FirebaseRemoteConfigInterop', path='<DVTFilePath:0x60002c77a280:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce61aa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015fea400; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseRemoteConfigInterop', executablePath='<DVTFilePath:0x60002c112b50:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~uiCuyw
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x6000289b00f0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~uiCuyw",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseRemoteConfigInterop]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60060; bundleID='org.cocoapods.FirebaseSharedSwift', path='<DVTFilePath:0x60002c134310:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13960; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8240; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseSharedSwift', executablePath='<DVTFilePath:0x60002c134700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce60060; bundleID='org.cocoapods.FirebaseSharedSwift', path='<DVTFilePath:0x60002c134310:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13960; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseSharedSwift', executablePath='<DVTFilePath:0x60002c134700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce60060; bundleID='org.cocoapods.FirebaseSharedSwift', path='<DVTFilePath:0x60002c134310:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13960; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.FirebaseSharedSwift', executablePath='<DVTFilePath:0x60002c134700:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~K7cTKH
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac3ac0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~K7cTKH",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseSharedSwift]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e135a0; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x60002c134150:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce627c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015feb480; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60002c134cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e135a0; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x60002c134150:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce627c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015feb480; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60002c134cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e135a0; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x60002c134150:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce627c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015feb480; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60002c134cb0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~OVz38O
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x6000289b3cf0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~OVz38O",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.GoogleDataTransport]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e11740; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x60002c1351f0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60540; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x600030e67360:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e11740; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x60002c1351f0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60540; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x600030e67360:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e11740; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x60002c1351f0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce60540; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210b0180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x600030e67360:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~2Ugei4
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac1b30; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~2Ugei4",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.GoogleUtilities]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e12e20; bundleID='org.cocoapods.Lottie', path='<DVTFilePath:0x60002c135730:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Lottie', executablePath='<DVTFilePath:0x600030e65440:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework/Lottie'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x600030e12e20; bundleID='org.cocoapods.Lottie', path='<DVTFilePath:0x60002c135730:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Lottie', executablePath='<DVTFilePath:0x600030e65440:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework/Lottie'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x600030e12e20; bundleID='org.cocoapods.Lottie', path='<DVTFilePath:0x60002c135730:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60004ce63240; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.Lottie', executablePath='<DVTFilePath:0x600030e65440:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/Lottie.framework/Lottie'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~5grUhF
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x6000289b22b0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~5grUhF",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Lottie.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Lottie.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Lottie.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.Lottie]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce615c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60002c136060:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13e40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x600030e66be0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'>: {
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce615c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60002c136060:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13e40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x600030e66be0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'> are: {
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce615c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60002c136060:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e13e40; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8180; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='(null)', teamID='3847K57V35', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x600030e66be0:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~YZcEFD
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600064ac13b0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~YZcEFD",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/nanopb.framework"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/nanopb.framework: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/nanopb.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.nanopb]
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce74600; bundleID='offline.com.dieta.CreateDiet', path='<DVTFilePath:0x600030e78b40:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e121c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600015feb480; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='{
+    "application-identifier" = "3847K57V35.offline.com.dieta.CreateDiet";
+    "com.apple.developer.team-identifier" = 3847K57V35;
+    "get-task-allow" = 1;
+}', teamID='3847K57V35', identifier='offline.com.dieta.CreateDiet', executablePath='<DVTFilePath:0x600030e7d500:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/CreateDiet'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "3847K57V35.offline.com.dieta.CreateDiet";
+    "com.apple.developer.team-identifier" = 3847K57V35;
+    "get-task-allow" = 1;
+}
+2025-09-10 9:40:21 PM +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2025-09-10 9:40:21 PM +0000  Entitlements for <IDEDistributionItem: 0x60004ce74600; bundleID='offline.com.dieta.CreateDiet', path='<DVTFilePath:0x600030e78b40:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e121c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='{
+    "application-identifier" = "3847K57V35.offline.com.dieta.CreateDiet";
+    "com.apple.developer.team-identifier" = 3847K57V35;
+    "get-task-allow" = 1;
+}', teamID='3847K57V35', identifier='offline.com.dieta.CreateDiet', executablePath='<DVTFilePath:0x600030e7d500:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/CreateDiet'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "3847K57V35.offline.com.dieta.CreateDiet";
+    "com.apple.developer.team-identifier" = 3847K57V35;
+    "get-task-allow" = 1;
+}
+2025-09-10 9:40:21 PM +0000  Writing entitlements for <IDEDistributionItem: 0x60004ce74600; bundleID='offline.com.dieta.CreateDiet', path='<DVTFilePath:0x600030e78b40:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600030e121c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000210a8000; name='Apple Development: Georgiy Dzhaliashvili (2MXQT5U7T9)', hash='CE9570E1E2CEF23E624312A01B93017739997DB5', serialNumber='24C99073757DC75320A1E9687F682DEF', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-08-08 4:20:33 AM +0000''>', entitlements='{
+    "application-identifier" = "3847K57V35.offline.com.dieta.CreateDiet";
+    "com.apple.developer.team-identifier" = 3847K57V35;
+    "get-task-allow" = 1;
+}', teamID='3847K57V35', identifier='offline.com.dieta.CreateDiet', executablePath='<DVTFilePath:0x600030e7d500:'/Users/abylai/Library/Developer/Xcode/Archives/2025-09-11/CreateDiet 11.09.2025, 2.36 AM.xcarchive/Products/Applications/CreateDiet.app/CreateDiet'>', hardenedRuntime='0'>'> to: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~FxaZ2m
+2025-09-10 9:40:21 PM +0000  invoking codesign: <NSConcreteTask: 0x600028a509b0; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    CE9570E1E2CEF23E624312A01B93017739997DB5,
+    "--entitlements",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/entitlements~~~FxaZ2m",
+    "--preserve-metadata=identifier,flags,runtime",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app"
+)'>
+2025-09-10 9:40:21 PM +0000  codesign output: /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app: replacing existing signature
+/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app: signed app bundle with Mach-O thin (arm64) [offline.com.dieta.CreateDiet]
+2025-09-10 9:40:21 PM +0000  Processing step: IDEDistributionZipODRItemStep
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2025-09-10 9:40:21 PM +0000  Processing step: IDEDistributionCreateIPAStep
+2025-09-10 9:40:21 PM +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root' '/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Packages/CreateDiet.ipa'
+2025-09-10 9:40:21 PM +0000  >>> Copying /var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root 
+2025-09-10 9:40:21 PM +0000  copying file ./Payload/CreateDiet.app/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:21 PM +0000  27597 bytes for ./Payload/CreateDiet.app/_CodeSignature/CodeResources
+2025-09-10 9:40:21 PM +0000  copying file ./Payload/CreateDiet.app/Packaging.log ... 
+2025-09-10 9:40:21 PM +0000  169265 bytes for ./Payload/CreateDiet.app/Packaging.log
+2025-09-10 9:40:21 PM +0000  copying file ./Payload/CreateDiet.app/AppIcon60x60@2x.png ... 
+2025-09-10 9:40:21 PM +0000  4767 bytes for ./Payload/CreateDiet.app/AppIcon60x60@2x.png
+2025-09-10 9:40:21 PM +0000  copying file ./Payload/CreateDiet.app/CreateDiet.ipa ... 
+2025-09-10 9:40:22 PM +0000  18272915 bytes for ./Payload/CreateDiet.app/CreateDiet.ipa
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/CreateDiet ... 
+2025-09-10 9:40:22 PM +0000  3235824 bytes for ./Payload/CreateDiet.app/CreateDiet
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/ExportOptions.plist ... 
+180 bytes for ./Payload/CreateDiet.app/ExportOptions.plist
+copying file ./Payload/CreateDiet.app/Assets.car ... 
+2025-09-10 9:40:22 PM +0000  7020223 bytes for ./Payload/CreateDiet.app/Assets.car
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/AppIcon76x76@2x~ipad.png ... 
+2025-09-10 9:40:22 PM +0000  5862 bytes for ./Payload/CreateDiet.app/AppIcon76x76@2x~ipad.png
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2025-09-10 9:40:22 PM +0000  1466 bytes for ./Payload/CreateDiet.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2025-09-10 9:40:22 PM +0000  924 bytes for ./Payload/CreateDiet.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/LaunchScreen.storyboardc/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  258 bytes for ./Payload/CreateDiet.app/LaunchScreen.storyboardc/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/DistributionSummary.plist ... 
+2025-09-10 9:40:22 PM +0000  1730 bytes for ./Payload/CreateDiet.app/DistributionSummary.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2380 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport ... 
+2025-09-10 9:40:22 PM +0000  380896 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  1105 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  801 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  810 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2308 bytes for ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  1273 bytes for ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  762 bytes for ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK ... 
+2025-09-10 9:40:22 PM +0000  1810128 bytes for ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/ApphudSDK
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  787 bytes for ./Payload/CreateDiet.app/Frameworks/ApphudSDK.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2492 bytes for ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  373 bytes for ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  783 bytes for ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises ... 
+2025-09-10 9:40:22 PM +0000  173472 bytes for ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/FBLPromises
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  790 bytes for ./Payload/CreateDiet.app/Frameworks/FBLPromises.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2384 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  855 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  803 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal ... 
+2025-09-10 9:40:22 PM +0000  348736 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  812 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  1798 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift ... 
+2025-09-10 9:40:22 PM +0000  525696 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/FirebaseSharedSwift
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  810 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2352 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  855 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  787 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore ... 
+2025-09-10 9:40:22 PM +0000  200192 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/FirebaseCore
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  794 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseCore.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2384 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  1482 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  803 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig ... 
+2025-09-10 9:40:22 PM +0000  471536 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/FirebaseRemoteConfig
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/Info.plist ... 
+812 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2364 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  1233 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist ... 
+792 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities ... 
+2025-09-10 9:40:22 PM +0000  287728 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/GoogleUtilities
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  801 bytes for ./Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2372 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  2357 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  797 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging_Privacy.bundle/Info.plist
+copying file ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging ... 
+2025-09-10 9:40:22 PM +0000  503024 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/Info.plist ... 
+806 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/nanopb.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2328 bytes for ./Payload/CreateDiet.app/Frameworks/nanopb.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  374 bytes for ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  776 bytes for ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb ... 
+2025-09-10 9:40:22 PM +0000  78928 bytes for ./Payload/CreateDiet.app/Frameworks/nanopb.framework/nanopb
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/nanopb.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  785 bytes for ./Payload/CreateDiet.app/Frameworks/nanopb.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  1798 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop ... 
+2025-09-10 9:40:22 PM +0000  124192 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  826 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2388 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations ... 
+2025-09-10 9:40:22 PM +0000  256160 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  1105 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  805 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  814 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2452 bytes for ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire ... 
+2025-09-10 9:40:22 PM +0000  2778240 bytes for ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  600 bytes for ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  763 bytes for ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Alamofire.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  788 bytes for ./Payload/CreateDiet.app/Frameworks/Alamofire.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2372 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting ... 
+2025-09-10 9:40:22 PM +0000  129024 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  806 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  478 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  797 bytes for ./Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework/FirebaseABTesting_Privacy.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Lottie.framework/_CodeSignature/CodeResources ... 
+2025-09-10 9:40:22 PM +0000  2340 bytes for ./Payload/CreateDiet.app/Frameworks/Lottie.framework/_CodeSignature/CodeResources
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  599 bytes for ./Payload/CreateDiet.app/Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/PrivacyInfo.xcprivacy
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  780 bytes for ./Payload/CreateDiet.app/Frameworks/Lottie.framework/LottiePrivacyInfo.bundle/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Lottie.framework/Lottie ... 
+2025-09-10 9:40:22 PM +0000  4436000 bytes for ./Payload/CreateDiet.app/Frameworks/Lottie.framework/Lottie
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/Frameworks/Lottie.framework/Info.plist ... 
+781 bytes for ./Payload/CreateDiet.app/Frameworks/Lottie.framework/Info.plist
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy ... 
+2025-09-10 9:40:22 PM +0000  2495 bytes for ./Payload/CreateDiet.app/AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy
+copying file ./Payload/CreateDiet.app/AppsFlyerLib_Privacy.bundle/Info.plist ... 
+2025-09-10 9:40:22 PM +0000  787 bytes for ./Payload/CreateDiet.app/AppsFlyerLib_Privacy.bundle/Info.plist
+copying file ./Payload/CreateDiet.app/embedded.mobileprovision ... 
+2025-09-10 9:40:22 PM +0000  15188 bytes for ./Payload/CreateDiet.app/embedded.mobileprovision
+2025-09-10 9:40:22 PM +0000  copying file ./Payload/CreateDiet.app/anim.json ... 
+2025-09-10 9:40:23 PM +0000  9043329 bytes for ./Payload/CreateDiet.app/anim.json
+2025-09-10 9:40:23 PM +0000  copying file ./Payload/CreateDiet.app/Info.plist ... 
+1248 bytes for ./Payload/CreateDiet.app/Info.plist
+2025-09-10 9:40:23 PM +0000  copying file ./Payload/CreateDiet.app/PkgInfo ... 
+8 bytes for ./Payload/CreateDiet.app/PkgInfo
+2025-09-10 9:40:23 PM +0000  /usr/bin/ditto exited with 0
+2025-09-10 9:40:23 PM +0000  Processing step: IDEDistributionAppStoreInformationStep
+2025-09-10 9:40:23 PM +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2025-09-10 9:40:23 PM +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c1a2f40:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleDataTransport.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c2782a0:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseMessaging.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60000c1aa300:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseABTesting.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c27af40:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseSharedSwift.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60000c1a97a0:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FBLPromises.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c132220:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCore.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c7fc580:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfigInterop.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c278460:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseInstallations.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c27ab50:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseRemoteConfig.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c27aa00:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/ApphudSDK.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60000c1aa220:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Lottie.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c1a17a0:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/GoogleUtilities.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60002c133560:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/FirebaseCoreInternal.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60000c1ab4f0:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/Alamofire.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60000c1aa3e0:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app/Frameworks/nanopb.framework'>
+2025-09-10 9:40:23 PM +0000  IDEDistributionItem init <DVTFilePath:0x60001ce60240:'/var/folders/km/yjjmbg8x5g13rm4jl6s9zt880000gn/T/XcodeDistPipeline.~~~jMuWQ7/Root/Payload/CreateDiet.app'>
+2025-09-10 9:40:23 PM +0000  Processing step: IDEDistributionCreateManifestStep

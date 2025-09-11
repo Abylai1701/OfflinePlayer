@@ -12,7 +12,8 @@ struct MusicPlayerView: View {
     let title: String
     let artist: String
     var onDismiss: () -> Void = {}
-    
+    @State private var showEQ = false
+
     // состояние
     @State private var isScrubbing = false
     
@@ -170,7 +171,7 @@ struct MusicPlayerView: View {
                     .padding(.trailing, 54.fitW)
                     
                     Button {
-                        //
+                        showEQ = true
                     } label: {
                         Image("settingMusicIcon")
                             .font(.system(size: 24.fitW, weight: .semibold))
@@ -178,6 +179,11 @@ struct MusicPlayerView: View {
                     .buttonStyle(.plain)
                     .foregroundStyle(.white)
                     .padding(.trailing, 12.fitW)
+                    .sheet(isPresented: $showEQ) {
+                        EqualizerScreenView()
+                            .environmentObject(Router()) // если нужно
+                            .preferredColorScheme(.dark)
+                    }
                     
                     Button {
                         isLiked.toggle()

@@ -5,29 +5,24 @@ import Kingfisher
 @MainActor
 final class LibraryViewModel: ObservableObject {
     
-    // MARK: - DI / Inputs
     private weak var router: Router?
     private(set) var context: ModelContext?
     private(set) var targetPlaylist: LocalPlaylist
     
-    // MARK: - API
     private let host = AudiusHostProvider()
     private lazy var api = AudiusAPI(host: host, appName: "OfflineOlen", logLevel: .info)
     
-    // MARK: - UI State
     @Published var query: String = ""
     @Published private(set) var results: [MyTrack] = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
     
-    // дебаунс
     private var pendingSearch: DispatchWorkItem?
     
     init(playlist: LocalPlaylist) {
         self.targetPlaylist = playlist
     }
     
-    // MARK: - Wiring
     func attach(router: Router) {
         self.router = router
     }
@@ -40,7 +35,6 @@ final class LibraryViewModel: ObservableObject {
         router?.pop()
     }
     
-    // MARK: - Search
     func onQueryChanged() {
         pendingSearch?.cancel()
         let work = DispatchWorkItem { [weak self] in

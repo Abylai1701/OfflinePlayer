@@ -1,30 +1,17 @@
 import SwiftUI
 
-// MARK: - Data models
-
-struct EQBand: Identifiable {
-    let id = UUID()
-    let label: String
-    let gain: Double    
-}
-
-struct EQPreset: Identifiable {
-    let id = UUID()
-    let name: String
-    let bands: [EQBand]
-}
-
-// MARK: - Chart (display-only)
-
 struct EQChartView: View {
+    
+    // MARK: - Properties
+    
     let bands: [EQBand]
 
     private let minDB: Double = -12
-    private let maxDB: Double =  12
+    private let maxDB: Double = 12
 
-    private let leftPad: CGFloat   = 46.fitW
-    private let rightPad: CGFloat  = 12.fitW
-    private let topPad: CGFloat    = 20.fitH
+    private let leftPad: CGFloat = 46.fitW
+    private let rightPad: CGFloat = 12.fitW
+    private let topPad: CGFloat = 20.fitH
     private let bottomPad: CGFloat = -10.fitH
 
     private let innerXInset: CGFloat = 12.fitW
@@ -32,10 +19,7 @@ struct EQChartView: View {
 
     private let endCapFactor: CGFloat = 0.5
 
-    private func yPos(db: Double, innerH: CGFloat, plotTop: CGFloat) -> CGFloat {
-        let t = (db - minDB) / (maxDB - minDB)
-        return plotTop + (1 - CGFloat(t)) * innerH
-    }
+    // MARK: - Body
 
     var body: some View {
         GeometryReader { geo in
@@ -45,10 +29,10 @@ struct EQChartView: View {
             let outerW = max(w - leftPad - rightPad, 1)
             let outerH = max(h - topPad - bottomPad, 1)
 
-            let plotLeft   = leftPad + innerXInset
-            let plotRight  = leftPad + outerW - innerXInset
-            let plotTop    = topPad  + innerYInset
-            let plotBottom = topPad  + outerH - innerYInset
+            let plotLeft = leftPad + innerXInset
+            let plotRight = leftPad + outerW - innerXInset
+            let plotTop = topPad + innerYInset
+            let plotBottom = topPad + outerH - innerYInset
 
             let innerW = max(plotRight - plotLeft, 1)
             let innerH = max(plotBottom - plotTop, 1)
@@ -100,7 +84,7 @@ struct EQChartView: View {
                         .foregroundStyle(.gray707070)
                         .padding(.bottom, -6.fitH)
                 }
-                .frame(width: leftPad - 8, height: innerH) // safe innerH
+                .frame(width: leftPad - 8, height: innerH)
                 .position(x: (leftPad - 8)/2 - 10, y: plotTop + innerH/2)
 
                 Path { path in
@@ -108,8 +92,10 @@ struct EQChartView: View {
                     path.move(to: CGPoint(x: plotLeft - endExtra, y: yZero))
                     for i in bands.indices {
                         let x = plotLeft + CGFloat(i) * safeStep
-                        path.addLine(to: CGPoint(x: x,
-                                                 y: yPos(db: bands[i].gain, innerH: innerH, plotTop: plotTop)))
+                        path.addLine(to: CGPoint(
+                            x: x,
+                            y: yPos(db: bands[i].gain, innerH: innerH, plotTop: plotTop))
+                        )
                     }
                     path.addLine(to: CGPoint(x: plotRight + endExtra, y: yZero))
                 }
@@ -148,5 +134,12 @@ struct EQChartView: View {
                 .position(x: plotLeft + innerW/2, y: plotBottom + innerYInset/2 + 10)
             }
         }
+    }
+    
+    // MARK: - Methods
+
+    private func yPos(db: Double, innerH: CGFloat, plotTop: CGFloat) -> CGFloat {
+        let t = (db - minDB) / (maxDB - minDB)
+        return plotTop + (1 - CGFloat(t)) * innerH
     }
 }

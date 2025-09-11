@@ -40,7 +40,6 @@ struct TrackCell: View {
                 }
                 .frame(width: 30.fitW).padding(.trailing, 8)
             } else {
-                // без ранга – просто небольшой отступ, чтобы не прыгала вёрстка
                 Spacer().frame(width: 6.fitW)
             }
 

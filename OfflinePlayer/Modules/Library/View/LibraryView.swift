@@ -2,16 +2,23 @@ import SwiftUI
 import SwiftData
 
 struct LibraryView: View {
+    
+    // MARK: - Properties
+
     @EnvironmentObject private var router: Router
     @Environment(\.modelContext) private var modelContext
     
     @StateObject private var viewModel: LibraryViewModel
     @State private var search = ""
     
+    // MARK: - Init
+
     init(playlist: LocalPlaylist) {
         _viewModel = StateObject(wrappedValue: LibraryViewModel(playlist: playlist))
     }
     
+    // MARK: - Body
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.gray222222, .black111111],
@@ -87,50 +94,5 @@ struct LibraryView: View {
         .padding(.horizontal)
         .padding(.top)
         .padding(.bottom)
-    }
-}
-
-import SwiftUI
-import Kingfisher
-
-private struct APISearchTrackRow: View {
-    let coverURL: URL?
-    let title: String
-    let artist: String
-    var onAdd: () -> Void
-    
-    var body: some View {
-        HStack(spacing: 12.fitW) {
-            KFImage(coverURL)
-                .placeholder { Color.gray.opacity(0.2) }
-                .cacheOriginalImage()
-                .loadDiskFileSynchronously()
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60.fitW, height: 60.fitW)
-                .clipShape(RoundedRectangle(cornerRadius: 14.fitW, style: .continuous))
-            
-            VStack(alignment: .leading, spacing: 2.fitH) {
-                Text(title)
-                    .font(.manropeSemiBold(size: 14.fitW))
-                    .foregroundStyle(.white)
-                    .lineLimit(1)
-                Text(artist)
-                    .font(.manropeRegular(size: 12.fitW))
-                    .foregroundStyle(.gray707070)
-                    .lineLimit(1)
-            }
-            
-            Spacer()
-            
-            Button(action: onAdd) {
-                Image(systemName: "plus")
-                    .font(.manropeSemiBold(size: 18.fitW))
-                    .frame(width: 18.fitW, height: 18.fitW)
-            }
-            .buttonStyle(.plain)
-            .foregroundStyle(.white)
-        }
-        .contentShape(Rectangle())
     }
 }

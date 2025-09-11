@@ -1,10 +1,3 @@
-//
-//  Font+Extensions.swift
-//  DeepAI
-//
-//  Created by Roman Gorodilov on 15.04.2025.
-//
-
 import SwiftUI
 
 extension Font {

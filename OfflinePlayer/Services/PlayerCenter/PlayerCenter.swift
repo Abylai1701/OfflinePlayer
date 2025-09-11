@@ -27,6 +27,8 @@ struct PlayerQueueEntry: Identifiable, Equatable {
 final class PlayerCenter: ObservableObject {
     static let shared = PlayerCenter()
     
+    private let eqTap = EQAudioTap(eq: .shared)
+
     // MARK: Published (для SwiftUI)
     @Published private(set) var isPlaying: Bool = false
     @Published private(set) var currentTime: Double = 0
@@ -51,6 +53,10 @@ final class PlayerCenter: ObservableObject {
         setupTimeObserver()
         setupEndObserver()
         setupRemoteCommands()
+        
+        EqualizerManager.shared.onDidChange = { [weak self] in
+            self?.applyEQMixToCurrentItem()
+        }
     }
     
     deinit {
@@ -115,14 +121,16 @@ final class PlayerCenter: ObservableObject {
         guard queue.indices.contains(currentIndex) else { return }
         let e = queue[currentIndex]
         let item = AVPlayerItem(url: e.url)
+
+        // ⬇️ навешиваем микс с тапом
+        if let mix = makeAudioMix(for: item) {
+            item.audioMix = mix
+        }
+
         player.replaceCurrentItem(with: item)
-        
-        // reset cached values
-        currentTime = 0
-        duration = 0
-        buffered = 0
+
+        currentTime = 0; duration = 0; buffered = 0
         meta = e.meta
-        
         updateNowPlayingInfo()
     }
     
@@ -249,6 +257,25 @@ final class PlayerCenter: ObservableObject {
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
+    
+    private func makeAudioMix(for item: AVPlayerItem) -> AVAudioMix? {
+        guard let track = item.asset.tracks(withMediaType: .audio).first else { return nil }
+        let params = AVMutableAudioMixInputParameters(track: track)
+        params.audioTapProcessor = eqTap.tap
+        let mix = AVMutableAudioMix()
+        mix.inputParameters = [params]
+        return mix
+    }
+
+    private func applyEQMixToCurrentItem() {
+        guard let item = player.currentItem else { return }
+        if let mix = makeAudioMix(for: item) {
+            item.audioMix = mix
+        } else {
+            item.audioMix = nil
+        }
+    }
+
 }
 
 extension PlayerCenter {
