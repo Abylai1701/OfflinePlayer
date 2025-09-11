@@ -77,15 +77,15 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $showFullPlayer) {
             if let e = player.currentEntry {
-                // MusicPlayerView у тебя сейчас принимает Image — можно дать плейсхолдер,
-                // а при желании позже сделать версию с URL.
                 MusicPlayerView(
+                    coverURL: e.meta.artworkURL,
+                    avatarURL: e.meta.artworkURL,
                     cover: Image(.cover),
                     title: e.meta.title,
-                    artist: e.meta.artist,
-                    onDismiss: { showFullPlayer = false }
-                )
-                .environmentObject(router)
+                    artist: e.meta.artist) {
+                        showFullPlayer = false
+                    }
+                    .environmentObject(router)
             }
         }
     }
